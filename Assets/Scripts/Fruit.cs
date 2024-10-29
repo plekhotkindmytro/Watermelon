@@ -20,7 +20,7 @@ public class Fruit : MonoBehaviour
    
     public void ActivateMe()
     {
-        print("drop me");
+        
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<CircleCollider2D>().enabled = true;
     }
@@ -58,7 +58,6 @@ public class Fruit : MonoBehaviour
         Fruit fruit = fruitGameObject.GetComponent<Fruit>();
         Destroy(otherFruit.gameObject);
         GameManager.Instance.AddScore(pointValue);
-        GameManager.Instance.SetMaxFruitLevel(fruit.fruitLevel);
         fruit.ActivateMe();
         
         Destroy(gameObject);

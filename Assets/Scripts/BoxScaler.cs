@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BoxScaler : MonoBehaviour
 {
-    
+
+    public GameObject left;
+    public GameObject right;
     private Camera mainCamera;
     private float worldWidth;
     private float worldHeight;
@@ -20,6 +22,12 @@ public class BoxScaler : MonoBehaviour
         transform.localScale = localScale;
 
         transform.position = new Vector3(0, 0, 0);
+
+
+        float minX = left.transform.position.x + left.transform.lossyScale.x / 2;
+        float maxX = right.transform.position.x - right.transform.lossyScale.x / 2;
+        GameManager.Instance.SetMinSpawnX(minX);
+        GameManager.Instance.SetMaxSpawnX(maxX);
     }
 
 }

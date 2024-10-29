@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f5da5c9472db344986c59d2f7bebd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 5041638200592704931}
+  right: {fileID: 8280523559548393413}
 --- !u!1 &4629052616136361305
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +345,7 @@ GameObject:
   - component: {fileID: 2801038863084072642}
   - component: {fileID: 1927553663846471198}
   m_Layer: 0
-  m_Name: Left
+  m_Name: LeftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,7 +737,7 @@ GameObject:
   - component: {fileID: 4018870250791153352}
   - component: {fileID: 6927322085073352133}
   m_Layer: 0
-  m_Name: Right
+  m_Name: RightBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -31,8 +31,11 @@ public class Spawner : MonoBehaviour
 
                     if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began)
                     {
-                        controlledFruit.transform.position =
-                        new Vector2(cameraMain.ScreenToWorldPoint(touch.position).x, controlledFruit.transform.position.y);
+                        float x = cameraMain.ScreenToWorldPoint(touch.position).x;
+                        x = GameManager.Instance.ClampSpawnX(x);
+                        float offsetModifier = x > 0 ? -1 : 1;
+                        x += offsetModifier * controlledFruit.gameObject.transform.localScale.x/2;
+                        controlledFruit.transform.position = new Vector2(x, controlledFruit.transform.position.y);
                     }
                     else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
                     {
@@ -51,7 +54,7 @@ public class Spawner : MonoBehaviour
 
         if(nextFruit == null)
         {
-            randomIndex = Random.Range(0, GameManager.Instance.maxFruitLevel);
+            randomIndex = Random.Range(0, fruitPrefabs.Count);
             GameObject fruitGameObject = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
 
             controlledFruit = fruitGameObject.GetComponent<Fruit>();
@@ -63,7 +66,7 @@ public class Spawner : MonoBehaviour
         
 
         // next
-        randomIndex = Random.Range(0, GameManager.Instance.maxFruitLevel);
+        randomIndex = Random.Range(0, fruitPrefabs.Count);
         GameObject nextGameObject = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
         nextGameObject.SetActive(false);
         nextFruit = nextGameObject.GetComponent<Fruit>();
