@@ -23,6 +23,7 @@ public class Fruit : MonoBehaviour
         
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<CircleCollider2D>().enabled = true;
+        AudioManager.Instance.PlaySoundEffect();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,6 +51,7 @@ public class Fruit : MonoBehaviour
 
     private void Merge(Fruit otherFruit)
     {
+        AudioManager.Instance.PlaySoundEffect();
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         otherFruit.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         // Spawn the next level fruit at the merge position

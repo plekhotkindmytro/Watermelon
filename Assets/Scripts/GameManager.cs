@@ -15,7 +15,14 @@ public class GameManager : MonoBehaviour
     private float maxSpawnX;
 
     private int bestScore;
+
+
     private static readonly string BEST_SCORE_KEY = "bestScore";
+
+
+
+
+
 
     private void Awake()
     {
