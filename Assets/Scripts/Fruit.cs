@@ -23,7 +23,7 @@ public class Fruit : MonoBehaviour
         
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<CircleCollider2D>().enabled = true;
-        AudioManager.Instance.PlaySoundEffect();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,13 +51,24 @@ public class Fruit : MonoBehaviour
 
     private void Merge(Fruit otherFruit)
     {
-        AudioManager.Instance.PlaySoundEffect();
+        AudioManager.Instance.Splat();
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         otherFruit.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         // Spawn the next level fruit at the merge position
         Vector3 mergePosition = (transform.position + otherFruit.transform.position) / 2;
         GameObject fruitGameObject = Instantiate(nextFruitPrefab, mergePosition, Quaternion.identity);
         Fruit fruit = fruitGameObject.GetComponent<Fruit>();
+        if(fruit.fruitLevel >= 6)
+        {
+            if(fruit.fruitLevel <= 10)
+            {
+                VibrationManager.Instance.VibrateShort();
+            } else
+            {
+                VibrationManager.Instance.VibrateLong();
+            }
+            
+        } 
         Destroy(otherFruit.gameObject);
         GameManager.Instance.AddScore(pointValue);
         fruit.ActivateMe();

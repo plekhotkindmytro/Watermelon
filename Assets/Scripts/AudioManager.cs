@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource;         // AudioSource for background music
     public AudioSource soundEffectsSource;  // AudioSource for sound effects
+    public AudioClip splat;
+    public AudioClip drop;
 
     private bool isMusicEnabled = true;
     private bool isSoundEffectsEnabled = true;
@@ -90,12 +92,32 @@ public class AudioManager : MonoBehaviour
     }
 
     // Method to play sound effects
-    public void PlaySoundEffect()
+    private void PlaySoundEffect(AudioClip clip)
     {
         if (isSoundEffectsEnabled)
         {
             soundEffectsSource.pitch = Random.Range(0.4f, 1.2f);
-            soundEffectsSource.PlayOneShot(soundEffectsSource.clip);
+            soundEffectsSource.PlayOneShot(clip);
         }
     }
+
+    private void PlaySoundEffect(AudioClip clip, float minPitch, float maxPitch)
+    {
+        if (isSoundEffectsEnabled)
+        {
+            soundEffectsSource.pitch = Random.Range(0.4f, 1.2f);
+            soundEffectsSource.PlayOneShot(clip);
+        }
+    }
+
+    public void Splat()
+    {
+        PlaySoundEffect(splat, 0.4f, 0.9f);
+    }
+
+    public void Drop()
+    {
+        PlaySoundEffect(drop);
+    }
+
 }

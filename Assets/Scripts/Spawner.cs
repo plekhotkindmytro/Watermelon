@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour
                     }
                     else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
                     {
+                        AudioManager.Instance.Drop();
                         controlledFruit.ActivateMe();
                         controlledFruit = null;
                     }

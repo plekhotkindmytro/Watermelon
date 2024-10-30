@@ -4970,6 +4970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1605746632}
   soundEffectsSource: {fileID: 978876780}
+  splat: {fileID: 8300000, guid: 8d15648c414ce48799a7c56e8a8072b1, type: 3}
+  drop: {fileID: 8300000, guid: 8d15648c414ce48799a7c56e8a8072b1, type: 3}
 --- !u!4 &1917220247
 Transform:
   m_ObjectHideFlags: 0
