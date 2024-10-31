@@ -1,0 +1,27 @@
+=======================================================================
+LICENSE FOR ASSETS (license.txt)
+Version: 1.0
+=======================================================================
+
+**Permissions:**
+
+You are granted the following permissions regarding the assets (the "Assets"):
+
+1. Usage: You are allowed to use the Assets in both commercial and non-commercial projects.
+
+2. Modification: You have the freedom to adapt or modify the Assets for use in both commercial and non-commercial projects.
+
+**Restrictions:**
+
+However, there are specific restrictions on what you cannot do with the Assets:
+
+1. Resale and Distribution: You are not permitted to resell or distribute the Assets to others in any form, whether in their original or modified state.
+
+2. Editing and Resale: You are also prohibited from editing the Assets and subsequently reselling them to others.
+
+In summary, you have the freedom to use and modify the Assets for your own projects, whether commercial or non-commercial. 
+Still, you are not allowed to engage in any form of resale or distribution, whether as-is or after making edits.
+
+=======================================================================
+END OF LICENSE
+=======================================================================
