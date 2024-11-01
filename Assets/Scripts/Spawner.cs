@@ -20,6 +20,11 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if(UiManager.Instance.settingsPanel.activeSelf)
+        {
+            return;
+        }
+
         if(controlledFruit == null)
         {
             SpawnFruit();
@@ -28,13 +33,19 @@ public class Spawner : MonoBehaviour
              if (Input.touchCount > 0)
                 {
                     Touch touch = Input.GetTouch(0);
+                    
+
+                    Vector2 touchWorldPos = cameraMain.ScreenToWorldPoint(touch.position);
+                    if (touchWorldPos.y > 4)
+                    {
+                        return;
+                    }
 
                     if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began)
                     {
-                        float x = cameraMain.ScreenToWorldPoint(touch.position).x;
-                        x = GameManager.Instance.ClampSpawnX(x);
-                        float offsetModifier = x > 0 ? -1 : 1;
-                        x += offsetModifier * controlledFruit.gameObject.transform.localScale.x/2;
+                        float absOffset = controlledFruit.gameObject.transform.localScale.x / 2;
+                        float x = GameManager.Instance.ClampSpawnX(touchWorldPos.x, absOffset);
+                        
                         controlledFruit.transform.position = new Vector2(x, controlledFruit.transform.position.y);
                     }
                     else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))

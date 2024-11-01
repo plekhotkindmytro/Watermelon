@@ -87,10 +87,9 @@ public class GameManager : MonoBehaviour
     //    return maxSpawnX;
     //}
 
-    internal float ClampSpawnX(float x)
+    internal float ClampSpawnX(float x, float absoluteOffset)
     {
-
-        return Mathf.Clamp(x, minSpawnX, maxSpawnX); ;
+        return Mathf.Clamp(x, minSpawnX + absoluteOffset, maxSpawnX - absoluteOffset); ;
     }
 
 
