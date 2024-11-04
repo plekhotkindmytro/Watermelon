@@ -16,7 +16,7 @@ public class UIAdjuster : MonoBehaviour
         float aspectRatio = (float)Screen.width / Screen.height;
 
         // Check if the aspect ratio is close to an iPad's aspect ratio (typically ~4:3)
-        if (aspectRatio >= 0.75f)
+        if (aspectRatio >= 0.625f)
         {
             // Apply the offset to position it higher on iPad
             Vector2 position = uiElement.anchoredPosition;

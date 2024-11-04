@@ -163,4 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 1
   fruitLevel: 1
+  scaleFactor: 0.15
   nextFruitPrefab: {fileID: 5344685361548465846, guid: 1a8f9820a93874102bce3b33af1eee74, type: 3}

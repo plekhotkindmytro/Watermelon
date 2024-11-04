@@ -17,11 +17,14 @@ public class BoxScaler : MonoBehaviour
         worldWidth = mainCamera.orthographicSize * mainCamera.aspect * 2;
         worldHeight = mainCamera.orthographicSize * 2;
 
-        float scaleFactor = worldWidth < mainCamera.orthographicSize? worldWidth : mainCamera.orthographicSize;
-        Vector3 localScale = new Vector3(scaleFactor, worldHeight/2, 1);
+        float nonBoxWorldSize = 4;
+        float maxBoxWidth = worldHeight - nonBoxWorldSize;
+        float scaleFactor = worldWidth < maxBoxWidth? worldWidth : maxBoxWidth;
+        Vector3 localScale = new Vector3(scaleFactor, scaleFactor, 1);
         transform.localScale = localScale;
 
-        transform.position = new Vector3(0, 0, 0);
+        float boxTableOffset = 3;
+        transform.position = new Vector3(0,  transform.localScale.y / 2 - boxTableOffset, 0);
 
 
         float minX = left.transform.position.x + left.transform.lossyScale.x / 2;
