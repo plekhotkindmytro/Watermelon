@@ -9,6 +9,11 @@ public class ParticleSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.gameOver)
+        {
+            return;
+        }
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);

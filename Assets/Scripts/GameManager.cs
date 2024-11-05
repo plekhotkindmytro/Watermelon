@@ -10,18 +10,17 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text bestScoreText;
     public GameObject gameOverPanel;
-
-    private float minSpawnX;
-    private float maxSpawnX;
-
-    private int bestScore;
+    public TMP_Text gameOverScoreText;
 
 
     private static readonly string BEST_SCORE_KEY = "bestScore";
 
 
-
-
+    private float minSpawnX;
+    private float maxSpawnX;
+    private int bestScore;
+    public bool gameOver;
+  
 
 
     private void Awake()
@@ -92,23 +91,28 @@ public class GameManager : MonoBehaviour
         return Mathf.Clamp(x, minSpawnX + absoluteOffset, maxSpawnX - absoluteOffset); ;
     }
 
+   
 
 
-    public void CheckGameOver()
+    public void GameOver()
     {
-        //if (/* Add game over condition here, e.g., fruits reach the top of the screen */)
-        //{
-        //    gameOverPanel.SetActive(true);
-        //    Time.timeScale = 0;  // Pause the game
-        //}
+        if(!gameOver)
+        {
+            gameOver = true;
+            ScreenshotManager.Instance.CaptureBucketScreenshot();
+            gameOverPanel.SetActive(true);
+            gameOverScoreText.text = "Score: " + score;
+        }
+        
+       // Time.timeScale = 0;  
     }
 
     public void ResetGame()
     {
         score = 0;
-        scoreText.text = "Score: 0";
+        scoreText.text = "0";
         gameOverPanel.SetActive(false);
-        Time.timeScale = 1;
+        gameOver = false;
     }
 
     

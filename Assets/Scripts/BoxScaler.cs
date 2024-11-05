@@ -11,6 +11,8 @@ public class BoxScaler : MonoBehaviour
     private float worldWidth;
     private float worldHeight;
 
+    
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -26,6 +28,9 @@ public class BoxScaler : MonoBehaviour
         float boxTableOffset = 3;
         transform.position = new Vector3(0,  transform.localScale.y / 2 - boxTableOffset, 0);
 
+
+        ScreenshotManager.Instance.screenYOffset = (Screen.height / (mainCamera.orthographicSize * 2)) * (mainCamera.orthographicSize + transform.position.y - transform.localScale.y / 2);
+        ScreenshotManager.Instance.boxWidth = Mathf.RoundToInt((Screen.width / worldWidth) * (scaleFactor));
 
         float minX = left.transform.position.x + left.transform.lossyScale.x / 2;
         float maxX = right.transform.position.x - right.transform.lossyScale.x / 2;

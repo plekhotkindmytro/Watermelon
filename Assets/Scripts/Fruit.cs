@@ -4,7 +4,8 @@ public class Fruit : MonoBehaviour
 {
     public int pointValue;
     public int fruitLevel;
-    public float scaleFactor = 0.2f;
+    public float scaleFactor = 0.15f;
+    public float baseScale = 0.3f;
     public GameObject nextFruitPrefab;  // Prefab for the next-level fruit after merging
 
     private bool hasMerged = false;     // Flag to prevent chain reactions
@@ -14,7 +15,7 @@ public class Fruit : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<CircleCollider2D>().enabled = false;
-        transform.localScale = Vector3.one*scaleFactor * fruitLevel;
+        transform.localScale = Vector3.one*(baseScale + scaleFactor * fruitLevel);
     }
 
    

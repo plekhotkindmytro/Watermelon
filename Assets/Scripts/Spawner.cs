@@ -25,6 +25,12 @@ public class Spawner : MonoBehaviour
             return;
         }
 
+        if(GameManager.Instance.gameOver)
+        {
+            return;
+        }
+
+
         if(controlledFruit == null)
         {
             SpawnFruit();
