@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
             gameOverScoreText.text = "Score: " + score;
         }
         
-       // Time.timeScale = 0;  
     }
 
     public void ResetGame()

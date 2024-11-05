@@ -44,6 +44,12 @@ public class ScreenshotManager : MonoBehaviour
 
         // Set the screenshot to the game-over panel's image
         gameOverImage.sprite = Sprite.Create(screenshotTexture, new Rect(0, 0, screenshotTexture.width, screenshotTexture.height), new Vector2(0.5f, 0.5f));
+       
+       
+    }
+
+    public void SaveToPhotos()
+    {
         byte[] rawTextureData = screenshotTexture.GetRawTextureData();
         // Save the screenshot to Gallery/Photos
         NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(rawTextureData, "Fruit Merge - Watermelon", "fruit_merge_watermelon.png", (success, path) => {

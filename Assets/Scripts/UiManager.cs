@@ -20,6 +20,13 @@ public class UiManager : MonoBehaviour
     public Button toggleSoundButton;
     public Button toggleVibrateButton;
     public Button replayButton;
+    public Button leaderboard1Button;
+
+    // game over
+    public Button saveToPhotosButton;
+    public Button restartButton;
+    public Button leaderboardButton;
+
 
     private bool isMusicOn = true;
     private bool isSoundOn = true;
@@ -58,6 +65,12 @@ public class UiManager : MonoBehaviour
         toggleSoundButton.onClick.AddListener(ToggleSound);
         toggleVibrateButton.onClick.AddListener(ToggleVibrate);
         replayButton.onClick.AddListener(Replay);
+        leaderboard1Button.onClick.AddListener(Leaderboard);
+
+        // game over panel
+        saveToPhotosButton.onClick.AddListener(ScreenshotManager.Instance.SaveToPhotos);
+        restartButton.onClick.AddListener(Replay);
+        leaderboardButton.onClick.AddListener(Leaderboard);
 
     }
 
@@ -140,6 +153,11 @@ public class UiManager : MonoBehaviour
     private void Replay()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void Leaderboard()
+    {
+        // TODO
     }
 
 }
