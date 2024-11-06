@@ -81,7 +81,7 @@ public class Spawner : MonoBehaviour
             controlledFruit = nextFruit;
             controlledFruit.gameObject.SetActive(true);
         }
-        
+        controlledFruit.GetComponent<FruitIdleShake>().enabled = true;
 
         // next
         randomIndex = Random.Range(0, fruitPrefabs.Count);

@@ -1,26 +1,30 @@
 using UnityEngine;
-
+using DG.Tweening;
 public class Fruit : MonoBehaviour
 {
     public int pointValue;
     public int fruitLevel;
     public float scaleFactor = 0.15f;
     public float baseScale = 0.3f;
+    public Color color;
     public GameObject nextFruitPrefab;  // Prefab for the next-level fruit after merging
 
     private bool hasMerged = false;     // Flag to prevent chain reactions
-
+    private Vector3 targetScale;
 
     public void Awake()
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<CircleCollider2D>().enabled = false;
-        transform.localScale = Vector3.one*(baseScale + scaleFactor * fruitLevel);
+        targetScale = Vector3.one * (baseScale + scaleFactor * fruitLevel);
+        transform.localScale = targetScale;
     }
 
-   
+    public Vector3 GetTargetScale()
+    {
+        return targetScale;
+    }
 
-   
     public void ActivateMe()
     {
         
@@ -54,13 +58,24 @@ public class Fruit : MonoBehaviour
 
     private void Merge(Fruit otherFruit)
     {
+        
         AudioManager.Instance.Splat();
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         otherFruit.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         // Spawn the next level fruit at the merge position
         Vector3 mergePosition = (transform.position + otherFruit.transform.position) / 2;
+
+        
         GameObject fruitGameObject = Instantiate(nextFruitPrefab, mergePosition, Quaternion.identity);
         Fruit fruit = fruitGameObject.GetComponent<Fruit>();
+        Vector3 targetScale = fruit.GetTargetScale();
+
+        fruitGameObject.transform.localScale = Vector3.zero;
+        fruitGameObject.transform.GetChild(0).gameObject.SetActive(true);
+        fruitGameObject.transform.DOScale(targetScale, 0.5f).OnComplete(() => {
+            fruit.ActivateMe();
+        });
+        
         if(fruit.fruitLevel >= 6)
         {
             if(fruit.fruitLevel <= 10)
@@ -71,10 +86,12 @@ public class Fruit : MonoBehaviour
                 VibrationManager.Instance.VibrateLong();
             }
             
-        } 
+        }
+        ParticleSpawner.Instance.SpawnFruitParticles(fruit);
+
         Destroy(otherFruit.gameObject);
         GameManager.Instance.AddScore(pointValue);
-        fruit.ActivateMe();
+        
         
         Destroy(gameObject);
     }

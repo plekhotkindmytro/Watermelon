@@ -1,7 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -64,6 +63,8 @@ public class GameManager : MonoBehaviour
 
         }
         scoreText.text = score.ToString();
+        UiManager.Instance.leaderboard1Button.transform.DOComplete(); // Completes any active tweens on the score text
+        UiManager.Instance.leaderboard1Button.transform.DOScale(1.1f, 0.1f).SetLoops(2, LoopType.Yoyo);
     }
 
     internal void SetMinSpawnX(float value)

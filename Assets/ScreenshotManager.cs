@@ -50,9 +50,14 @@ public class ScreenshotManager : MonoBehaviour
 
     public void SaveToPhotos()
     {
-        byte[] rawTextureData = screenshotTexture.GetRawTextureData();
+        if(gameOverImage.sprite.texture == null)
+        {
+            popupPanel.Activate("Null");
+            return;
+        }
+
         // Save the screenshot to Gallery/Photos
-        NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(rawTextureData, "Fruit Merge - Watermelon", "fruit_merge_watermelon.png", (success, path) => {
+        NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(gameOverImage.sprite.texture, "Fruit Merge Watermelon", "fruit_merge_watermelon.png", (success, path) => {
 
 
             if (success)
@@ -72,7 +77,7 @@ public class ScreenshotManager : MonoBehaviour
             }
            ;
         });
-
+        
         if (permission == NativeGallery.Permission.Denied)
         {
             popupPanel.Activate("Permission Denied");
