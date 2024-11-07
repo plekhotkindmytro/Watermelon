@@ -29,6 +29,14 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: angrySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8153c5a37069a476f8092c8793e7014e, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: sleepSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a53615b93460b4e9fb75bdce65df7bfa, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: nextFruitPrefab
       value: 
       objectReference: {fileID: 5344685361548465846, guid: 4ec61f64d4e9042f9b8aff0d44d99e22, type: 3}

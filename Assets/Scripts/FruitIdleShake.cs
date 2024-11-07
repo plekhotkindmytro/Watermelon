@@ -38,7 +38,8 @@ public class FruitIdleShake : MonoBehaviour
         if (idleTimer >= idleTimeThreshold)
         {
             idleTimer = 0f;
-            StartShaking();
+            fruit.SetSleepSprite();
+            Invoke(nameof(StartShaking), 0.3f);
         }
     }
 
@@ -63,7 +64,7 @@ public class FruitIdleShake : MonoBehaviour
     private void StopShaking()
     {
 
-
+        this.CancelInvoke();
         transform.DOKill(); // Stops any active tweens
         //transform.position = originalPosition; // Reset to original position
         fruit.SetBaseSprite();
