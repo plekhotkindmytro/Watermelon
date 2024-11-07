@@ -9,10 +9,12 @@ public class FruitIdleShake : MonoBehaviour
 
     private Vector3 originalPosition;
     private float idleTimer;
+    private Fruit fruit;
 
     void Start()
     {
         originalPosition = transform.position;
+        fruit = GetComponent<Fruit>();
     }
 
     void Update()
@@ -42,7 +44,8 @@ public class FruitIdleShake : MonoBehaviour
 
     private void StartShaking()
     {
-   
+
+        fruit.SetSleepSprite();
         Sequence shakeSequence = DOTween.Sequence();
 
         // Shake left and right in a loop
@@ -50,15 +53,20 @@ public class FruitIdleShake : MonoBehaviour
             .SetEase(Ease.InOutSine));
         shakeSequence.Append(transform.DOMoveX(originalPosition.x + shakeDistance, shakeDuration)
             .SetEase(Ease.InOutSine));
-        shakeSequence.SetLoops(2, LoopType.Yoyo);
+        shakeSequence.SetLoops(2, LoopType.Yoyo).OnComplete(() => {
+            fruit.SetBaseSprite();
+        });
          // Loop indefinitely until stopped
+
     }
 
     private void StopShaking()
     {
-       
+
+
         transform.DOKill(); // Stops any active tweens
         //transform.position = originalPosition; // Reset to original position
+        fruit.SetBaseSprite();
         this.enabled = false;
     }
 }

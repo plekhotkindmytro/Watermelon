@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
+
 public class Fruit : MonoBehaviour
 {
     public int pointValue;
@@ -8,9 +10,15 @@ public class Fruit : MonoBehaviour
     public float baseScale = 0.3f;
     public Color color;
     public GameObject nextFruitPrefab;  // Prefab for the next-level fruit after merging
+    public Sprite sleepSprite;
+    public Sprite angrySprite;
 
     private bool hasMerged = false;     // Flag to prevent chain reactions
     private Vector3 targetScale;
+    private SpriteRenderer spriteRenderer;
+    private Sprite baseSprite;
+    
+
 
     public void Awake()
     {
@@ -18,6 +26,8 @@ public class Fruit : MonoBehaviour
         this.GetComponent<CircleCollider2D>().enabled = false;
         targetScale = Vector3.one * (baseScale + scaleFactor * fruitLevel);
         transform.localScale = targetScale;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        baseSprite = spriteRenderer.sprite;
     }
 
     public Vector3 GetTargetScale()
@@ -55,6 +65,22 @@ public class Fruit : MonoBehaviour
             Merge(otherFruit);
         }
     }
+
+    internal void SetBaseSprite()
+    {
+        spriteRenderer.sprite = baseSprite;
+    }
+
+    internal void SetSleepSprite()
+    {
+        spriteRenderer.sprite = sleepSprite;
+    }
+
+    internal void SetAngrySprite()
+    {
+        spriteRenderer.sprite = angrySprite;
+    }
+
 
     private void Merge(Fruit otherFruit)
     {

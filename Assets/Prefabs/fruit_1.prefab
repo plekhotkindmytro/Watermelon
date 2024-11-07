@@ -169,6 +169,8 @@ MonoBehaviour:
   baseScale: 0.3
   color: {r: 0.21960784, g: 0.72156864, b: 0.20392157, a: 1}
   nextFruitPrefab: {fileID: 5344685361548465846, guid: 1a8f9820a93874102bce3b33af1eee74, type: 3}
+  sleepSprite: {fileID: 0}
+  angrySprite: {fileID: 0}
 --- !u!114 &6269430416402411487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,5 +283,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e433bc8b213224bf08723c498c9c3734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.3
-  fadeTime: 1
+  delay: 0.5
+  fadeTime: 2
