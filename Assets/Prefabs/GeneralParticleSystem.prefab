@@ -1545,7 +1545,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 23ff07e820e534c548292fda0a1d4b77, type: 3}
+    - sprite: {fileID: 21300000, guid: a01c24770677f4369ba126c6781beca7, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -2747,7 +2747,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2903,9 +2903,9 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 1
-    frequency: 0.5
-    damping: 1
+    separateAxes: 0
+    frequency: 1
+    damping: 0
     octaves: 1
     octaveMultiplier: 0.5
     octaveScale: 2
@@ -3126,7 +3126,7 @@ ParticleSystem:
     positionAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3179,7 +3179,7 @@ ParticleSystem:
     rotationAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 15
       minScalar: 0
       maxCurve:
         serializedVersion: 2
