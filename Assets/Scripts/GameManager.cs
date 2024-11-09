@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text gameOverScoreText;
     public MaxTopBorderTrigger maxTopBorderTrigger;
     public float delayBeforeGameOverPanel = 1.5f;
+    public string leaderboardId = "main";
 
 
     private static readonly string BEST_SCORE_KEY = "bestScore";
@@ -102,9 +103,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         if(!gameOver)
-        {
-            print("gameOver1");
+        {       
             gameOver = true;
+            GameCenterManager.Instance.ReportScore(bestScore, leaderboardId);
             Invoke(nameof(OpenGameOverPanel), delayBeforeGameOverPanel);
         }
         
@@ -112,7 +113,6 @@ public class GameManager : MonoBehaviour
 
     private void OpenGameOverPanel()
     {
-        print("gameOver2");
         ScreenshotManager.Instance.CaptureBucketScreenshot();
         gameOverPanel.SetActive(true);
         gameOverScoreText.text = "Score: " + score;

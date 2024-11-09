@@ -157,7 +157,7 @@ public class UiManager : MonoBehaviour
 
     private void Leaderboard()
     {
-        // TODO
+        GameCenterManager.Instance.ShowLeaderboard();
     }
 
 }
