@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text bestScoreText;
     public GameObject gameOverPanel;
     public TMP_Text gameOverScoreText;
+    public MaxTopBorderTrigger maxTopBorderTrigger;
+    public float delayBeforeGameOverPanel = 1.5f;
 
 
     private static readonly string BEST_SCORE_KEY = "bestScore";
@@ -77,15 +80,17 @@ public class GameManager : MonoBehaviour
         maxSpawnX = value;
     }
 
-    //internal float GetMinSpawnX(float value)
-    //{
-    //    return minSpawnX;
-    //}
+    internal void Warn()
+    {
+        maxTopBorderTrigger.Warn();
+    }
 
-    //internal float GetMaxSpawnX(float value)
-    //{
-    //    return maxSpawnX;
-    //}
+    internal void CancelWarn()
+    {
+        maxTopBorderTrigger.CancelWarn();
+    }
+
+
 
     internal float ClampSpawnX(float x, float absoluteOffset)
     {
@@ -94,17 +99,23 @@ public class GameManager : MonoBehaviour
 
    
 
-
     public void GameOver()
     {
         if(!gameOver)
         {
+            print("gameOver1");
             gameOver = true;
-            ScreenshotManager.Instance.CaptureBucketScreenshot();
-            gameOverPanel.SetActive(true);
-            gameOverScoreText.text = "Score: " + score;
+            Invoke(nameof(OpenGameOverPanel), delayBeforeGameOverPanel);
         }
         
+    }
+
+    private void OpenGameOverPanel()
+    {
+        print("gameOver2");
+        ScreenshotManager.Instance.CaptureBucketScreenshot();
+        gameOverPanel.SetActive(true);
+        gameOverScoreText.text = "Score: " + score;
     }
 
     public void ResetGame()

@@ -17,6 +17,16 @@ public class Fruit : MonoBehaviour
     private Vector3 targetScale;
     private SpriteRenderer spriteRenderer;
     private Sprite baseSprite;
+    private bool angry = false;
+    private bool sleep = false;
+    private bool inWarningZone = false;
+
+
+    // warning
+    public float timeOutsideBeforeWarning = 2f;
+    public float timeOutsideBeforeBorderWarning = 2f;
+    public float timeOutsideBeforeGameOver = 5.5f;
+    private float timeInWarningZoneElapsed = 0;
     
 
 
@@ -41,6 +51,62 @@ public class Fruit : MonoBehaviour
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<CircleCollider2D>().enabled = true;
         
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance.gameOver)
+        {
+            if(!sleep && !angry)
+            {
+                sleep = true;
+                SetSleepSprite();
+            }
+            
+
+            return;
+        }
+
+        if(inWarningZone)
+        {
+
+            if (timeInWarningZoneElapsed >= timeOutsideBeforeBorderWarning)
+            {
+                GameManager.Instance.Warn();
+            }
+
+            if (timeInWarningZoneElapsed >= timeOutsideBeforeWarning)
+            {
+                if (!angry)
+                {
+                    angry = true;
+                    SetAngrySprite();
+                }
+
+                
+                if (timeInWarningZoneElapsed >= timeOutsideBeforeGameOver)
+                {
+                    GameManager.Instance.GameOver();
+                }
+            }
+            timeInWarningZoneElapsed += Time.deltaTime;
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        inWarningZone = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        inWarningZone = false;
+        timeInWarningZoneElapsed = 0;
+        angry = false;
+        SetBaseSprite();
+        GameManager.Instance.CancelWarn();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -69,16 +135,19 @@ public class Fruit : MonoBehaviour
     internal void SetBaseSprite()
     {
         spriteRenderer.sprite = baseSprite;
+        spriteRenderer.color = Color.white;
     }
 
     internal void SetSleepSprite()
     {
         spriteRenderer.sprite = sleepSprite;
+        spriteRenderer.color = Color.white;
     }
 
     internal void SetAngrySprite()
     {
         spriteRenderer.sprite = angrySprite;
+        spriteRenderer.color = Color.red;
     }
 
 

@@ -171,6 +171,9 @@ MonoBehaviour:
   nextFruitPrefab: {fileID: 5344685361548465846, guid: 1a8f9820a93874102bce3b33af1eee74, type: 3}
   sleepSprite: {fileID: 21300000, guid: e34ac1e65ba214e1f8ec5f26a30ec75b, type: 3}
   angrySprite: {fileID: 21300000, guid: c085e323bdfd84ff7b480a28482e5de0, type: 3}
+  timeOutsideBeforeWarning: 1.2
+  timeOutsideBeforeBorderWarning: 0.7
+  timeOutsideBeforeGameOver: 3
 --- !u!114 &6269430416402411487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDistance: 0.03
   shakeDuration: 0.05
-  idleTimeThreshold: 5
+  idleTimeThreshold: 1.5
 --- !u!1 &8202702537431282946
 GameObject:
   m_ObjectHideFlags: 0

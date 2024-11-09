@@ -19,6 +19,11 @@ public class ParticleSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (UiManager.Instance.settingsPanel.activeSelf)
+        {
+            return;
+        }
+
         if (GameManager.Instance.gameOver)
         {
             return;

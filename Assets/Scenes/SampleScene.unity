@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &110459942
 Transform:
   m_ObjectHideFlags: 0
@@ -1364,6 +1364,7 @@ MonoBehaviour:
   - {fileID: 5344685361548465846, guid: 238adac50fb5e4f9f89858edfba9bd64, type: 3}
   - {fileID: 5344685361548465846, guid: 8eed06483bc104422ab44e9abd6d997f, type: 3}
   - {fileID: 5344685361548465846, guid: 4ec61f64d4e9042f9b8aff0d44d99e22, type: 3}
+  minSecondsBetweenSpawns: 0.5
 --- !u!4 &491880039
 Transform:
   m_ObjectHideFlags: 0
@@ -2224,6 +2225,7 @@ RectTransform:
   - {fileID: 1973615106}
   - {fileID: 1831018324}
   - {fileID: 1267145428}
+  - {fileID: 1601539559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3300,6 +3302,8 @@ MonoBehaviour:
   bestScoreText: {fileID: 133773716}
   gameOverPanel: {fileID: 1267145427}
   gameOverScoreText: {fileID: 1931302046}
+  maxTopBorderTrigger: {fileID: 2080338700}
+  delayBeforeGameOverPanel: 1.5
   gameOver: 0
 --- !u!1 &966048313
 GameObject:
@@ -5787,6 +5791,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1601539558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601539559}
+  - component: {fileID: 1601539561}
+  - component: {fileID: 1601539560}
+  m_Layer: 5
+  m_Name: WarningPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1601539559
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601539558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 700415596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1601539560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601539558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5283019, g: 0.19686721, b: 0.19686721, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 64bb51a8a83de41ad9236c97072ee9dc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1601539561
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601539558}
+  m_CullTransparentMesh: 1
 --- !u!1 &1605746630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7590,7 +7669,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.50855017}
+  m_Offset: {x: 0, y: 0.57323205}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7601,7 +7680,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.12545395}
+  m_Size: {x: 1, y: 0.25481617}
   m_EdgeRadius: 0
 --- !u!114 &2080338700
 MonoBehaviour:
@@ -7615,8 +7694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bfd7d3d355f4046bd9320a35bbd5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overflowTime: 2
-  gameOverTime: 5
 --- !u!1 &2090963051
 GameObject:
   m_ObjectHideFlags: 0
