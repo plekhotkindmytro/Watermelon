@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 public class Fruit : MonoBehaviour
 {
@@ -27,13 +26,15 @@ public class Fruit : MonoBehaviour
     public float timeOutsideBeforeBorderWarning = 2f;
     public float timeOutsideBeforeGameOver = 5.5f;
     private float timeInWarningZoneElapsed = 0;
-    
+
+    private Sprite[] sprites;
 
 
     public void Awake()
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<CircleCollider2D>().enabled = false;
+        this.GetComponent<FruitSquashEffect>().enabled = false;
         targetScale = Vector3.one * (baseScale + scaleFactor * fruitLevel);
         transform.localScale = targetScale;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -42,6 +43,9 @@ public class Fruit : MonoBehaviour
 
     public void Start()
     {
+        sprites = new Sprite[]{
+            baseSprite, angrySprite, sleepSprite
+        };
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
         line.SetPosition(1, new Vector3(transform.position.x, GameManager.Instance.GetBoxBottomY()));
@@ -58,6 +62,7 @@ public class Fruit : MonoBehaviour
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<CircleCollider2D>().enabled = true;
         this.GetComponent<LineRenderer>().enabled = false;
+        this.GetComponent<FruitSquashEffect>().enabled = true;
 
     }
 
@@ -156,6 +161,11 @@ public class Fruit : MonoBehaviour
     {
         spriteRenderer.sprite = angrySprite;
         spriteRenderer.color = Color.red;
+    }
+
+    internal void SetRandomSprite()
+    {
+        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
     }
 
 

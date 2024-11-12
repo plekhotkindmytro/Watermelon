@@ -12,12 +12,11 @@ public class FruitSquashEffect : MonoBehaviour
 
     private Vector3 originalScale;
     private bool canSquash = true;  // Cooldown control
-
-    private void Start()
+    private Fruit fruit;
+    public void Start()
     {
-        originalScale = transform.localScale;
+        fruit = GetComponent<Fruit>();
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if collision is with the ground or wall and velocity is high enough
@@ -34,9 +33,10 @@ public class FruitSquashEffect : MonoBehaviour
 
     private void Squash(Vector3 impactNormal)
     {
-        // Calculate squash direction based on impact normal
-        Vector3 squashScale = originalScale;
 
+        originalScale = transform.localScale;
+        Vector3 squashScale = transform.localScale;
+        
         if (Mathf.Abs(impactNormal.y) > Mathf.Abs(impactNormal.x)) // Vertical impact
         {
             squashScale.y *= squashAmount;          // Squash on Y-axis
@@ -51,11 +51,19 @@ public class FruitSquashEffect : MonoBehaviour
         // Adjust position slightly in the direction of the impact to make squash look more natural
         Vector3 shiftPosition = transform.position + (impactNormal * squashShift);
 
+        fruit.SetRandomSprite();
+
         // Animate squash with DOTween
         transform.DOMove(shiftPosition, squashDuration * 0.5f); // Small shift for realism
         transform.DOScale(squashScale, squashDuration)
             .SetEase(Ease.OutBounce)
-            .OnComplete(() => transform.DOScale(originalScale, squashDuration).SetEase(Ease.OutBounce));
+            .OnComplete(() => {
+
+                transform.DOScale(originalScale, squashDuration).SetEase(Ease.OutBounce).OnComplete(()=> {
+                    
+                });
+
+            });
     }
 
     private IEnumerator SquashCooldown()
