@@ -46,6 +46,12 @@ public class Fruit : MonoBehaviour
         sprites = new Sprite[]{
             baseSprite, angrySprite, sleepSprite
         };
+
+        if(this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        {
+            ActivateMe();
+            return;
+        }
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
         line.SetPosition(1, new Vector3(transform.position.x, GameManager.Instance.GetBoxBottomY()));
@@ -63,8 +69,10 @@ public class Fruit : MonoBehaviour
         this.GetComponent<CircleCollider2D>().enabled = true;
         this.GetComponent<LineRenderer>().enabled = false;
         this.GetComponent<FruitSquashEffect>().enabled = true;
-
+        CameraManager.Instance.Follow(this.transform); 
     }
+
+
 
     private void Update()
     {

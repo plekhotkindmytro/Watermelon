@@ -36,7 +36,8 @@ public class Wall : MonoBehaviour
 
         left.transform.position = new Vector3(-(worldWidth + localScale.x)/2, 0, 0);
         right.transform.position = new Vector3((worldWidth + localScale.x)/2, 0, 0);
-        top.transform.position = new Vector3(0, (worldHeight + localScale.y)/2, 0);
+        //top.transform.position = new Vector3(0, (worldHeight + localScale.y)/2, 0);
+        top.transform.position = new Vector3(0, 100, 0);
         bottom.transform.position = new Vector3(0, -(worldHeight + localScale.y)/2, 0);
 
     }

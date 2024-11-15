@@ -7,10 +7,13 @@ public class Spawner : MonoBehaviour
     public Image nextFruitImage;
     public List<GameObject> fruitPrefabs;  // List of all 11 fruit prefabs
     public float minSecondsBetweenSpawns = 1f;
+    public float spawnOffsetY = 10;
 
 
     private Fruit controlledFruit = null;
     private Fruit nextFruit = null;
+
+
 
     private Camera cameraMain;
 
@@ -21,7 +24,9 @@ public class Spawner : MonoBehaviour
     public void Start()
     {
         cameraMain = Camera.main;
-        timeElapsed = minSecondsBetweenSpawns; // first fruit can be dropped instantly.
+        timeElapsed = minSecondsBetweenSpawns;
+        CreateFruit();
+        CameraManager.Instance.Follow(controlledFruit.transform);
     }
 
     private void Update()
@@ -39,21 +44,19 @@ public class Spawner : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
 
-        if (controlledFruit == null)
-        {
-            CreateFruit();
-        }
+        
 
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
-
-            Vector2 touchWorldPos = cameraMain.ScreenToWorldPoint(touch.position);
-            if (touchWorldPos.y > 4)
+            if (touch.position.y > Screen.height * 0.8)
             {
                 return;
             }
+
+            Vector2 touchWorldPos = cameraMain.ScreenToWorldPoint(touch.position);
+            
 
             if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began)
             {
@@ -81,14 +84,14 @@ public class Spawner : MonoBehaviour
 
     private void DropFruit()
     {
-        if(!CanDrop())
+        if (!CanDrop())
         {
             return;
         }
 
         AudioManager.Instance.Drop();
         controlledFruit.ActivateMe();
-        controlledFruit = null;
+        Invoke(nameof(CreateFruit), minSecondsBetweenSpawns);
     }
 
     private void UpdateFruitPosition(Vector2 touchWorldPosition)
@@ -107,11 +110,12 @@ public class Spawner : MonoBehaviour
     {
         // Randomly select a fruit prefab and instantiate it at the spawner's position
         int randomIndex;
-
+        Vector3 spawnPos = transform.position + Vector3.up * spawnOffsetY;
         if (nextFruit == null)
         {
             randomIndex = Random.Range(0, fruitPrefabs.Count);
-            GameObject fruitGameObject = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
+            
+            GameObject fruitGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos , Quaternion.identity);
 
             controlledFruit = fruitGameObject.GetComponent<Fruit>();
         }
@@ -124,10 +128,10 @@ public class Spawner : MonoBehaviour
 
         // next
         randomIndex = Random.Range(0, fruitPrefabs.Count);
-        GameObject nextGameObject = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
+        GameObject nextGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos, Quaternion.identity);
         nextGameObject.SetActive(false);
         nextFruit = nextGameObject.GetComponent<Fruit>();
         nextFruitImage.sprite = nextGameObject.GetComponent<SpriteRenderer>().sprite;
-
+        
     }
 }
