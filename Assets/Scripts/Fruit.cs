@@ -33,7 +33,7 @@ public class Fruit : MonoBehaviour
     public void Awake()
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
-        this.GetComponent<CircleCollider2D>().enabled = false;
+        this.GetComponent<Collider2D>().enabled = false;
         this.GetComponent<FruitSquashEffect>().enabled = false;
         targetScale = Vector3.one * (baseScale + scaleFactor * fruitLevel);
         transform.localScale = targetScale;
@@ -47,7 +47,7 @@ public class Fruit : MonoBehaviour
             baseSprite, angrySprite, sleepSprite
         };
 
-        if(this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        if (this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
         {
             ActivateMe();
             return;
@@ -64,12 +64,12 @@ public class Fruit : MonoBehaviour
 
     public void ActivateMe()
     {
-        
+
         this.GetComponent<Rigidbody2D>().simulated = true;
-        this.GetComponent<CircleCollider2D>().enabled = true;
+        this.GetComponent<Collider2D>().enabled = true;
         this.GetComponent<LineRenderer>().enabled = false;
         this.GetComponent<FruitSquashEffect>().enabled = true;
-        CameraManager.Instance.Follow(this.transform); 
+        CameraManager.Instance.Follow(this.transform);
     }
 
 
@@ -78,17 +78,17 @@ public class Fruit : MonoBehaviour
     {
         if (GameManager.Instance.gameOver)
         {
-            if(!sleep && !angry)
+            if (!sleep && !angry)
             {
                 sleep = true;
                 SetSleepSprite();
             }
-            
+
 
             return;
         }
 
-        if(inWarningZone)
+        if (inWarningZone)
         {
 
             if (timeInWarningZoneElapsed >= timeOutsideBeforeBorderWarning)
@@ -104,7 +104,7 @@ public class Fruit : MonoBehaviour
                     SetAngrySprite();
                 }
 
-                
+
                 if (timeInWarningZoneElapsed >= timeOutsideBeforeGameOver)
                 {
                     GameManager.Instance.GameOver();
@@ -161,19 +161,33 @@ public class Fruit : MonoBehaviour
 
     internal void SetSleepSprite()
     {
+        if (sleepSprite == null)
+        {
+            return;
+        }
         spriteRenderer.sprite = sleepSprite;
         spriteRenderer.color = Color.white;
     }
 
     internal void SetAngrySprite()
     {
+        if (angrySprite == null)
+        {
+            return;
+        }
+
         spriteRenderer.sprite = angrySprite;
         spriteRenderer.color = Color.red;
     }
 
     internal void SetRandomSprite()
     {
-        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+
+        var sprite = sprites[Random.Range(0, sprites.Length)];
+        if(sprite == null) { return; }
+
+        spriteRenderer.sprite = sprite;
+        
     }
 
 
@@ -181,8 +195,8 @@ public class Fruit : MonoBehaviour
     {
         
         AudioManager.Instance.Splat();
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        otherFruit.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        otherFruit.gameObject.GetComponent<Collider2D>().enabled = false;
         // Spawn the next level fruit at the merge position
         Vector3 mergePosition = (transform.position + otherFruit.transform.position) / 2;
 
