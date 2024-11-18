@@ -65,10 +65,15 @@ public class Fruit : MonoBehaviour
     public void ActivateMe()
     {
 
+        this.transform.DOKill();
+        this.transform.localScale = targetScale;
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<Collider2D>().enabled = true;
         this.GetComponent<LineRenderer>().enabled = false;
         this.GetComponent<FruitSquashEffect>().enabled = true;
+        ParticleSpawner.Instance.SpawnFruitParticles(GetComponent<Fruit>());
+        this.transform.GetChild(1).gameObject.SetActive(false);
+        //this.transform.DOScale(0.1f, 0.1f).OnComplete(() => { this.transform.DOScale(targetScale, 0.1f); });
         CameraManager.Instance.Follow(this.transform);
     }
 

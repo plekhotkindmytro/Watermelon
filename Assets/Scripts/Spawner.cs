@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class Spawner : MonoBehaviour
 {
     public Image nextFruitImage;
@@ -91,7 +91,8 @@ public class Spawner : MonoBehaviour
 
         AudioManager.Instance.Drop();
         controlledFruit.ActivateMe();
-        Invoke(nameof(CreateFruit), minSecondsBetweenSpawns);
+        CreateFruit();
+        //Invoke(nameof(CreateFruit), minSecondsBetweenSpawns/2);
     }
 
     private void UpdateFruitPosition(Vector2 touchWorldPosition)
@@ -125,6 +126,9 @@ public class Spawner : MonoBehaviour
             controlledFruit.gameObject.SetActive(true);
         }
         controlledFruit.GetComponent<FruitIdleShake>().enabled = true;
+        controlledFruit.transform.localScale = Vector3.zero;
+
+        controlledFruit.transform.DOScale(controlledFruit.GetTargetScale(), 0.5f);
 
         // next
         randomIndex = Random.Range(0, fruitPrefabs.Count);
