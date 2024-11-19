@@ -8,12 +8,9 @@ public class UiManager : MonoBehaviour
 {
     public static UiManager Instance;
 
-
-    public Sprite activeButtonSprite;
-    public Sprite disabledButtonSprite;
-
     public GameObject settingsPanel;
 
+    public Color passiveColor;
     public Button settingsButton;
     public Button closeSettingsButton;
     public Button toggleMusicButton;
@@ -37,6 +34,7 @@ public class UiManager : MonoBehaviour
     private readonly static string MUSIC_ENABLED_KEY = "MusicEnabled";
     private readonly static string SOUND_ENABLED_KEY = "SoundEnabled";
     private readonly static string VIBRATE_ENABLED_KEY = "VibrateEnabled";
+
 
 
     private void Awake()
@@ -76,7 +74,7 @@ public class UiManager : MonoBehaviour
 
     private void ApplyState(Button button, bool isActive)
     {
-        button.image.sprite = isActive ? activeButtonSprite : disabledButtonSprite;
+        button.image.color = isActive ?  Color.white: passiveColor;
     }
 
 

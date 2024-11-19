@@ -47,11 +47,11 @@ public class Fruit : MonoBehaviour
             baseSprite, angrySprite, sleepSprite
         };
 
-        if (this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
-        {
-            ActivateMe();
-            return;
-        }
+        //if (this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        //{
+        //    ActivateMe();
+        //    return;
+        //}
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
         line.SetPosition(1, new Vector3(transform.position.x, GameManager.Instance.GetBoxBottomY()));
@@ -67,10 +67,19 @@ public class Fruit : MonoBehaviour
 
         this.transform.DOKill();
         this.transform.localScale = targetScale;
+        
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<Collider2D>().enabled = true;
-        this.GetComponent<LineRenderer>().enabled = false;
         this.GetComponent<FruitSquashEffect>().enabled = true;
+
+        this.GetComponent<LineRenderer>().enabled = false;
+        FruitIdleShake shake = this.GetComponent<FruitIdleShake>();
+        if(shake.enabled)
+        {
+            shake.StopShaking();
+            shake.enabled = false;
+        }
+        
         ParticleSpawner.Instance.SpawnFruitParticles(GetComponent<Fruit>());
         this.transform.GetChild(1).gameObject.SetActive(false);
         //this.transform.DOScale(0.1f, 0.1f).OnComplete(() => { this.transform.DOScale(targetScale, 0.1f); });
@@ -160,12 +169,21 @@ public class Fruit : MonoBehaviour
 
     internal void SetBaseSprite()
     {
+        if(spriteRenderer == null)
+        {
+            return;
+        }
         spriteRenderer.sprite = baseSprite;
         spriteRenderer.color = Color.white;
     }
 
     internal void SetSleepSprite()
     {
+        if (spriteRenderer == null)
+        {
+            return;
+        }
+
         if (sleepSprite == null)
         {
             return;
@@ -176,6 +194,11 @@ public class Fruit : MonoBehaviour
 
     internal void SetAngrySprite()
     {
+        if (spriteRenderer == null)
+        {
+            return;
+        }
+
         if (angrySprite == null)
         {
             return;
@@ -187,6 +210,10 @@ public class Fruit : MonoBehaviour
 
     internal void SetRandomSprite()
     {
+        if (spriteRenderer == null)
+        {
+            return;
+        }
 
         var sprite = sprites[Random.Range(0, sprites.Length)];
         if(sprite == null) { return; }
@@ -212,8 +239,9 @@ public class Fruit : MonoBehaviour
 
         fruitGameObject.transform.localScale = Vector3.zero;
         fruitGameObject.transform.GetChild(0).gameObject.SetActive(true);
-        fruitGameObject.transform.DOScale(targetScale, 0.5f).OnComplete(() => {
+        fruitGameObject.transform.DOScale(targetScale, 0.4f).OnComplete(() => {
             fruit.ActivateMe();
+            
         });
         
         if(fruit.fruitLevel >= 6)
@@ -229,10 +257,37 @@ public class Fruit : MonoBehaviour
         }
         ParticleSpawner.Instance.SpawnFruitParticles(fruit);
 
-        Destroy(otherFruit.gameObject);
+       // 
+        
         GameManager.Instance.AddScore(pointValue);
-        
-        
+
+        //
+        FruitSquashEffect otherSquash = otherFruit.GetComponent<FruitSquashEffect>();
+        if (otherSquash != null && otherSquash.enabled)
+        {
+            otherSquash.DOKill();
+            otherSquash.StopAllCoroutines();
+            otherSquash.CancelInvoke();
+        }
+        otherFruit.CancelInvoke();
+        otherFruit.DOKill();
+        Destroy(otherFruit.gameObject);
+
+        FruitSquashEffect thisSquash = this.GetComponent<FruitSquashEffect>();
+        if (thisSquash != null && thisSquash.enabled)
+        {
+            thisSquash.DOKill();
+            thisSquash.StopAllCoroutines();
+            thisSquash.CancelInvoke();   
+        }
+
+        this.CancelInvoke();
+        this.DOKill();
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
     }
 }

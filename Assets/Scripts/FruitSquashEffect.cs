@@ -13,16 +13,20 @@ public class FruitSquashEffect : MonoBehaviour
     private Vector3 originalScale;
     private bool canSquash = true;  // Cooldown control
     private Fruit fruit;
+    private Rigidbody2D rb;
     public void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         fruit = GetComponent<Fruit>();
     }
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if collision is with the ground or wall and velocity is high enough
         if (canSquash)
         {
-            if (GetComponent<Rigidbody2D>().velocity.magnitude > minVelocityForSquash)
+            if (rb != null && rb.velocity.magnitude > minVelocityForSquash)
             {
                 Vector3 impactNormal = collision.contacts[0].normal;
                 Squash(impactNormal);
@@ -50,6 +54,10 @@ public class FruitSquashEffect : MonoBehaviour
 
         // Adjust position slightly in the direction of the impact to make squash look more natural
         Vector3 shiftPosition = transform.position + (impactNormal * squashShift);
+        if(fruit == null)
+        {
+            return;
+        }
 
         fruit.SetRandomSprite();
 
@@ -58,6 +66,11 @@ public class FruitSquashEffect : MonoBehaviour
         transform.DOScale(squashScale, squashDuration)
             .SetEase(Ease.OutBounce)
             .OnComplete(() => {
+
+                if(transform == null)
+                {
+                    return;
+                }
 
                 transform.DOScale(originalScale, squashDuration).SetEase(Ease.OutBounce).OnComplete(()=> {
                     
@@ -71,5 +84,12 @@ public class FruitSquashEffect : MonoBehaviour
         canSquash = false;
         yield return new WaitForSeconds(squashCooldown);
         canSquash = true;
+    }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
+        this.CancelInvoke();
+        StopAllCoroutines();
     }
 }

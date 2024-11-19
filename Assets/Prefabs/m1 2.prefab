@@ -10,7 +10,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.4117647
+      objectReference: {fileID: 0}
+    - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: -5385196625585852998, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.4117647
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: color.b
@@ -18,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: color.g
-      value: 1
+      value: 0.6862745
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: color.r
-      value: 1
+      value: 0.4117647
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: fruitLevel
@@ -82,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3564625780216665575, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Mass
-      value: 0.13717033
+      value: 0.11238749
       objectReference: {fileID: 0}
     - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Sprite
@@ -162,39 +186,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.37626263, y: -0.37878788}
-      - {x: 0.37626263, y: -0.24747474}
-      - {x: 0.3409091, y: -0.1969697}
-      - {x: 0.27525252, y: -0.17676768}
-      - {x: 0.06818182, y: -0.17676768}
-      - {x: 0.24494949, y: 0.005050505}
-      - {x: 0.28535354, y: 0.11111111}
-      - {x: 0.30555555, y: 0.22222222}
-      - {x: 0.28030303, y: 0.36363637}
-      - {x: 0.17929293, y: 0.46464646}
-      - {x: 0.10858586, y: 0.5}
-      - {x: -0.13383839, y: 0.5}
-      - {x: -0.15404041, y: 0.48989898}
-      - {x: -0.26010102, y: 0.44949496}
-      - {x: -0.33585858, y: 0.36363637}
-      - {x: -0.37121212, y: 0.28787878}
-      - {x: -0.3661616, y: 0.13636364}
-      - {x: -0.32070708, y: 0.08080808}
-      - {x: -0.28535354, y: 0.060606062}
-      - {x: -0.16919191, y: 0.060606062}
-      - {x: -0.103535354, y: 0.116161615}
-      - {x: -0.078282826, y: 0.1919192}
-      - {x: -0.027777778, y: 0.27272728}
-      - {x: 0.0025252525, y: 0.25252524}
-      - {x: 0.012626262, y: 0.15656565}
-      - {x: -0.03787879, y: 0.025252525}
-      - {x: -0.11363637, y: -0.035353534}
-      - {x: -0.26010102, y: -0.14646465}
-      - {x: -0.3459596, y: -0.23737374}
-      - {x: -0.37626263, y: -0.2929293}
-      - {x: -0.37626263, y: -0.45454547}
-      - {x: -0.30555555, y: -0.5}
-      - {x: 0.25, y: -0.5}
-      - {x: 0.31565657, y: -0.47474748}
-      - {x: 0.3611111, y: -0.41919193}
+    - - {x: -0.3, y: 0.4}
+      - {x: 0, y: 0.5}
+      - {x: 0.24, y: 0.4}
+      - {x: 0.24, y: 0.1}
+      - {x: 0, y: -0.2}
+      - {x: 0.29, y: -0.2}
+      - {x: 0.37, y: -0.3}
+      - {x: 0.3, y: -0.47}
+      - {x: -0.28, y: -0.48}
+      - {x: -0.37, y: -0.35}
+      - {x: -0.28, y: -0.2}
+      - {x: -0.1, y: -0.05}
+      - {x: -0.1, y: 0.1}
+      - {x: -0.3, y: 0.1}
   m_UseDelaunayMesh: 0

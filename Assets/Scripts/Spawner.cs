@@ -25,8 +25,8 @@ public class Spawner : MonoBehaviour
     {
         cameraMain = Camera.main;
         timeElapsed = minSecondsBetweenSpawns;
-        CreateFruit();
-        CameraManager.Instance.Follow(controlledFruit.transform);
+        
+        //CameraManager.Instance.Follow(controlledFruit.transform);
     }
 
     private void Update()
@@ -107,7 +107,7 @@ public class Spawner : MonoBehaviour
         
     }
 
-    private void CreateFruit()
+    public void CreateFruit()
     {
         // Randomly select a fruit prefab and instantiate it at the spawner's position
         int randomIndex;
@@ -129,6 +129,7 @@ public class Spawner : MonoBehaviour
         controlledFruit.transform.localScale = Vector3.zero;
 
         controlledFruit.transform.DOScale(controlledFruit.GetTargetScale(), 0.5f);
+        controlledFruit.transform.GetChild(1).gameObject.SetActive(true);
 
         // next
         randomIndex = Random.Range(0, fruitPrefabs.Count);
