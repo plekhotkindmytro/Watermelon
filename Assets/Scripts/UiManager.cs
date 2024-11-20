@@ -153,6 +153,11 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void GemScene()
+    {
+        SceneManager.LoadScene("GemScene");
+    }
+
     private void Leaderboard()
     {
         GameCenterManager.Instance.ShowLeaderboard();
