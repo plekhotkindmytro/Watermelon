@@ -24,6 +24,9 @@ public class UiManager : MonoBehaviour
     public Button restartButton;
     public Button leaderboardButton;
 
+    // boosts
+    public Button fishButton;
+
 
     private bool isMusicOn = true;
     private bool isSoundOn = true;
@@ -69,6 +72,8 @@ public class UiManager : MonoBehaviour
         saveToPhotosButton.onClick.AddListener(ScreenshotManager.Instance.SaveToPhotos);
         restartButton.onClick.AddListener(Replay);
         leaderboardButton.onClick.AddListener(Leaderboard);
+
+        fishButton.onClick.AddListener(SpawnFish); 
 
     }
 
@@ -161,6 +166,11 @@ public class UiManager : MonoBehaviour
     private void Leaderboard()
     {
         GameCenterManager.Instance.ShowLeaderboard();
+    }
+
+    private void SpawnFish()
+    {
+        BoostManager.Instance.SpawnFish();
     }
 
 }
