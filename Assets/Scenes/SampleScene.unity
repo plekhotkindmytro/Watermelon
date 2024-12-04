@@ -457,6 +457,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &81329149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4396693088764836670, guid: 3dbc82b52a1ac4a7aae8dd6ef28aea01, type: 3}
+  m_PrefabInstance: {fileID: 1171617714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &83218843
 GameObject:
   m_ObjectHideFlags: 0
@@ -6492,6 +6497,11 @@ MonoBehaviour:
   - {fileID: 7956472605111286799, guid: aa10cfd3d14424e8ba37a88e07ffa27f, type: 3}
   minSecondsBetweenSpawns: 0.5
   spawnOffsetY: 0
+--- !u!1 &1000769990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 126735720007771286, guid: f9d2209a979f3437886906a9711b6250, type: 3}
+  m_PrefabInstance: {fileID: 2068908064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002181487
 GameObject:
   m_ObjectHideFlags: 0
@@ -7913,6 +7923,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1056480895}
   m_SourcePrefab: {fileID: 100100000, guid: 107686372cca94867b1426aa584e4705, type: 3}
+--- !u!1 &1163580722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4779014003870902947, guid: e6d1838552d4f4dd28c9c6e5231abdf7, type: 3}
+  m_PrefabInstance: {fileID: 504075416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171617714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9456,6 +9471,10 @@ MonoBehaviour:
   restartButton: {fileID: 1174164606}
   leaderboardButton: {fileID: 1973942579}
   fishButton: {fileID: 1638725424}
+  mouseButton: {fileID: 1833659142}
+  beeButton: {fileID: 92964026}
+  flyButton: {fileID: 1869514320}
+  mosquitoButton: {fileID: 1940569931}
 --- !u!4 &1489230586
 Transform:
   m_ObjectHideFlags: 0
@@ -12180,6 +12199,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757364225}
   m_CullTransparentMesh: 1
+--- !u!1 &1769784767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4137486909492645350, guid: 96258cc299ca944a79958cb224431788, type: 3}
+  m_PrefabInstance: {fileID: 2108097137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1774531685
 GameObject:
   m_ObjectHideFlags: 0
@@ -12421,7 +12445,7 @@ GameObject:
   - component: {fileID: 1833659143}
   - component: {fileID: 1833659142}
   m_Layer: 5
-  m_Name: Mouse
+  m_Name: MouseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12434,13 +12458,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833659140}
-  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1354557403}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 153, y: -200}
@@ -14392,22 +14416,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2120042416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389595740385a40d4b98e432be2898b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 499bf77b440f143c3b03355127bb7621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsPanel: {fileID: 1831018323}
-  passiveColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
-  settingsButton: {fileID: 1627018628}
-  closeSettingsButton: {fileID: 868914126}
-  toggleMusicButton: {fileID: 596120493}
-  toggleSoundButton: {fileID: 719375296}
-  toggleVibrateButton: {fileID: 1076061418}
-  replayButton: {fileID: 2090963053}
-  leaderboard1Button: {fileID: 584402912}
-  saveToPhotosButton: {fileID: 699164562}
-  restartButton: {fileID: 1174164606}
-  leaderboardButton: {fileID: 1973942579}
-  fishButton: {fileID: 0}
+  fishPrefab: {fileID: 81329149}
+  mousePrefab: {fileID: 1163580722}
+  flyPrefab: {fileID: 1769784767}
+  beePrefab: {fileID: 389569809}
+  mosquitePrefab: {fileID: 1000769990}
 --- !u!1 &2121935663
 GameObject:
   m_ObjectHideFlags: 0

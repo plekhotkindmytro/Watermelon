@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4843217076463849519, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4843217076463849519, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ae059e40d8de3406987c542e1ed6207b, type: 3}
+    - target: {fileID: -4843217076463849519, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1425963523820956172, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -27,6 +39,10 @@ PrefabInstance:
     - target: {fileID: 1847919581503105891, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
       propertyPath: m_Offset.y
       value: 0.041153323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110065664353948322, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5027225982895498938, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,5 +95,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5298419507501993180, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1619731056690369591}
   m_SourcePrefab: {fileID: 100100000, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+--- !u!1 &4779014003870902947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5298419507501993180, guid: d7afe0ac872e0e6459c0250c98fb609b, type: 3}
+  m_PrefabInstance: {fileID: 852785147508926079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1619731056690369591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779014003870902947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce5b60f8d88840f0bb92f4da072e3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  changeDirectionInterval: 2
+  restTime: 1
+  faceDirection: 1
+  ball: 0

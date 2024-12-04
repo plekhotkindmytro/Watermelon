@@ -88,6 +88,11 @@ public class GameManager : MonoBehaviour
         maxSpawnX = value;
     }
 
+    internal float RandomSpawnX()
+    {
+        return UnityEngine.Random.Range(minSpawnX, maxSpawnX);
+    }
+
     internal void Warn()
     {
         maxTopBorderTrigger.Warn();

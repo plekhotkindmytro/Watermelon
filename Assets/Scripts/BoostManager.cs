@@ -7,6 +7,10 @@ public class BoostManager : MonoBehaviour
     public static BoostManager Instance;
 
     public GameObject fishPrefab;
+    public GameObject mousePrefab;
+    public GameObject flyPrefab;
+    public GameObject beePrefab;
+    public GameObject mosquitePrefab;
 
 
     private Camera mainCamera;
@@ -30,9 +34,32 @@ public class BoostManager : MonoBehaviour
     public void SpawnFish()
     {
         Vector2 pos = new Vector2(-mainCamera.orthographicSize * mainCamera.aspect - fishPrefab.transform.localScale.x / 2,
-            GameManager.Instance.boxBottomCollider.position.y+ GameManager.Instance.boxBottomCollider.lossyScale.y/2+1);
+            GameManager.Instance.boxBottomCollider.position.y+ GameManager.Instance.boxBottomCollider.lossyScale.y/2+0.5f);
         GameObject fish = Instantiate(fishPrefab, pos, Quaternion.identity, transform);
         fish.SetActive(true);
+    }
+
+    public void SpawnMouse()
+    {
+        // float offset = 0.5f;
+        print("spawb");
+        float x = GameManager.Instance.RandomSpawnX();
+        Vector2 pos = new Vector2(x,
+            -mainCamera.orthographicSize - mousePrefab.transform.localScale.y/2);
+        GameObject mouse = Instantiate(mousePrefab, pos, Quaternion.identity, transform);
+        mouse.SetActive(true);
+    }
+    public void SpawnBee()
+    {
+        
+    }
+    public void SpawnFly()
+    {
+        
+    }
+    public void SpawnMosquito() 
+    {
+       
     }
 
 }

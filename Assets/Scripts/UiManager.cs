@@ -26,6 +26,10 @@ public class UiManager : MonoBehaviour
 
     // boosts
     public Button fishButton;
+    public Button mouseButton;
+    public Button beeButton;
+    public Button flyButton;
+    public Button mosquitoButton;
 
 
     private bool isMusicOn = true;
@@ -73,7 +77,11 @@ public class UiManager : MonoBehaviour
         restartButton.onClick.AddListener(Replay);
         leaderboardButton.onClick.AddListener(Leaderboard);
 
-        fishButton.onClick.AddListener(SpawnFish); 
+        fishButton.onClick.AddListener(SpawnFish);
+        mouseButton.onClick.AddListener(SpawnMouse);
+        beeButton.onClick.AddListener(SpawnBee);
+        flyButton.onClick.AddListener(SpawnFly);
+        mosquitoButton.onClick.AddListener(SpawnMosquito);
 
     }
 
@@ -171,6 +179,22 @@ public class UiManager : MonoBehaviour
     private void SpawnFish()
     {
         BoostManager.Instance.SpawnFish();
+    }
+    private void SpawnMouse()
+    {
+        BoostManager.Instance.SpawnMouse();
+    }
+    private void SpawnBee()
+    {
+        BoostManager.Instance.SpawnBee();
+    }
+    private void SpawnFly()
+    {
+        BoostManager.Instance.SpawnFly();
+    }
+    private void SpawnMosquito()
+    {
+        BoostManager.Instance.SpawnMosquito();
     }
 
 }
