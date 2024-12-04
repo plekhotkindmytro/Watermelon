@@ -42,7 +42,7 @@ public class BoostManager : MonoBehaviour
     public void SpawnMouse()
     {
         // float offset = 0.5f;
-        print("spawb");
+       
         float x = GameManager.Instance.RandomSpawnX();
         Vector2 pos = new Vector2(x,
             -mainCamera.orthographicSize - mousePrefab.transform.localScale.y/2);
@@ -51,7 +51,11 @@ public class BoostManager : MonoBehaviour
     }
     public void SpawnBee()
     {
-        
+
+        float x = GameManager.Instance.RandomSpawnX();
+        Vector2 pos = new Vector2(x, mainCamera.orthographicSize + beePrefab.transform.localScale.y / 2);
+        GameObject bee = Instantiate(beePrefab, pos, Quaternion.identity, transform);
+        bee.SetActive(true);
     }
     public void SpawnFly()
     {

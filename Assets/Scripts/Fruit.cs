@@ -225,7 +225,11 @@ public class Fruit : MonoBehaviour
 
     private void Merge(Fruit otherFruit)
     {
-        
+        if (nextFruitPrefab == null)
+        {
+            return;
+        }
+
         AudioManager.Instance.Splat();
         gameObject.GetComponent<Collider2D>().enabled = false;
         otherFruit.gameObject.GetComponent<Collider2D>().enabled = false;
@@ -279,6 +283,61 @@ public class Fruit : MonoBehaviour
             thisSquash.DOKill();
             thisSquash.StopAllCoroutines();
             thisSquash.CancelInvoke();   
+        }
+
+        this.CancelInvoke();
+        this.DOKill();
+        Destroy(gameObject);
+    }
+
+    public void BeeMerge()
+    {
+        if(nextFruitPrefab == null)
+        {
+            return;
+        }
+
+        AudioManager.Instance.Splat();
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        
+        
+        GameObject fruitGameObject = Instantiate(nextFruitPrefab, transform.position, Quaternion.identity);
+        Fruit fruit = fruitGameObject.GetComponent<Fruit>();
+        Vector3 targetScale = fruit.GetTargetScale();
+
+        fruitGameObject.transform.localScale = Vector3.zero;
+        fruitGameObject.transform.GetChild(0).gameObject.SetActive(true);
+        fruitGameObject.transform.DOScale(targetScale, 0.4f).OnComplete(() => {
+            fruit.ActivateMe();
+
+        });
+
+        if (fruit.fruitLevel >= 6)
+        {
+            if (fruit.fruitLevel <= 10)
+            {
+                VibrationManager.Instance.VibrateShort();
+            }
+            else
+            {
+                VibrationManager.Instance.VibrateLong();
+            }
+
+        }
+        ParticleSpawner.Instance.SpawnFruitParticles(fruit);
+
+        // 
+
+        GameManager.Instance.AddScore(pointValue);
+
+       
+
+        FruitSquashEffect thisSquash = this.GetComponent<FruitSquashEffect>();
+        if (thisSquash != null && thisSquash.enabled)
+        {
+            thisSquash.DOKill();
+            thisSquash.StopAllCoroutines();
+            thisSquash.CancelInvoke();
         }
 
         this.CancelInvoke();

@@ -37,9 +37,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4129184071014027894, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129184071014027894, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: caaf322740095df4faf8d66f69e7508c, type: 3}
+      objectReference: {fileID: 8300000, guid: 9715f577948bb459fb1065b32c841b94, type: 3}
+    - target: {fileID: 4129184071014027894, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363216463765630725, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629959724977330973, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -91,5 +103,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5477332399015735675, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6783586266092313081}
   m_SourcePrefab: {fileID: 100100000, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
+--- !u!1 &47520146138573384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5477332399015735675, guid: 9465f99457d1a419cb8364cada23f561, type: 3}
+  m_PrefabInstance: {fileID: 5524711239119379251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6783586266092313081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47520146138573384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af923ad33a2ff499c9dfae8595932832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  changeDirectionInterval: 2
+  restTime: 1
+  faceDirection: 0
+  ball: 0
