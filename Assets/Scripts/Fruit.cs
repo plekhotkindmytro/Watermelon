@@ -239,6 +239,9 @@ public class Fruit : MonoBehaviour
         
         GameObject fruitGameObject = Instantiate(nextFruitPrefab, mergePosition, Quaternion.identity);
         Fruit fruit = fruitGameObject.GetComponent<Fruit>();
+
+        BoostManager.Instance.TryAddBoost(fruit.fruitLevel);
+
         Vector3 targetScale = fruit.GetTargetScale();
 
         fruitGameObject.transform.localScale = Vector3.zero;

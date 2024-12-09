@@ -116,4 +116,20 @@ public class BoostManager : MonoBehaviour
        // TODO
     }
 
+    internal void TryAddBoost(int level)
+    {
+        if(level == 9) {
+            fishCount++;
+            PlayerPrefs.SetInt(FISH_COUNT_KEY, fishCount);
+            UiManager.Instance.fishCountText.text = fishCount.ToString();
+        } else if(level == 10) {
+            beeCount++;
+            PlayerPrefs.SetInt(BEE_COUNT_KEY, beeCount);
+            UiManager.Instance.beeCountText.text = beeCount.ToString();
+        } else if(level == 11) {
+            mouseCount++;
+            PlayerPrefs.SetInt(MOUSE_COUNT_KEY, mouseCount);
+            UiManager.Instance.mouseCountText.text = mouseCount.ToString();
+        }
+    }
 }
