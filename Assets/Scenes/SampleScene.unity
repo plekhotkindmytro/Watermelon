@@ -5136,15 +5136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066026148487500111, guid: efe1cae9dae3c4767b01f7156703b5ee, type: 3}
       propertyPath: m_Color.b
-      value: 0.02745098
+      value: 0.68235296
       objectReference: {fileID: 0}
     - target: {fileID: 7066026148487500111, guid: efe1cae9dae3c4767b01f7156703b5ee, type: 3}
       propertyPath: m_Color.g
-      value: 0.67058825
+      value: 0.4039216
       objectReference: {fileID: 0}
     - target: {fileID: 7066026148487500111, guid: efe1cae9dae3c4767b01f7156703b5ee, type: 3}
       propertyPath: m_Color.r
-      value: 0.5294118
+      value: 0.54509807
       objectReference: {fileID: 0}
     - target: {fileID: 8711672212020395703, guid: efe1cae9dae3c4767b01f7156703b5ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14563,6 +14563,9 @@ MonoBehaviour:
   mouseCount: 0
   beeCount: 0
   fishCount: 0
+  defaultFishCount: 15
+  defaultBeeCount: 10
+  defaultMouseCount: 5
 --- !u!1 &2121935663
 GameObject:
   m_ObjectHideFlags: 0
