@@ -31,6 +31,10 @@ public class UiManager : MonoBehaviour
     public Button flyButton;
     public Button mosquitoButton;
 
+    public TMP_Text fishCountText;
+    public TMP_Text mouseCountText;
+    public TMP_Text beeCountText;
+
 
     private bool isMusicOn = true;
     private bool isSoundOn = true;
