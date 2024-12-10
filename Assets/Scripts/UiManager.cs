@@ -1,8 +1,8 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UiManager : MonoBehaviour
 {
@@ -45,7 +45,7 @@ public class UiManager : MonoBehaviour
     private readonly static string MUSIC_ENABLED_KEY = "MusicEnabled";
     private readonly static string SOUND_ENABLED_KEY = "SoundEnabled";
     private readonly static string VIBRATE_ENABLED_KEY = "VibrateEnabled";
-
+    public GameObject bottomArrow;
 
 
     private void Awake()
@@ -200,5 +200,25 @@ public class UiManager : MonoBehaviour
     {
         BoostManager.Instance.SpawnMosquito();
     }
+
+    public void RevealFruitByLevel(int level)
+    {
+        if(level < 7)
+        {
+            return;
+        }
+
+        Transform wrapper = bottomArrow.transform.GetChild(0);
+        Transform fruit = wrapper.GetChild(level - 1);
+        fruit.GetComponent<Image>().color = Color.white;
+        Transform questionMark = fruit.GetChild(0);
+        if(questionMark.gameObject.activeSelf)
+        {
+            questionMark.gameObject.SetActive(false);
+            fruit.DOScale(1.5f, 0.5f).SetLoops(2, LoopType.Yoyo);
+        }
+    }
+
+    
 
 }

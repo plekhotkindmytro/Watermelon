@@ -116,7 +116,7 @@ public class BoostManager : MonoBehaviour
        // TODO
     }
 
-    internal void TryAddBoost(int level)
+    public void TryAddBoost(int level)
     {
         if(level == 9) {
             fishCount++;

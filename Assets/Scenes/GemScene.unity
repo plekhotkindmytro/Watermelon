@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 103033935474113257, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60799552877ae49079f14a96c69dabee, type: 3}
     - target: {fileID: 809148395427212551, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -899,6 +903,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1908485588396249600, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7bd7577353f2648128b2c21dd931fdc1, type: 3}
+    - target: {fileID: 2216311799646410835, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd1e734ed3c7646f699c698167e25dff, type: 3}
     - target: {fileID: 2392976510223283306, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -923,6 +935,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2591875053543968724, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cc0816df1f5743a1947e8bbf6768ea2, type: 3}
+    - target: {fileID: 2641281768679784928, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e19083eee51ac4be38aaf2e8d9df08cb, type: 3}
     - target: {fileID: 3291393510659364009, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -947,6 +967,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3516593056055212214, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b97cdf6bf586435bbb9e87bd27bcde7, type: 3}
     - target: {fileID: 3577522394829303385, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -971,6 +995,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3633639340665898017, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9118c19a77ce6488fac9af8569723a35, type: 3}
     - target: {fileID: 4199260797607347878, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -995,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4370127373156581290, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 32d5cda0c8e024a858763c23b238cbbd, type: 3}
     - target: {fileID: 4882680149085288009, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_Name
       value: Gems
@@ -1047,6 +1079,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5211060793927102988, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 097be2fb8581e4e5192d42304d7bdb4c, type: 3}
     - target: {fileID: 5296861014038371838, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1071,6 +1107,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5338228635005220419, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1acc2fc0de88f47358dad318c0bb6949, type: 3}
+    - target: {fileID: 5837842509210865406, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e23bd84ab81d488885ae5fa781aeece, type: 3}
     - target: {fileID: 6194492969315000019, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -1095,6 +1139,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6509619674975633759, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f24d4d8df8a9d4cc49644026cbf78cd3, type: 3}
     - target: {fileID: 6596555440485666936, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1143,6 +1191,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6685840230424989425, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6af911c126e8b474fbd4cabc0d186135, type: 3}
     - target: {fileID: 7300466071057593879, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1191,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8797409219828107589, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8175efe18ce7442e5b058dfeb849a3be, type: 3}
     - target: {fileID: 9016552299312309018, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1215,6 +1271,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9022387883553213268, guid: b8859074e1faf4955bd1530d6f387a57, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 100ffe6013da24024952b5554cd85d55, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -26,6 +26,7 @@ public class Fruit : MonoBehaviour
     public float timeOutsideBeforeBorderWarning = 2f;
     public float timeOutsideBeforeGameOver = 5.5f;
     private float timeInWarningZoneElapsed = 0;
+    private Color baseColor;
 
     private Sprite[] sprites;
 
@@ -55,6 +56,7 @@ public class Fruit : MonoBehaviour
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
         line.SetPosition(1, new Vector3(transform.position.x, GameManager.Instance.GetBoxBottomY()));
+        baseColor = spriteRenderer.color;
     }
 
     public Vector3 GetTargetScale()
@@ -84,6 +86,8 @@ public class Fruit : MonoBehaviour
         this.transform.GetChild(1).gameObject.SetActive(false);
         //this.transform.DOScale(0.1f, 0.1f).OnComplete(() => { this.transform.DOScale(targetScale, 0.1f); });
         CameraManager.Instance.Follow(this.transform);
+
+        UiManager.Instance.RevealFruitByLevel(this.fruitLevel);
     }
 
 
@@ -174,7 +178,7 @@ public class Fruit : MonoBehaviour
             return;
         }
         spriteRenderer.sprite = baseSprite;
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = baseColor;
     }
 
     internal void SetSleepSprite()
@@ -189,7 +193,7 @@ public class Fruit : MonoBehaviour
             return;
         }
         spriteRenderer.sprite = sleepSprite;
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = baseColor;
     }
 
     internal void SetAngrySprite()
@@ -240,7 +244,7 @@ public class Fruit : MonoBehaviour
         GameObject fruitGameObject = Instantiate(nextFruitPrefab, mergePosition, Quaternion.identity);
         Fruit fruit = fruitGameObject.GetComponent<Fruit>();
 
-        BoostManager.Instance.TryAddBoost(fruit.fruitLevel);
+        
 
         Vector3 targetScale = fruit.GetTargetScale();
 
@@ -251,9 +255,10 @@ public class Fruit : MonoBehaviour
             
         });
         
-        if(fruit.fruitLevel >= 6)
+        if(fruit.fruitLevel >= 7)
         {
-            if(fruit.fruitLevel <= 10)
+            BoostManager.Instance.TryAddBoost(fruit.fruitLevel);
+            if (fruit.fruitLevel <= 10)
             {
                 VibrationManager.Instance.VibrateShort();
             } else

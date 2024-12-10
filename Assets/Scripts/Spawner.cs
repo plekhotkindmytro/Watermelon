@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour
 
 
     private float timeElapsed = 0;
+    private Vector2 lastDropPosition;
 
 
     public void Start()
@@ -104,14 +105,16 @@ public class Spawner : MonoBehaviour
         LineRenderer line = controlledFruit.GetComponent<LineRenderer>();
         line.SetPosition(0, controlledFruit.transform.position);
         line.SetPosition(1, new Vector3(controlledFruit.transform.position.x, GameManager.Instance.GetBoxBottomY()));
-        
+        lastDropPosition = controlledFruit.transform.position;
     }
 
     public void CreateFruit()
     {
         // Randomly select a fruit prefab and instantiate it at the spawner's position
         int randomIndex;
-        Vector3 spawnPos = transform.position + Vector3.up * spawnOffsetY;
+        float spawnX = lastDropPosition == null ? transform.position.x : lastDropPosition.x;
+
+        Vector3 spawnPos = new Vector2(spawnX, transform.position.y + spawnOffsetY);
         if (nextFruit == null)
         {
             randomIndex = Random.Range(0, fruitPrefabs.Count);
@@ -124,6 +127,7 @@ public class Spawner : MonoBehaviour
         {
             controlledFruit = nextFruit;
             controlledFruit.gameObject.SetActive(true);
+            controlledFruit.transform.position = spawnPos;
         }
         controlledFruit.GetComponent<FruitIdleShake>().enabled = true;
         controlledFruit.transform.localScale = Vector3.zero;
@@ -137,6 +141,8 @@ public class Spawner : MonoBehaviour
         nextGameObject.SetActive(false);
         nextFruit = nextGameObject.GetComponent<Fruit>();
         nextFruitImage.sprite = nextGameObject.GetComponent<SpriteRenderer>().sprite;
-        
+        nextFruitImage.color = nextGameObject.GetComponent<SpriteRenderer>().color;
+
+
     }
 }
