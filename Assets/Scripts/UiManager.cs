@@ -10,6 +10,8 @@ public class UiManager : MonoBehaviour
 
     public GameObject settingsPanel;
 
+    public GameObject shopPanel;
+
     public Color passiveColor;
     public Button settingsButton;
     public Button closeSettingsButton;
@@ -30,6 +32,16 @@ public class UiManager : MonoBehaviour
     public Button beeButton;
     public Button flyButton;
     public Button mosquitoButton;
+
+    //buy boosts
+    public Button buyMouseButton;
+    public Button buyBeeButton;
+    public Button buyFishButton;
+    public Button closeShopButton;
+    public TMP_Text mousePriceText;
+    public TMP_Text beePriceText;
+    public TMP_Text fishPriceText;
+    
 
     public TMP_Text fishCountText;
     public TMP_Text mouseCountText;
@@ -84,8 +96,14 @@ public class UiManager : MonoBehaviour
         fishButton.onClick.AddListener(SpawnFish);
         mouseButton.onClick.AddListener(SpawnMouse);
         beeButton.onClick.AddListener(SpawnBee);
-        flyButton.onClick.AddListener(SpawnFly);
-        mosquitoButton.onClick.AddListener(SpawnMosquito);
+        //flyButton.onClick.AddListener(SpawnFly);
+        //mosquitoButton.onClick.AddListener(SpawnMosquito);
+
+
+        buyMouseButton.onClick.AddListener(IAPManager.Instance.BuyMouse);
+        buyBeeButton.onClick.AddListener(IAPManager.Instance.BuyBee);
+        buyFishButton.onClick.AddListener(IAPManager.Instance.BuyFish);
+        closeShopButton.onClick.AddListener(CloseShopPanel);
 
     }
 
@@ -104,6 +122,17 @@ public class UiManager : MonoBehaviour
     {
         settingsPanel.SetActive(false);
     }
+
+    public void OpenShopPanel()
+    {
+        shopPanel.SetActive(true);
+    }
+
+    private void CloseShopPanel()
+    {
+        shopPanel.SetActive(false);
+    }
+
 
     public void ToggleMusic()
     {
@@ -192,14 +221,14 @@ public class UiManager : MonoBehaviour
     {
         BoostManager.Instance.SpawnBee();
     }
-    private void SpawnFly()
-    {
-        BoostManager.Instance.SpawnFly();
-    }
-    private void SpawnMosquito()
-    {
-        BoostManager.Instance.SpawnMosquito();
-    }
+    //private void SpawnFly()
+    //{
+    //    BoostManager.Instance.SpawnFly();
+    //}
+    //private void SpawnMosquito()
+    //{
+    //    BoostManager.Instance.SpawnMosquito();
+    //}
 
     public void RevealFruitByLevel(int level)
     {

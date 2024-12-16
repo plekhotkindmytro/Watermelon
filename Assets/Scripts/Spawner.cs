@@ -38,6 +38,11 @@ public class Spawner : MonoBehaviour
             return;
         }
 
+        if (UiManager.Instance.shopPanel.activeSelf)
+        {
+            return;
+        }
+
         if (GameManager.Instance.gameOver)
         {
             return;

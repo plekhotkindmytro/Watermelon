@@ -56,6 +56,7 @@ public class BoostManager : MonoBehaviour
         {
             // Show IAP panel
             // buyFishPanel.SetActive(true)
+            UiManager.Instance.OpenShopPanel();
             return;
         }
 
@@ -76,6 +77,7 @@ public class BoostManager : MonoBehaviour
         {
             // Show IAP panel
             // buyFishPanel.SetActive(true)
+            UiManager.Instance.OpenShopPanel();
             return;
         }
 
@@ -95,6 +97,7 @@ public class BoostManager : MonoBehaviour
         {
             // Show IAP panel
             // buyFishPanel.SetActive(true)
+            UiManager.Instance.OpenShopPanel();
             return;
         }
 
@@ -107,29 +110,37 @@ public class BoostManager : MonoBehaviour
         PlayerPrefs.SetInt(BEE_COUNT_KEY, beeCount);
         UiManager.Instance.beeCountText.text = beeCount.ToString();
     }
-    public void SpawnFly()
-    {
-        // TODO
-    }
-    public void SpawnMosquito() 
-    {
-       // TODO
-    }
+    
 
     public void TryAddBoost(int level)
     {
         if(level == 9) {
-            fishCount++;
-            PlayerPrefs.SetInt(FISH_COUNT_KEY, fishCount);
-            UiManager.Instance.fishCountText.text = fishCount.ToString();
+            AddFish(1);
         } else if(level == 10) {
-            beeCount++;
-            PlayerPrefs.SetInt(BEE_COUNT_KEY, beeCount);
-            UiManager.Instance.beeCountText.text = beeCount.ToString();
+            AddBee(1);
         } else if(level == 11) {
-            mouseCount++;
-            PlayerPrefs.SetInt(MOUSE_COUNT_KEY, mouseCount);
-            UiManager.Instance.mouseCountText.text = mouseCount.ToString();
+            AddMouse(1);
         }
+    }
+
+    public void AddMouse(int amount)
+    {
+        mouseCount += amount;
+        PlayerPrefs.SetInt(MOUSE_COUNT_KEY, mouseCount);
+        UiManager.Instance.mouseCountText.text = mouseCount.ToString();
+    }
+
+    public void AddBee(int amount)
+    {
+        beeCount += amount;
+        PlayerPrefs.SetInt(BEE_COUNT_KEY, beeCount);
+        UiManager.Instance.beeCountText.text = beeCount.ToString();
+    }
+
+    public void AddFish(int amount)
+    {
+        fishCount += amount;
+        PlayerPrefs.SetInt(FISH_COUNT_KEY, fishCount);
+        UiManager.Instance.fishCountText.text = fishCount.ToString();
     }
 }
