@@ -8,6 +8,7 @@ public class UiManager : MonoBehaviour
 {
     public static UiManager Instance;
 
+    public float animationSpeed = 0.1f;
     public GameObject settingsPanel;
 
     public GameObject shopPanel;
@@ -104,6 +105,7 @@ public class UiManager : MonoBehaviour
         buyBeeButton.onClick.AddListener(IAPManager.Instance.BuyBee);
         buyFishButton.onClick.AddListener(IAPManager.Instance.BuyFish);
         closeShopButton.onClick.AddListener(CloseShopPanel);
+        
 
     }
 
@@ -116,21 +118,38 @@ public class UiManager : MonoBehaviour
     private void OpenSettingsPanel()
     {
         settingsPanel.SetActive(true);
+        settingsPanel.transform.localScale = Vector3.zero;
+        settingsPanel.transform.DOScale(1, animationSpeed).OnComplete(() =>
+        {
+            
+        });
+        
     }
 
     private void CloseSettingsPanel()
     {
-        settingsPanel.SetActive(false);
+        settingsPanel.transform.DOScale(0, animationSpeed).OnComplete(() =>
+        {
+            settingsPanel.SetActive(false);
+        });
     }
 
     public void OpenShopPanel()
     {
         shopPanel.SetActive(true);
+        shopPanel.transform.localScale = Vector3.zero;
+        shopPanel.transform.DOScale(1, animationSpeed).OnComplete(() =>
+        {
+            
+        });
     }
 
     private void CloseShopPanel()
     {
-        shopPanel.SetActive(false);
+        shopPanel.transform.DOScale(0, animationSpeed).OnComplete(() =>
+        {
+            shopPanel.SetActive(false);
+        });
     }
 
 

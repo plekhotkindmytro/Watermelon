@@ -14,7 +14,7 @@ public class FruitIdleShake : MonoBehaviour
 
     void Start()
     {
-        originalPosition = transform.position;
+        
         fruit = GetComponent<Fruit>();
     }
 
@@ -51,6 +51,7 @@ public class FruitIdleShake : MonoBehaviour
             return;
         }
         fruit.SetSleepSprite();
+        originalPosition = transform.position;
         shakeSequence = DOTween.Sequence();
 
         // Shake left and right in a loop
