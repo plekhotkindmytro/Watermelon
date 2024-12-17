@@ -279,6 +279,8 @@ IDetailedStoreListener
             {
                 Debug.Log("Restore purchases result: " + result);
                 //UpdateUI();
+                noInternet.Activate("Restored");
+                UiManager.Instance.CloseShopPanel();
                 if (!string.IsNullOrEmpty(error))
                 {
                     Debug.LogError("Restore purchases error: " + error);

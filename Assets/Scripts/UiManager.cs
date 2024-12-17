@@ -144,7 +144,7 @@ public class UiManager : MonoBehaviour
         });
     }
 
-    private void CloseShopPanel()
+    public void CloseShopPanel()
     {
         shopPanel.transform.DOScale(0, animationSpeed).OnComplete(() =>
         {
