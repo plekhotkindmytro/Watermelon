@@ -24,8 +24,19 @@ public class BoxScaler : MonoBehaviour
         Vector3 localScale = new Vector3(scaleFactor, scaleFactor, 1);
         transform.localScale = localScale;
 
-        float boxTableOffset = 3;
-        transform.position = new Vector3(0,  transform.localScale.y / 2 - boxTableOffset, 0);
+        float boxTableOffset = 4;
+
+        float aspectRatio = (float)Screen.width / Screen.height;
+
+        var pos = new Vector3(0, transform.localScale.y / 1.48f - boxTableOffset, 0);
+
+        // Check if the aspect ratio is close to an iPad's aspect ratio (typically ~4:3)
+        //if (aspectRatio >= 0.625f)
+        //{
+        //    pos -= Vector3.up*0.2f;
+        //}
+
+        transform.position = pos;
 
 
         ScreenshotManager.Instance.screenYOffset = (Screen.height / (mainCamera.orthographicSize * 2)) * (mainCamera.orthographicSize + transform.position.y - transform.localScale.y / 2);

@@ -5,7 +5,7 @@ using DG.Tweening;
 public class Spawner : MonoBehaviour
 {
     public Image nextFruitImage;
-    public List<GameObject> fruitPrefabs;  // List of all 11 fruit prefabs
+    public GameObject[] fruitPrefabs;  // List of all 11 fruit prefabs
     public float minSecondsBetweenSpawns = 1f;
     public float spawnOffsetY = 10;
 
@@ -32,6 +32,10 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if(fruitPrefabs == null || fruitPrefabs.Length < 0)
+        {
+            return;
+        }
 
         if (UiManager.Instance.settingsPanel.activeSelf)
         {
@@ -122,7 +126,7 @@ public class Spawner : MonoBehaviour
         Vector3 spawnPos = new Vector2(spawnX, transform.position.y + spawnOffsetY);
         if (nextFruit == null)
         {
-            randomIndex = Random.Range(0, fruitPrefabs.Count);
+            randomIndex = Random.Range(0, fruitPrefabs.Length);
             
             GameObject fruitGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos , Quaternion.identity);
 
@@ -141,7 +145,7 @@ public class Spawner : MonoBehaviour
         controlledFruit.transform.GetChild(1).gameObject.SetActive(true);
 
         // next
-        randomIndex = Random.Range(0, fruitPrefabs.Count);
+        randomIndex = Random.Range(0, fruitPrefabs.Length);
         GameObject nextGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos, Quaternion.identity);
         nextGameObject.SetActive(false);
         nextFruit = nextGameObject.GetComponent<Fruit>();

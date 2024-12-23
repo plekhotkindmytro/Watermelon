@@ -181,6 +181,11 @@ public class Fruit : MonoBehaviour
         spriteRenderer.color = baseColor;
     }
 
+    internal Sprite GetBaseSprite()
+    {
+        return baseSprite;
+    }
+
     internal void SetSleepSprite()
     {
         if (spriteRenderer == null)
