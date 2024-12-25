@@ -15,15 +15,16 @@ public class DeckLoader : MonoBehaviour
     {
         for (int i = 0; i < deckButtons.Length; i++)
         {
-            deckButtons[i].onClick.AddListener(delegate {
-                LoadDeck(i);
+            int index = i;
+            deckButtons[index].onClick.AddListener(delegate {
+                LoadDeck(index);
             });
         } 
     }
 
     private void LoadDeck(int themeIndex)
     {
-        PlayerPrefs.GetInt(THEME_KEY, themeIndex);
+        PlayerPrefs.SetInt(THEME_KEY, themeIndex);
         SceneManager.LoadScene("SampleScene");
     }
    

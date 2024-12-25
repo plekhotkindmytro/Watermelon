@@ -5,14 +5,13 @@ public class BoxScaler : MonoBehaviour
 
     public GameObject left;
     public GameObject right;
-    public Spawner spawner;
     private Camera mainCamera;
     private float worldWidth;
     private float worldHeight;
 
     
 
-    void Start()
+    public void ScaleBox()
     {
         mainCamera = Camera.main;
         worldWidth = mainCamera.orthographicSize * mainCamera.aspect * 2;
@@ -46,7 +45,7 @@ public class BoxScaler : MonoBehaviour
         float maxX = right.transform.position.x - right.transform.lossyScale.x / 2;
         GameManager.Instance.SetMinSpawnX(minX);
         GameManager.Instance.SetMaxSpawnX(maxX);
-        spawner.CreateFruit();
+        
 
 
     }

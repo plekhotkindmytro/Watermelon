@@ -5,22 +5,25 @@ using UnityEngine.UI;
 public class ThemeManager : MonoBehaviour
 {
     public Image backgroundImage;
-    public float backgroundImageScale;
     public Image backgroundImageForScreenshot;
     public SpriteRenderer boxSpriteRenderer;
     public SpriteRenderer boxFrameSpriteRenderer;
     public GameObject bottomArrowFruitsWrapper;
     public Theme[] themes;
     public Spawner spawner;
+    public BoxScaler boxScaler;
 
     private Theme activeTheme;
 
-    private static readonly string THEME_KEY = "theme";
+    public static readonly string THEME_KEY = "theme";
 
     void Start()
     {
-        activeTheme = themes[PlayerPrefs.GetInt(THEME_KEY, 0)];
 
+        int themeIndex = PlayerPrefs.GetInt(THEME_KEY, 0);
+        print("Active scene index: " + themeIndex);
+        activeTheme = themes[themeIndex];
+        
 
         float aspectRatio = activeTheme.backgroundSprite.rect.width / activeTheme.backgroundSprite.rect.height;
         backgroundImage.sprite = activeTheme.backgroundSprite;
@@ -35,8 +38,8 @@ public class ThemeManager : MonoBehaviour
         // Check if the aspect ratio is close to an iPad's aspect ratio (typically ~4:3)
         if (screenAspectRatio >= 0.625f)
         {
-            backgroundImage.transform.localScale = Vector3.one * backgroundImageScale;
-            backgroundImageForScreenshot.transform.localScale = Vector3.one * backgroundImageScale;
+            backgroundImage.transform.localScale = Vector3.one * activeTheme.backgroundImageScale;
+            backgroundImageForScreenshot.transform.localScale = Vector3.one * activeTheme.backgroundImageScale;
         }
 
         boxSpriteRenderer.sprite = activeTheme.boxSprite;
@@ -49,11 +52,10 @@ public class ThemeManager : MonoBehaviour
         }
 
         Array.Copy(activeTheme.fruits, spawner.fruitPrefabs, 6);
+
+        boxScaler.ScaleBox();
+        spawner.CreateFruit();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

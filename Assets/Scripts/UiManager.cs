@@ -21,6 +21,7 @@ public class UiManager : MonoBehaviour
     public Button toggleVibrateButton;
     public Button replayButton;
     public Button leaderboard1Button;
+    public Button homeButton;
 
     // game over
     public Button saveToPhotosButton;
@@ -88,6 +89,7 @@ public class UiManager : MonoBehaviour
         toggleVibrateButton.onClick.AddListener(ToggleVibrate);
         replayButton.onClick.AddListener(Replay);
         leaderboard1Button.onClick.AddListener(Leaderboard);
+        homeButton.onClick.AddListener(Home);
 
         // game over panel
         saveToPhotosButton.onClick.AddListener(ScreenshotManager.Instance.SaveToPhotos);
@@ -112,6 +114,11 @@ public class UiManager : MonoBehaviour
     private void ApplyState(Button button, bool isActive)
     {
         button.image.color = isActive ?  Color.white: passiveColor;
+    }
+
+    private void Home()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 
 

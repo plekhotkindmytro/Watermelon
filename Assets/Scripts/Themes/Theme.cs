@@ -8,6 +8,7 @@ public class Theme
     public GameObject[] fruits;
     public Sprite boxSprite;
     public Sprite boxFrameSprite;
+    public float backgroundImageScale;
 
 
 }
