@@ -5,6 +5,9 @@ public class BoxScaler : MonoBehaviour
 
     public GameObject left;
     public GameObject right;
+    public GameObject bottom;
+    public GameObject frame;
+    public MaxTopBorderTrigger maxTopBorderTrigger;
     private Camera mainCamera;
     private float worldWidth;
     private float worldHeight;

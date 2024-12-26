@@ -55,7 +55,7 @@ public class Fruit : MonoBehaviour
         //}
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
-        line.SetPosition(1, new Vector3(transform.position.x, GameManager.Instance.GetBoxBottomY()));
+        line.SetPosition(1, new Vector3(transform.position.x, ThemeManager.Instance.GetBoxBottomY()));
         baseColor = spriteRenderer.color;
     }
 
@@ -111,7 +111,7 @@ public class Fruit : MonoBehaviour
 
             if (timeInWarningZoneElapsed >= timeOutsideBeforeBorderWarning)
             {
-                GameManager.Instance.Warn();
+                ThemeManager.Instance.Warn();
             }
 
             if (timeInWarningZoneElapsed >= timeOutsideBeforeWarning)
@@ -145,7 +145,7 @@ public class Fruit : MonoBehaviour
         timeInWarningZoneElapsed = 0;
         angry = false;
         SetBaseSprite();
-        GameManager.Instance.CancelWarn();
+        ThemeManager.Instance.CancelWarn();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -11,11 +11,10 @@ public class GameManager : MonoBehaviour
     public TMP_Text bestScoreText;
     public GameObject gameOverPanel;
     public TMP_Text gameOverScoreText;
-    public MaxTopBorderTrigger maxTopBorderTrigger;
+    
     public float delayBeforeGameOverPanel = 1.5f;
     public string leaderboardId = "main";
-    public Transform boxBottomCollider;
-
+    
 
     private static readonly string BEST_SCORE_KEY = "bestScore";
 
@@ -49,11 +48,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public float GetBoxBottomY()
-    {
-        float bottomY = boxBottomCollider.position.y + boxBottomCollider.transform.lossyScale.y / 2;
-        return bottomY;
-    }
+    
 
     public void AddScore(int points)
     {
@@ -92,18 +87,6 @@ public class GameManager : MonoBehaviour
     {
         return UnityEngine.Random.Range(minSpawnX, maxSpawnX);
     }
-
-    internal void Warn()
-    {
-        maxTopBorderTrigger.Warn();
-    }
-
-    internal void CancelWarn()
-    {
-        maxTopBorderTrigger.CancelWarn();
-    }
-
-
 
     internal float ClampSpawnX(float x, float absoluteOffset)
     {

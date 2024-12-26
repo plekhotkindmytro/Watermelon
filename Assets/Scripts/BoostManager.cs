@@ -61,7 +61,7 @@ public class BoostManager : MonoBehaviour
         }
 
         Vector2 pos = new Vector2(-mainCamera.orthographicSize * mainCamera.aspect - fishPrefab.transform.localScale.x / 2,
-            GameManager.Instance.boxBottomCollider.position.y+ GameManager.Instance.boxBottomCollider.lossyScale.y/2+0.5f);
+            ThemeManager.Instance.GetBoxBottomY() + 0.5f);
         GameObject fish = Instantiate(fishPrefab, pos, Quaternion.identity, transform);
         fish.SetActive(true);
 

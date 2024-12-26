@@ -113,7 +113,7 @@ public class Spawner : MonoBehaviour
         controlledFruit.transform.position = new Vector2(x, controlledFruit.transform.position.y);
         LineRenderer line = controlledFruit.GetComponent<LineRenderer>();
         line.SetPosition(0, controlledFruit.transform.position);
-        line.SetPosition(1, new Vector3(controlledFruit.transform.position.x, GameManager.Instance.GetBoxBottomY()));
+        line.SetPosition(1, new Vector3(controlledFruit.transform.position.x, ThemeManager.Instance.GetBoxBottomY()));
         lastDropPosition = controlledFruit.transform.position;
     }
 
