@@ -39,8 +39,9 @@ public class ThemeManager : MonoBehaviour
     private void ApplyTheme()
     {
 
-        int themeIndex = PlayerPrefs.GetInt(THEME_KEY, 0);
-        
+        int themeIndex = PlayerPrefs.GetInt(THEME_KEY);
+        print("Index of theme: " + themeIndex);
+        print("Themes length: " + themes.Length);
         activeTheme = themes[themeIndex];
 
 
