@@ -40,8 +40,6 @@ public class ThemeManager : MonoBehaviour
     {
 
         int themeIndex = PlayerPrefs.GetInt(THEME_KEY);
-        print("Index of theme: " + themeIndex);
-        print("Themes length: " + themes.Length);
         activeTheme = themes[themeIndex];
 
 
@@ -87,7 +85,9 @@ public class ThemeManager : MonoBehaviour
         Image[] fruitSpriteRenderersInArrow = bottomArrowFruitsWrapper.GetComponentsInChildren<Image>();
         for (int i = 0; i < fruitSpriteRenderersInArrow.Length; i++)
         {
-            fruitSpriteRenderersInArrow[i].sprite = activeTheme.fruits[i].GetComponent<SpriteRenderer>().sprite;
+            SpriteRenderer fruitSpriteRenderer = activeTheme.fruits[i].GetComponent<SpriteRenderer>();
+            fruitSpriteRenderersInArrow[i].sprite = fruitSpriteRenderer.sprite;
+            fruitSpriteRenderersInArrow[i].color = fruitSpriteRenderer.color;
         }
 
         Array.Copy(activeTheme.fruits, spawner.fruitPrefabs, 6);
