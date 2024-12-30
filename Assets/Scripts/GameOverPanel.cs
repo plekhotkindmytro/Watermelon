@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class ScaleDownOnEnable : MonoBehaviour
+public class GameOverPanel : MonoBehaviour
 {
     public float from = 1.2f;
     public float to = 1f;
@@ -12,7 +12,7 @@ public class ScaleDownOnEnable : MonoBehaviour
     private GameObject content;
     
 
-    private void OnEnable()
+    public void Show()
     {
         content = transform.GetChild(0).gameObject;
         content.SetActive(false);

@@ -8,34 +8,56 @@ public class UiManager : MonoBehaviour
 {
     public static UiManager Instance;
 
+
+    [Header("Configs")]
     public float animationSpeed = 0.1f;
-    public GameObject settingsPanel;
-
-    public GameObject shopPanel;
-
+    public Color activeColor;
     public Color passiveColor;
+
+    [Header("Game")]
     public Button settingsButton;
+    public Button homeButton;
+    public GameObject bottomArrow;
+
+    // Panels
+    [Header("Panels")]
+    public GameObject settingsPanel;
+    public GameObject shopPanel;
+    public GameObject gameOverPanel;
+
+    private Transform settingsPanelContent;
+    private Transform shopPanelContent;
+    private Transform gameOverPanelContent;
+
+
+    [Header("Settings Panel")]
+    
     public Button closeSettingsButton;
     public Button toggleMusicButton;
     public Button toggleSoundButton;
     public Button toggleVibrateButton;
     public Button replayButton;
     public Button leaderboard1Button;
-    public Button homeButton;
+    
 
-    // game over
+    [Header("Game Over Panel")]
     public Button saveToPhotosButton;
     public Button restartButton;
     public Button leaderboardButton;
+    public Button gameOverHomeButton;
 
-    // boosts
+    [Header("Boosts")]
     public Button fishButton;
     public Button mouseButton;
     public Button beeButton;
     public Button flyButton;
     public Button mosquitoButton;
 
-    //buy boosts
+    public TMP_Text fishCountText;
+    public TMP_Text mouseCountText;
+    public TMP_Text beeCountText;
+
+    [Header("Shop Panel")]
     public Button buyMouseButton;
     public Button buyBeeButton;
     public Button buyFishButton;
@@ -45,9 +67,7 @@ public class UiManager : MonoBehaviour
     public TMP_Text fishPriceText;
     
 
-    public TMP_Text fishCountText;
-    public TMP_Text mouseCountText;
-    public TMP_Text beeCountText;
+    
 
 
     private bool isMusicOn = true;
@@ -59,7 +79,7 @@ public class UiManager : MonoBehaviour
     private readonly static string MUSIC_ENABLED_KEY = "MusicEnabled";
     private readonly static string SOUND_ENABLED_KEY = "SoundEnabled";
     private readonly static string VIBRATE_ENABLED_KEY = "VibrateEnabled";
-    public GameObject bottomArrow;
+    
 
 
     private void Awake()
@@ -95,6 +115,7 @@ public class UiManager : MonoBehaviour
         saveToPhotosButton.onClick.AddListener(ScreenshotManager.Instance.SaveToPhotos);
         restartButton.onClick.AddListener(Replay);
         leaderboardButton.onClick.AddListener(Leaderboard);
+        gameOverHomeButton.onClick.AddListener(Home);
 
         fishButton.onClick.AddListener(SpawnFish);
         mouseButton.onClick.AddListener(SpawnMouse);
@@ -107,13 +128,32 @@ public class UiManager : MonoBehaviour
         buyBeeButton.onClick.AddListener(IAPManager.Instance.BuyBee);
         buyFishButton.onClick.AddListener(IAPManager.Instance.BuyFish);
         closeShopButton.onClick.AddListener(CloseShopPanel);
+
+        HidePanels();
         
 
     }
 
+    private void HidePanels()
+    {
+        settingsPanelContent = settingsPanel.transform.GetChild(0);
+        shopPanelContent = shopPanel.transform.GetChild(0);
+        gameOverPanelContent = gameOverPanel.transform.GetChild(0);
+
+        settingsPanel.SetActive(false);
+        shopPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+    }
+
     private void ApplyState(Button button, bool isActive)
     {
-        button.image.color = isActive ?  Color.white: passiveColor;
+        button.image.color = isActive ?  activeColor: passiveColor;
+        //Transform textObject = button.transform.GetChild(0);
+        //TMP_Text buttonText = textObject.GetComponent<TMP_Text>();
+
+        //FontStyles activeFontStyle = FontStyles.UpperCase;
+        //FontStyles disabledFontStyle = (FontStyles.UpperCase | FontStyles.Strikethrough);
+        //buttonText.fontStyle = isActive? activeFontStyle : disabledFontStyle;
     }
 
     private void Home()
@@ -125,8 +165,9 @@ public class UiManager : MonoBehaviour
     private void OpenSettingsPanel()
     {
         settingsPanel.SetActive(true);
-        settingsPanel.transform.localScale = Vector3.zero;
-        settingsPanel.transform.DOScale(1, animationSpeed).OnComplete(() =>
+        settingsPanelContent.localScale = Vector3.zero;
+
+        settingsPanelContent.DOScale(1, animationSpeed).OnComplete(() =>
         {
             
         });
@@ -135,7 +176,7 @@ public class UiManager : MonoBehaviour
 
     private void CloseSettingsPanel()
     {
-        settingsPanel.transform.DOScale(0, animationSpeed).OnComplete(() =>
+        settingsPanelContent.DOScale(0, animationSpeed).OnComplete(() =>
         {
             settingsPanel.SetActive(false);
         });
@@ -144,8 +185,8 @@ public class UiManager : MonoBehaviour
     public void OpenShopPanel()
     {
         shopPanel.SetActive(true);
-        shopPanel.transform.localScale = Vector3.zero;
-        shopPanel.transform.DOScale(1, animationSpeed).OnComplete(() =>
+        shopPanelContent.localScale = Vector3.zero;
+        shopPanelContent.DOScale(1, animationSpeed).OnComplete(() =>
         {
             
         });
@@ -153,12 +194,20 @@ public class UiManager : MonoBehaviour
 
     public void CloseShopPanel()
     {
-        shopPanel.transform.DOScale(0, animationSpeed).OnComplete(() =>
+        shopPanelContent.DOScale(0, animationSpeed).OnComplete(() =>
         {
             shopPanel.SetActive(false);
         });
     }
 
+    public void OpenGameOverPanel(TMP_Text gameOverScoreText, int score)
+    {
+        ScreenshotManager.Instance.CaptureBucketScreenshot();
+        gameOverScoreText.text = "Score: " + score;
+        gameOverPanel.GetComponent<GameOverPanel>().Show(); 
+        
+        
+    }
 
     public void ToggleMusic()
     {

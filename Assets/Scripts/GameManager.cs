@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -108,18 +109,16 @@ public class GameManager : MonoBehaviour
 
     private void OpenGameOverPanel()
     {
-        ScreenshotManager.Instance.CaptureBucketScreenshot();
-        gameOverPanel.SetActive(true);
-        gameOverScoreText.text = "Score: " + score;
+        UiManager.Instance.OpenGameOverPanel(gameOverScoreText, score);
     }
 
-    public void ResetGame()
-    {
-        score = 0;
-        scoreText.text = "0";
-        gameOverPanel.SetActive(false);
-        gameOver = false;
-    }
+    //public void ResetGame()
+    //{
+    //    score = 0;
+    //    scoreText.text = "0";
+    //    gameOverPanel.SetActive(false);
+    //    gameOver = false;
+    //}
 
     
 
