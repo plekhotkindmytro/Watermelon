@@ -202,6 +202,7 @@ public class UiManager : MonoBehaviour
 
     public void OpenGameOverPanel(TMP_Text gameOverScoreText, int score)
     {
+        gameOverPanel.SetActive(true);
         ScreenshotManager.Instance.CaptureBucketScreenshot();
         gameOverScoreText.text = "Score: " + score;
         gameOverPanel.GetComponent<GameOverPanel>().Show(); 
@@ -305,7 +306,7 @@ public class UiManager : MonoBehaviour
     //    BoostManager.Instance.SpawnMosquito();
     //}
 
-    public void RevealFruitByLevel(int level)
+    public void RevealFruitByLevel(int level, SpriteRenderer spriteRenderer)
     {
         if(level < 7)
         {
@@ -314,7 +315,12 @@ public class UiManager : MonoBehaviour
 
         Transform wrapper = bottomArrow.transform.GetChild(0);
         Transform fruit = wrapper.GetChild(level - 1);
-        fruit.GetComponent<Image>().color = Color.white;
+        
+        Image image = fruit.GetComponent<Image>();
+
+        image.sprite = spriteRenderer.sprite;
+        image.color = spriteRenderer.color;
+
         Transform questionMark = fruit.GetChild(0);
         if(questionMark.gameObject.activeSelf)
         {

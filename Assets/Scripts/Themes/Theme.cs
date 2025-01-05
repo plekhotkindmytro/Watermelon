@@ -3,7 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class Theme
 {
+
     public Sprite backgroundSprite;
+    public Color bgSpriteColor;
 
     public GameObject[] fruits;
     

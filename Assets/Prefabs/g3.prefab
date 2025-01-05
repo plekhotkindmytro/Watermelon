@@ -33,12 +33,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: baseScale
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: fruitLevel
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: pointValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: angrySprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: scaleFactor
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: sleepSprite
@@ -50,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 7956472605111286799, guid: a262645fa76e04a83a198750e3f02a09, type: 3}
     - target: {fileID: 1935148698146039480, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1815
       objectReference: {fileID: 0}
     - target: {fileID: 1935148698146039480, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1691
       objectReference: {fileID: 0}
     - target: {fileID: 1935148698146039480, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90,23 +114,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3564625780216665575, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Mass
-      value: 0.111664504
+      value: 0.1348875
       objectReference: {fileID: 0}
     - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 097be2fb8581e4e5192d42304d7bdb4c, type: 3}
+      objectReference: {fileID: 21300000, guid: bac10e598d45a42faaaf0822d39c1dc9, type: 3}
     - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Color.b
-      value: 0.10642036
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Color.g
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Color.r
-      value: 0.09656459
+      value: 0.99215686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: m_SortingOrder
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6283297722545779696, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Name
@@ -170,18 +198,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.40300003, y: 0.215}
-      - {x: 0.20500001, y: 0.41500002}
-      - {x: 0.19900002, y: 0.418}
-      - {x: 0.136, y: 0.42200002}
-      - {x: -0.19900002, y: 0.42200002}
-      - {x: -0.40100002, y: 0.21700001}
-      - {x: -0.40100002, y: -0.007}
-      - {x: -0.4, y: -0.216}
-      - {x: -0.39800003, y: -0.22100002}
-      - {x: -0.19500001, y: -0.41700003}
-      - {x: -0.19000001, y: -0.418}
-      - {x: 0.19600001, y: -0.418}
-      - {x: 0.22100002, y: -0.39600003}
-      - {x: 0.40300003, y: -0.22100002}
+    - - {x: -0.38, y: 0.215}
+      - {x: -0.195, y: 0.4}
+      - {x: 0.195, y: 0.4}
+      - {x: 0.38, y: 0.215}
+      - {x: 0.38, y: -0.215}
+      - {x: 0.195, y: -0.4}
+      - {x: -0.195, y: -0.4}
+      - {x: -0.38, y: -0.215}
   m_UseDelaunayMesh: 0

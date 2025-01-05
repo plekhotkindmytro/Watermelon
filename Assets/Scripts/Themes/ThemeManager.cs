@@ -6,14 +6,16 @@ public class ThemeManager : MonoBehaviour
 {
     public static ThemeManager Instance;
 
+    [Header("Canvas Objects")]
     public Image backgroundImage;
     public Image backgroundImageForScreenshot;
-    
     public GameObject bottomArrowFruitsWrapper;
+
+    [Header("Themes")]
     public Theme[] themes;
+
+    [Header("Spawner")]
     public Spawner spawner;
-
-
 
     
 
@@ -55,12 +57,13 @@ public class ThemeManager : MonoBehaviour
     {
         float aspectRatio = activeTheme.backgroundSprite.rect.width / activeTheme.backgroundSprite.rect.height;
         backgroundImage.sprite = activeTheme.backgroundSprite;
+        backgroundImage.color = activeTheme.bgSpriteColor;
         backgroundImage.GetComponent<AspectRatioFitter>().aspectRatio = aspectRatio;
 
 
         backgroundImageForScreenshot.sprite = activeTheme.backgroundSprite;
+        backgroundImageForScreenshot.color = activeTheme.bgSpriteColor;
         backgroundImageForScreenshot.GetComponent<AspectRatioFitter>().aspectRatio = aspectRatio;
-
 
         float screenAspectRatio = (float)Screen.width / Screen.height;
         // Check if the aspect ratio is close to an iPad's aspect ratio (typically ~4:3)
@@ -83,7 +86,7 @@ public class ThemeManager : MonoBehaviour
     private void SetSpawner()
     {
         Image[] fruitSpriteRenderersInArrow = bottomArrowFruitsWrapper.GetComponentsInChildren<Image>();
-        for (int i = 0; i < fruitSpriteRenderersInArrow.Length; i++)
+        for (int i = 0; i < 6; i++)
         {
             SpriteRenderer fruitSpriteRenderer = activeTheme.fruits[i].GetComponent<SpriteRenderer>();
             fruitSpriteRenderersInArrow[i].sprite = fruitSpriteRenderer.sprite;

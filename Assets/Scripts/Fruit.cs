@@ -87,7 +87,7 @@ public class Fruit : MonoBehaviour
         //this.transform.DOScale(0.1f, 0.1f).OnComplete(() => { this.transform.DOScale(targetScale, 0.1f); });
         CameraManager.Instance.Follow(this.transform);
 
-        UiManager.Instance.RevealFruitByLevel(this.fruitLevel);
+        UiManager.Instance.RevealFruitByLevel(this.fruitLevel, spriteRenderer);
     }
 
 
