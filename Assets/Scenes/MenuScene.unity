@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 57195472}
   - component: {fileID: 57195471}
   - component: {fileID: 57195470}
+  - component: {fileID: 57195473}
   m_Layer: 0
   m_Name: Balls
   m_TagString: Untagged
@@ -480,6 +481,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57195468}
   m_CullTransparentMesh: 1
+--- !u!114 &57195473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57195468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1.2
 --- !u!1 &57746292
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +521,7 @@ RectTransform:
   m_GameObject: {fileID: 57746292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 336171372}
@@ -642,6 +656,7 @@ GameObject:
   - component: {fileID: 277832189}
   - component: {fileID: 277832188}
   - component: {fileID: 277832187}
+  - component: {fileID: 277832190}
   m_Layer: 0
   m_Name: KenneyAnimals
   m_TagString: Untagged
@@ -752,6 +767,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277832185}
   m_CullTransparentMesh: 1
+--- !u!114 &277832190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277832185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
 --- !u!1 &336171371
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +792,7 @@ GameObject:
   - component: {fileID: 336171375}
   - component: {fileID: 336171374}
   - component: {fileID: 336171373}
+  - component: {fileID: 336171376}
   m_Layer: 0
   m_Name: Fruits
   m_TagString: Untagged
@@ -874,6 +903,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336171371}
   m_CullTransparentMesh: 1
+--- !u!114 &336171376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336171371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.4
 --- !u!1 &343525407
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +943,7 @@ RectTransform:
   m_GameObject: {fileID: 343525407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 57195469}
@@ -976,7 +1018,7 @@ RectTransform:
   m_GameObject: {fileID: 444073437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 0.79999995}
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1412103738}
@@ -1171,6 +1213,7 @@ GameObject:
   - component: {fileID: 575267993}
   - component: {fileID: 575267992}
   - component: {fileID: 575267991}
+  - component: {fileID: 575267994}
   m_Layer: 0
   m_Name: FoodStickers
   m_TagString: Untagged
@@ -1281,6 +1324,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575267989}
   m_CullTransparentMesh: 1
+--- !u!114 &575267994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575267989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1.6
 --- !u!1 &609929982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1400,7 @@ GameObject:
   - component: {fileID: 632224465}
   - component: {fileID: 632224464}
   - component: {fileID: 632224463}
+  - component: {fileID: 632224466}
   m_Layer: 0
   m_Name: KenneyLetterBlock
   m_TagString: Untagged
@@ -1454,6 +1511,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632224461}
   m_CullTransparentMesh: 1
+--- !u!114 &632224466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632224461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1.4
 --- !u!1 &690799125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1551,7 @@ RectTransform:
   m_GameObject: {fileID: 690799125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 277832186}
@@ -1616,6 +1686,7 @@ GameObject:
   - component: {fileID: 720136748}
   - component: {fileID: 720136747}
   - component: {fileID: 720136746}
+  - component: {fileID: 720136749}
   m_Layer: 0
   m_Name: Borsch
   m_TagString: Untagged
@@ -1726,6 +1797,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720136744}
   m_CullTransparentMesh: 1
+--- !u!114 &720136749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720136744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.2
 --- !u!1 &799411896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2079,7 @@ GameObject:
   - component: {fileID: 960337341}
   - component: {fileID: 960337340}
   - component: {fileID: 960337339}
+  - component: {fileID: 960337342}
   m_Layer: 0
   m_Name: LetterBlock
   m_TagString: Untagged
@@ -2105,6 +2190,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960337337}
   m_CullTransparentMesh: 1
+--- !u!114 &960337342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960337337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!1 &1014796828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,7 +2806,7 @@ RectTransform:
   m_GameObject: {fileID: 1384084765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 0.79999995}
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1412103738}
@@ -2768,6 +2866,7 @@ GameObject:
   - component: {fileID: 1412103741}
   - component: {fileID: 1412103740}
   - component: {fileID: 1412103739}
+  - component: {fileID: 1412103742}
   m_Layer: 0
   m_Name: Gems
   m_TagString: Untagged
@@ -2878,6 +2977,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412103737}
   m_CullTransparentMesh: 1
+--- !u!114 &1412103742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412103737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.8
 --- !u!1 &1421233675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +3081,7 @@ GameObject:
   - component: {fileID: 1431680948}
   - component: {fileID: 1431680947}
   - component: {fileID: 1431680946}
+  - component: {fileID: 1431680949}
   m_Layer: 0
   m_Name: Numbers
   m_TagString: Untagged
@@ -3079,6 +3192,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431680944}
   m_CullTransparentMesh: 1
+--- !u!114 &1431680949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431680944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faca297663e748cbb6be49d5c8c0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.6
 --- !u!1 &1594186820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3232,7 @@ RectTransform:
   m_GameObject: {fileID: 1594186820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 336171372}
@@ -3331,7 +3457,7 @@ RectTransform:
   m_GameObject: {fileID: 1870840240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 277832186}
@@ -3406,7 +3532,7 @@ RectTransform:
   m_GameObject: {fileID: 1917864688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 57195469}

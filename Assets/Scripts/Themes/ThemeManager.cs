@@ -24,7 +24,7 @@ public class ThemeManager : MonoBehaviour
     public static readonly string THEME_KEY = "theme";
 
     private BoxScaler boxScaler;
-    private float boxBottomY;
+    //private float boxBottomY;
 
     private void Awake()
     {
@@ -80,7 +80,8 @@ public class ThemeManager : MonoBehaviour
         boxScaler = box.GetComponent<BoxScaler>();
         boxScaler.ScaleBox();
         
-        boxBottomY = boxScaler.bottom.transform.position.y + boxScaler.bottom.transform.lossyScale.y / 2;
+        //boxBottomY = boxScaler.bottom.transform.position.y + boxScaler.bottom.transform.lossyScale.y / 2;
+
     }
 
     private void SetSpawner()
@@ -98,12 +99,13 @@ public class ThemeManager : MonoBehaviour
         spawner.transform.parent = boxScaler.transform;
         spawner.transform.localPosition = Vector3.up * activeTheme.spawnerLocalPosY;
 
-        spawner.CreateFruit();
+       
     }
 
     public float GetBoxBottomY()
-    {        
-        return boxBottomY;
+    {
+        return boxScaler.GetBoxBottomY();
+        //return boxBottomY;
     }
 
     internal void Warn()

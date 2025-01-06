@@ -1,4 +1,6 @@
 using UnityEngine;
+using DG.Tweening;
+using System;
 
 public class BoxScaler : MonoBehaviour
 {
@@ -8,9 +10,19 @@ public class BoxScaler : MonoBehaviour
     public GameObject bottom;
     public GameObject frame;
     public MaxTopBorderTrigger maxTopBorderTrigger;
+
+
+
+   // public float from = 20f;
+    public float duration = 1f;
+    public float contentDelay = 0.2f;
+    private AudioSource sound;
+
+
     private Camera mainCamera;
     private float worldWidth;
     private float worldHeight;
+    private float boxBottomY;
 
     
 
@@ -33,10 +45,10 @@ public class BoxScaler : MonoBehaviour
         var pos = new Vector3(0, transform.localScale.y / 1.48f - boxTableOffset, 0);
 
         // Check if the aspect ratio is close to an iPad's aspect ratio (typically ~4:3)
-        //if (aspectRatio >= 0.625f)
-        //{
-        //    pos -= Vector3.up*0.2f;
-        //}
+        if (aspectRatio < 0.625f)
+        {
+            pos += Vector3.up;
+        }
 
         transform.position = pos;
 
@@ -48,9 +60,29 @@ public class BoxScaler : MonoBehaviour
         float maxX = right.transform.position.x - right.transform.lossyScale.x / 2;
         GameManager.Instance.SetMinSpawnX(minX);
         GameManager.Instance.SetMaxSpawnX(maxX);
-        
-
+        boxBottomY = bottom.transform.position.y + bottom.transform.lossyScale.y / 2;
+        BoxAppearAnimation();
 
     }
 
+
+    private void BoxAppearAnimation()
+    {
+        sound = GetComponent<AudioSource>();
+        float delay = duration - sound.clip.length;
+        sound.PlayDelayed(delay > 0 ? delay : 0);
+
+        float targetPosY = transform.position.y;
+        float startPosY = 30f;
+
+        transform.position += Vector3.up*startPosY;
+        transform.DOMoveY(targetPosY, duration).OnComplete(() => {
+            ThemeManager.Instance.spawner.CreateFruit();
+        });
+    }
+
+    internal float GetBoxBottomY()
+    {
+        return boxBottomY;
+    }
 }

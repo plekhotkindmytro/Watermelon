@@ -47,6 +47,11 @@ public class Spawner : MonoBehaviour
             return;
         }
 
+        if (controlledFruit == null)
+        {
+            return;
+        }
+
         if (GameManager.Instance.gameOver)
         {
             return;
@@ -143,6 +148,7 @@ public class Spawner : MonoBehaviour
 
         controlledFruit.transform.DOScale(controlledFruit.GetTargetScale(), 0.5f);
         controlledFruit.transform.GetChild(1).gameObject.SetActive(true);
+        controlledFruit.transform.parent = transform;
 
         // next
         randomIndex = Random.Range(0, fruitPrefabs.Length);
