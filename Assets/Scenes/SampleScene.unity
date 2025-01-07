@@ -2000,6 +2000,57 @@ MonoBehaviour:
     backgroundImageScale: 1
     boxPrefab: {fileID: 8509963446711627898, guid: 415c95ae459eb4b1db0265fbab88c85c, type: 3}
     spawnerLocalPosY: 0.6
+  - backgroundSprite: {fileID: 21300000, guid: b59e38f3eaa064956a8fac7654c01355, type: 3}
+    bgSpriteColor: {r: 0.7877358, g: 1, b: 0.8689213, a: 1}
+    fruits:
+    - {fileID: 6283297722545779696, guid: b9e0b93bb2007441a8643db0e33cf0b0, type: 3}
+    - {fileID: 5344685361548465846, guid: e4a3289d9341e42bc97cd377d9aae945, type: 3}
+    - {fileID: 5344685361548465846, guid: 95114d064dad54226ba63f62e88cd2e0, type: 3}
+    - {fileID: 5344685361548465846, guid: e4f6981d7e9bc408d8f0dddd37f32fba, type: 3}
+    - {fileID: 5344685361548465846, guid: ff024a1554e994504a523bae8526aa68, type: 3}
+    - {fileID: 5344685361548465846, guid: 9dbf3e707a5d54e4cb08009a30188c24, type: 3}
+    - {fileID: 5344685361548465846, guid: 46088524237c54083b651a78f32c41a4, type: 3}
+    - {fileID: 5344685361548465846, guid: ccd10472c45cc4506a29a847e866da16, type: 3}
+    - {fileID: 5344685361548465846, guid: 3b05ed414753245cc9ad7d830b1dab94, type: 3}
+    - {fileID: 5344685361548465846, guid: b1e9f7eedf96d40bbbf9a3ec4937a951, type: 3}
+    - {fileID: 5344685361548465846, guid: 575f568578b6744d296aad7800537445, type: 3}
+    backgroundImageScale: 1
+    boxPrefab: {fileID: 8509963446711627898, guid: 297371cc2f4a54c9eba1352bee6caac4, type: 3}
+    spawnerLocalPosY: 0.6
+  - backgroundSprite: {fileID: 21300000, guid: de4c1fe5f4e794a21a22298a4de9b597, type: 3}
+    bgSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+    fruits:
+    - {fileID: 6283297722545779696, guid: 847ea98f2183d4347a354ac91d991c1b, type: 3}
+    - {fileID: 5344685361548465846, guid: 8f9b19f4826344ecdab1884bed93ee28, type: 3}
+    - {fileID: 5344685361548465846, guid: e042812d2a0924cc390978b991459086, type: 3}
+    - {fileID: 5344685361548465846, guid: cd938ba9fc8bd4644a02a4651e31729c, type: 3}
+    - {fileID: 5344685361548465846, guid: 8ab68d6c2679c4755ab79bb5a2d8bf18, type: 3}
+    - {fileID: 5344685361548465846, guid: 7ba25f83d9acc4058af2b7d6dd383df9, type: 3}
+    - {fileID: 5344685361548465846, guid: 310cf4af94fbe4a4480949a231617fe0, type: 3}
+    - {fileID: 5344685361548465846, guid: 9c79917839a1d43ac89ee96912c14130, type: 3}
+    - {fileID: 5344685361548465846, guid: 38a01478115064298aae2cf358ca82c4, type: 3}
+    - {fileID: 5344685361548465846, guid: c5a64e6cbf2694be292280778f123516, type: 3}
+    - {fileID: 5344685361548465846, guid: 0e1ad87bcae774302bdd237dc4ecab3d, type: 3}
+    backgroundImageScale: 1
+    boxPrefab: {fileID: 8509963446711627898, guid: 297371cc2f4a54c9eba1352bee6caac4, type: 3}
+    spawnerLocalPosY: 0.6
+  - backgroundSprite: {fileID: 21300000, guid: 2b96fe0723e91d34891c66197cc15dfe, type: 3}
+    bgSpriteColor: {r: 0.8697908, g: 0.8962264, b: 0.62144, a: 1}
+    fruits:
+    - {fileID: 6283297722545779696, guid: 3a983f4207fef46419ba022780ad0546, type: 3}
+    - {fileID: 5344685361548465846, guid: 73c10ba60e7734b6192950f57cfd59a5, type: 3}
+    - {fileID: 5344685361548465846, guid: ac2fb6999d58b44c68feefb74d594ad5, type: 3}
+    - {fileID: 5344685361548465846, guid: 01c8a68eb973c4e05bbbb87350632cba, type: 3}
+    - {fileID: 5344685361548465846, guid: d4bdae2abf6864c60972f2d908d8b4e5, type: 3}
+    - {fileID: 5344685361548465846, guid: 8556e058b63424c77a8ec2fd001a46f7, type: 3}
+    - {fileID: 5344685361548465846, guid: 08c299ee862fe47faaec2367d4d052b8, type: 3}
+    - {fileID: 5344685361548465846, guid: 859fb25d0a682401aa34e0043b7e6c3d, type: 3}
+    - {fileID: 5344685361548465846, guid: 1a485bb7cc7254a2387cfabdfaebbf7f, type: 3}
+    - {fileID: 5344685361548465846, guid: 70bae01673a044829a00d01ec310c5d5, type: 3}
+    - {fileID: 5344685361548465846, guid: 368e79b8da3874afebba5bfe2112fbd0, type: 3}
+    backgroundImageScale: 1
+    boxPrefab: {fileID: 5157291750649056663, guid: 68bb52cea453348b185ee116a8ca8607, type: 3}
+    spawnerLocalPosY: 0.6
   spawner: {fileID: 491880038}
 --- !u!1 &243667621
 GameObject:

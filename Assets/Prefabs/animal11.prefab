@@ -57,13 +57,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: scaleFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: sleepSprite
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: nextFruitPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6283297722545779696, guid: 6803cf52a28584d11998f8060eacecde, type: 3}
     - target: {fileID: 1222453799807126465, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Radius
       value: 0.35

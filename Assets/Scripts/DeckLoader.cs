@@ -15,6 +15,7 @@ public class DeckLoader : MonoBehaviour
     public Button kenneyAnimalsButton;
     public Button ballsButton;
     public Button kenneyLetters;
+    public Button foodStickers;
 
 
     void Start()
@@ -33,12 +34,14 @@ public class DeckLoader : MonoBehaviour
                     LoadDeck(5));
         kenneyLetters.onClick.AddListener(() =>
                     LoadDeck(6));
+        foodStickers.onClick.AddListener(() =>
+                    LoadDeck(7));
 
     }
 
     private void LoadDeck(int themeIndex)
     {
-        print("theme index clicked: " + themeIndex);
+        //print("theme index clicked: " + themeIndex);
         PlayerPrefs.SetInt(THEME_KEY, themeIndex);
         SceneManager.LoadScene("SampleScene");
     }

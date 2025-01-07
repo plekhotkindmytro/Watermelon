@@ -1388,6 +1388,7 @@ MonoBehaviour:
   kenneyAnimalsButton: {fileID: 277832187}
   ballsButton: {fileID: 57195470}
   kenneyLetters: {fileID: 632224463}
+  foodStickers: {fileID: 575267991}
 --- !u!1 &632224461
 GameObject:
   m_ObjectHideFlags: 0
