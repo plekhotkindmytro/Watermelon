@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     private Fruit controlledFruit = null;
     private Fruit nextFruit = null;
 
-
+    private bool tutorialFruitCreated = false;
 
     private Camera cameraMain;
 
@@ -112,6 +112,11 @@ public class Spawner : MonoBehaviour
 
     private void UpdateFruitPosition(Vector2 touchWorldPosition)
     {
+        if(GameManager.Instance.IsTutorial())
+        {
+            return;
+        }
+
         float absOffset = controlledFruit.gameObject.transform.localScale.x / 2;
         float x = GameManager.Instance.ClampSpawnX(touchWorldPosition.x, absOffset);
 
@@ -125,16 +130,13 @@ public class Spawner : MonoBehaviour
     public void CreateFruit()
     {
         // Randomly select a fruit prefab and instantiate it at the spawner's position
-        int randomIndex;
+        int randomIndex = Random.Range(0, fruitPrefabs.Length);
         float spawnX = lastDropPosition == null ? transform.position.x : lastDropPosition.x;
 
         Vector3 spawnPos = new Vector2(spawnX, transform.position.y + spawnOffsetY);
         if (nextFruit == null)
-        {
-            randomIndex = Random.Range(0, fruitPrefabs.Length);
-            
+        {   
             GameObject fruitGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos , Quaternion.identity);
-
             controlledFruit = fruitGameObject.GetComponent<Fruit>();
         }
         else
@@ -150,14 +152,27 @@ public class Spawner : MonoBehaviour
         controlledFruit.transform.GetChild(1).gameObject.SetActive(true);
         controlledFruit.transform.parent = transform;
 
-        // next
+        if(!tutorialFruitCreated)
+        {
+            bool isTutorial = GameManager.Instance.IsTutorial();
+            if (isTutorial)
+            {
+                GameObject fruitGameObject = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
+                fruitGameObject.GetComponent<Fruit>().ActivateMe();
+                AudioManager.Instance.Drop();
+            }
+        }
+        
+
+
         randomIndex = Random.Range(0, fruitPrefabs.Length);
+        
         GameObject nextGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos, Quaternion.identity);
         nextGameObject.SetActive(false);
         nextFruit = nextGameObject.GetComponent<Fruit>();
         nextFruitImage.sprite = nextGameObject.GetComponent<SpriteRenderer>().sprite;
         nextFruitImage.color = nextGameObject.GetComponent<SpriteRenderer>().color;
 
-
+        
     }
 }

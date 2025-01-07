@@ -234,6 +234,11 @@ public class Fruit : MonoBehaviour
 
     private void Merge(Fruit otherFruit)
     {
+        if(GameManager.Instance.IsTutorial())
+        {
+            GameManager.Instance.FinishTutorial();
+        }
+
         if (nextFruitPrefab == null)
         {
             return;
