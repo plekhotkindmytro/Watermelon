@@ -154,6 +154,7 @@ public class Spawner : MonoBehaviour
 
         if(!tutorialFruitCreated)
         {
+            tutorialFruitCreated = true;
             bool isTutorial = GameManager.Instance.IsTutorial();
             if (isTutorial)
             {
