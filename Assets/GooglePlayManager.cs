@@ -6,7 +6,7 @@ public class GooglePlayManager : MonoBehaviour
 {
     void Start() 
     {
-      //  PlayGamesPlatform.Activate();
+        PlayGamesPlatform.Activate();
 
         Social.localUser.Authenticate(success =>
         {
