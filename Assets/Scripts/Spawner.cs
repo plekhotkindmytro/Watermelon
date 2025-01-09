@@ -164,8 +164,6 @@ public class Spawner : MonoBehaviour
             }
         }
         
-
-
         randomIndex = Random.Range(0, fruitPrefabs.Length);
         
         GameObject nextGameObject = Instantiate(fruitPrefabs[randomIndex], spawnPos, Quaternion.identity);

@@ -278,9 +278,10 @@ public class Fruit : MonoBehaviour
             
         }
         ParticleSpawner.Instance.SpawnFruitParticles(fruit);
+        ParticleSpawner.Instance.SpawnSquareParticle(fruit);
 
        // 
-        
+
         GameManager.Instance.AddScore(pointValue);
 
         //

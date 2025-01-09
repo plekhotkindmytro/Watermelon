@@ -7846,7 +7846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &800623730
 Transform:
   m_ObjectHideFlags: 0
@@ -13512,6 +13512,7 @@ MonoBehaviour:
   generalParticles: {fileID: 5097094620680954375, guid: ccdf7be8c334f4ddea10afac50f3e9d5, type: 3}
   fruitParticles:
   - {fileID: 7873474113261476771, guid: d89c05778ff8741089b013e86192fedd, type: 3}
+  squareParticlePrefab: {fileID: 3676650106322408473, guid: d5b2f0a4683874eb18c463ddab5a7062, type: 3}
 --- !u!1 &1596686848
 GameObject:
   m_ObjectHideFlags: 0

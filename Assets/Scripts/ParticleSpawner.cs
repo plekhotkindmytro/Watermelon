@@ -7,6 +7,7 @@ public class ParticleSpawner : MonoBehaviour
 
     public GameObject generalParticles; // Assign general particles prefab
     public GameObject[] fruitParticles;
+    public GameObject squareParticlePrefab;
 
     // Add more as needed, or use a dictionary if you have many fruit types
     private void Awake()
@@ -67,6 +68,15 @@ public class ParticleSpawner : MonoBehaviour
         mainParticle.startColor = fruit.color;
 
         Instantiate(particlesToSpawn, fruit.transform.position, Quaternion.identity);
+    }
+
+    public void SpawnSquareParticle(Fruit fruit)
+    {
+       
+        MainModule mainParticle = squareParticlePrefab.GetComponent<ParticleSystem>().main;
+        //   mainParticle.startColor = fruit.color;
+        
+        Instantiate(squareParticlePrefab, fruit.transform.position + Vector3.up, Quaternion.identity);
     }
 
     private void SpawnParticles(GameObject particlePrefab, Vector2 position)
