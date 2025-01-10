@@ -73,10 +73,10 @@ public class ParticleSpawner : MonoBehaviour
     public void SpawnSquareParticle(Fruit fruit)
     {
        
-        MainModule mainParticle = squareParticlePrefab.GetComponent<ParticleSystem>().main;
+        //MainModule mainParticle = squareParticlePrefab.GetComponent<ParticleSystem>().main;
         //   mainParticle.startColor = fruit.color;
-        
-        Instantiate(squareParticlePrefab, fruit.transform.position + Vector3.up, Quaternion.identity);
+        squareParticlePrefab.transform.localScale = fruit.GetTargetScale() * 2; 
+        Instantiate(squareParticlePrefab, fruit.transform.position, Quaternion.identity);
     }
 
     private void SpawnParticles(GameObject particlePrefab, Vector2 position)

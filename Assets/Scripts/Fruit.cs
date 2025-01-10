@@ -29,6 +29,7 @@ public class Fruit : MonoBehaviour
     private Color baseColor;
 
     private Sprite[] sprites;
+    private Camera mainCamera;
 
 
     public void Awake()
@@ -44,6 +45,7 @@ public class Fruit : MonoBehaviour
 
     public void Start()
     {
+        mainCamera = Camera.main;
         sprites = new Sprite[]{
             baseSprite, angrySprite, sleepSprite
         };
@@ -277,8 +279,14 @@ public class Fruit : MonoBehaviour
             }
             
         }
+
+
+
         ParticleSpawner.Instance.SpawnFruitParticles(fruit);
-        ParticleSpawner.Instance.SpawnSquareParticle(fruit);
+       // ParticleSpawner.Instance.SpawnSquareParticle(fruit);
+
+        Vector3 fruitScreenPos = mainCamera.WorldToScreenPoint(fruit.transform.position );
+        FloatingTextManager.Instance.SpawnFloatingText(fruitScreenPos, "+" + fruit.pointValue.ToString());
 
        // 
 

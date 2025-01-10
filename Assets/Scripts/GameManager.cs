@@ -73,8 +73,11 @@ public class GameManager : MonoBehaviour
 
         }
         scoreText.text = score.ToString();
-        UiManager.Instance.leaderboard1Button.transform.DOComplete(); // Completes any active tweens on the score text
-        UiManager.Instance.leaderboard1Button.transform.DOScale(1.1f, 0.1f).SetLoops(2, LoopType.Yoyo);
+        //UiManager.Instance.leaderboard1Button.transform.DOComplete(); // Completes any active tweens on the score text
+        UiManager.Instance.leaderboard1Button.transform.DOScale(1.1f, 0.1f).SetDelay(1f).SetLoops(2, LoopType.Yoyo)
+            .OnComplete(() => {
+                UiManager.Instance.leaderboard1Button.transform.localScale = Vector3.one;
+            });
     }
 
     internal void SetMinSpawnX(float value)
