@@ -5,9 +5,16 @@ public class ParticleSpawner : MonoBehaviour
 {
     public static ParticleSpawner Instance;
 
-    public GameObject generalParticles; // Assign general particles prefab
+    public GameObject generalParticles;
+    public GameObject[] tapBursts;
+
+    public GameObject[] awesomeBursts;
+    public string[] awesomeTexts;
+    public AudioClip[] awesomeSpeeches;
+
     public GameObject[] fruitParticles;
     public GameObject squareParticlePrefab;
+    private Camera mainCamera;
 
     // Add more as needed, or use a dictionary if you have many fruit types
     private void Awake()
@@ -18,6 +25,10 @@ public class ParticleSpawner : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        mainCamera = Camera.main;   
+    }
     private void Update()
     {
         if (UiManager.Instance.settingsPanel.activeSelf)
@@ -56,6 +67,12 @@ public class ParticleSpawner : MonoBehaviour
             {
                 // Spawn general particles if tap is on empty space
                 SpawnParticles(generalParticles, touchPosition);
+
+                foreach (var effect in tapBursts)
+                {
+                    SpawnParticles(effect, touchPosition);
+                }
+                
             }
         }
     }
@@ -72,11 +89,19 @@ public class ParticleSpawner : MonoBehaviour
 
     public void SpawnSquareParticle(Fruit fruit)
     {
-       
+
         //MainModule mainParticle = squareParticlePrefab.GetComponent<ParticleSystem>().main;
         //   mainParticle.startColor = fruit.color;
-        squareParticlePrefab.transform.localScale = fruit.GetTargetScale() * 2; 
-        Instantiate(squareParticlePrefab, fruit.transform.position, Quaternion.identity);
+        //   squareParticlePrefab.transform.localScale = Vector3.one * 2.5f;
+        Vector3 newPos = Vector3.up*2f; // Vector3.zero
+        Vector3 newScreenPos = mainCamera.WorldToScreenPoint(newPos);
+        Instantiate(squareParticlePrefab, newPos, Quaternion.identity);
+        //Vector3 screenPos = mainCamera.WorldToScreenPoint(Vector3.zero);
+        FloatingTextManager.Instance.SpawnFloatingText(newScreenPos, awesomeTexts[Random.Range(0, awesomeTexts.Length)], true);
+        foreach (var effect in awesomeBursts)
+        {
+            SpawnParticles(effect, newPos);
+        }
     }
 
     private void SpawnParticles(GameObject particlePrefab, Vector2 position)

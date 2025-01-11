@@ -21,9 +21,7 @@ public class RandomMovement : MonoBehaviour
         // Calculate screen bounds
         screenBounds = new Vector2 (cameraMain.orthographicSize*cameraMain.aspect, cameraMain.orthographicSize);
 
-        print("x: " + screenBounds.x);
-        print("y: " + screenBounds.y);
-        // Initialize target position
+     
         UpdateTargetPosition();
     }
 

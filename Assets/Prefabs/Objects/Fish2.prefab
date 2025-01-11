@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  changeDirectionInterval: 2
+  changeDirectionInterval: 3
   restTime: 1
   faceDirection: 0
   ball: 0

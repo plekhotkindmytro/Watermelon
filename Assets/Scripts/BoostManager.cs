@@ -47,9 +47,6 @@ public class BoostManager : MonoBehaviour
 
     }
 
-
-
-
     public void SpawnFish()
     {
         if(fishCount == 0) 

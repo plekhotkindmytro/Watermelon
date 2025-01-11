@@ -4,7 +4,7 @@ public class Bee : MonoBehaviour
 {
 
     public float moveSpeed = 5f; // Speed of the object's movement
-    public float changeDirectionInterval = 2f; // Time interval to change direction
+    public float changeDirectionInterval = 3f; // Time interval to change direction
     public float restTime = 1f;
     public bool faceDirection = true;
     public bool ball = false;
@@ -69,11 +69,11 @@ public class Bee : MonoBehaviour
     }
 
 
-    private bool CanContinueMoving()
-    {
-        bool restTimeOver = restTimer >= restTime;
-        return restTimeOver;
-    }
+    //private bool CanContinueMoving()
+    //{
+    //    bool restTimeOver = restTimer >= restTime;
+    //    return restTimeOver;
+    //}
 
     private bool CanRest()
     {

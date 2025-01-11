@@ -277,16 +277,18 @@ public class Fruit : MonoBehaviour
             {
                 VibrationManager.Instance.VibrateLong();
             }
-            
+
+            ParticleSpawner.Instance.SpawnSquareParticle(fruit);
         }
 
 
 
         ParticleSpawner.Instance.SpawnFruitParticles(fruit);
-       // ParticleSpawner.Instance.SpawnSquareParticle(fruit);
+       
+
 
         Vector3 fruitScreenPos = mainCamera.WorldToScreenPoint(fruit.transform.position );
-        FloatingTextManager.Instance.SpawnFloatingText(fruitScreenPos, "+" + fruit.pointValue.ToString());
+        FloatingTextManager.Instance.SpawnFloatingText(fruitScreenPos, "+" + fruit.pointValue.ToString(), false);
 
        // 
 

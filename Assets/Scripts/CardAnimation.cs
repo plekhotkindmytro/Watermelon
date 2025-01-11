@@ -4,6 +4,7 @@ using System;
 
 public class CardAnimation : MonoBehaviour
 {
+    public float repeatRate = 6f;
     public float delay;
     private RectTransform rectTransform;
     public void Start()
@@ -11,7 +12,7 @@ public class CardAnimation : MonoBehaviour
 
         rectTransform = GetComponent<RectTransform>();
         // pulsating Efect;
-        Invoke(nameof(PulsatingOneTime), delay);
+        InvokeRepeating(nameof(PulsatingOneTime), delay, repeatRate);
     }
 
 
