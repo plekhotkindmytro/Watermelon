@@ -1,5 +1,5 @@
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
+//using GooglePlayGames;
+//using GooglePlayGames.BasicApi;
 using UnityEngine;
 
 public class GooglePlayManager : MonoBehaviour
