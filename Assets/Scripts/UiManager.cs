@@ -46,6 +46,10 @@ public class UiManager : MonoBehaviour
     public Button leaderboardButton;
     public Button gameOverHomeButton;
 
+    [Header("Tutorial Panel")]
+    public Tutorial firstTutorialPanel;
+
+
     [Header("Boosts")]
     public Button fishButton;
     public Button mouseButton;
@@ -143,6 +147,7 @@ public class UiManager : MonoBehaviour
         settingsPanel.SetActive(false);
         shopPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        firstTutorialPanel.HideOrShow();
     }
 
     private void ApplyState(Button button, bool isActive)

@@ -8,7 +8,8 @@ public class Spawner : MonoBehaviour
     public GameObject[] fruitPrefabs;  // List of all 11 fruit prefabs
     public float minSecondsBetweenSpawns = 1f;
     public float spawnOffsetY = 10;
-
+    public float clickableScreenPercentage = 0.85f;
+    public float bottomClickableScreenPercentage = 0.15f;
 
     private Fruit controlledFruit = null;
     private Fruit nextFruit = null;
@@ -65,7 +66,7 @@ public class Spawner : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.position.y > Screen.height * 0.8)
+            if (touch.position.y > Screen.height * clickableScreenPercentage || touch.position.y < Screen.height * bottomClickableScreenPercentage)
             {
                 return;
             }
