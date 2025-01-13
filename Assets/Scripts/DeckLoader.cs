@@ -8,6 +8,7 @@ public class DeckLoader : MonoBehaviour
 
     private static readonly string THEME_KEY = "theme";
 
+    public Button randomButton;
     public Button vegetablesButton;
     public Button fruitsButton;
     public Button numbersButton;
@@ -20,6 +21,8 @@ public class DeckLoader : MonoBehaviour
 
     void Start()
     {
+        randomButton.onClick.AddListener(() =>
+                    LoadDeck(Random.Range(0, 8)));
         vegetablesButton.onClick.AddListener(() =>
                     LoadDeck(0));
         fruitsButton.onClick.AddListener(() =>
@@ -41,7 +44,6 @@ public class DeckLoader : MonoBehaviour
 
     private void LoadDeck(int themeIndex)
     {
-        //print("theme index clicked: " + themeIndex);
         PlayerPrefs.SetInt(THEME_KEY, themeIndex);
         SceneManager.LoadScene("SampleScene");
     }
