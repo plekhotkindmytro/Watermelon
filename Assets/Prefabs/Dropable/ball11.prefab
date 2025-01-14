@@ -57,29 +57,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
-      propertyPath: scaleFactor
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: sleepSprite
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: reachGameLevel
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: nextFruitPrefab
       value: 
-      objectReference: {fileID: 6283297722545779696, guid: 6803cf52a28584d11998f8060eacecde, type: 3}
-    - target: {fileID: 1222453799807126465, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
-      propertyPath: m_Radius
-      value: 0.35
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6283297722545779696, guid: b9e0b93bb2007441a8643db0e33cf0b0, type: 3}
     - target: {fileID: 1222453799807126465, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 097cbcab30c3b44c9a0a4c7284ce90e5, type: 2}
-    - target: {fileID: 1222453799807126465, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.06
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6200000, guid: 6e23082f457c44ba38e87ea3e1b42202, type: 2}
     - target: {fileID: 1935148698146039480, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -132,17 +124,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3564625780216665575, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
-      propertyPath: m_Mass
-      value: 2.405282
-      objectReference: {fileID: 0}
     - target: {fileID: 3887148526158023296, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: eaf3e252c3ea9954a8635dc5ec96712b, type: 3}
+      objectReference: {fileID: 21300000, guid: 1eead76e5893745d4a72260f286650c8, type: 3}
     - target: {fileID: 6283297722545779696, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_Name
-      value: animal11
+      value: ball11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

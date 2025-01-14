@@ -69,6 +69,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: reachGameLevel
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: nextFruitPrefab
       value: 
       objectReference: {fileID: 6283297722545779696, guid: 3a983f4207fef46419ba022780ad0546, type: 3}

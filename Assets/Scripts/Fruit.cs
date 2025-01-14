@@ -5,7 +5,7 @@ public class Fruit : MonoBehaviour
 {
     public int pointValue;
     public int fruitLevel;
-    public int openGameLevel = 1;
+    public int reachGameLevel = 0;
     public float scaleFactor = 0.15f;
     public float baseScale = 0.3f;
     public Color color;
@@ -51,6 +51,8 @@ public class Fruit : MonoBehaviour
             baseSprite, angrySprite, sleepSprite
         };
 
+        CanReachNextLevel();
+
         //if (this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
         //{
         //    ActivateMe();
@@ -60,6 +62,14 @@ public class Fruit : MonoBehaviour
         line.SetPosition(0, transform.position);
         line.SetPosition(1, new Vector3(transform.position.x, ThemeManager.Instance.GetBoxBottomY()));
         baseColor = spriteRenderer.color;
+    }
+
+    private void CanReachNextLevel()
+    {
+        if(fruitLevel == 11) 
+        {
+            PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, reachGameLevel); 
+        }
     }
 
     public Vector3 GetTargetScale()
@@ -282,11 +292,7 @@ public class Fruit : MonoBehaviour
             ParticleSpawner.Instance.SpawnSquareParticle(fruit);
         }
 
-
-
         ParticleSpawner.Instance.SpawnFruitParticles(fruit);
-       
-
 
         Vector3 fruitScreenPos = mainCamera.WorldToScreenPoint(fruit.transform.position );
         FloatingTextManager.Instance.SpawnFloatingText(fruitScreenPos, "+" + fruit.pointValue.ToString(), false);

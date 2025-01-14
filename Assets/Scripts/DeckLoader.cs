@@ -19,10 +19,11 @@ public class DeckLoader : MonoBehaviour
     public Button foodStickers;
 
 
-    void Start()
+    private void Start()
     {
+        int levelReached = PlayerPrefs.GetInt(CardAvailable.LEVEL_REACHED_KEY);
         randomButton.onClick.AddListener(() =>
-                    LoadDeck(Random.Range(0, 8)));
+                    LoadDeck(Random.Range(0, levelReached + 1)));
         vegetablesButton.onClick.AddListener(() =>
                     LoadDeck(0));
         fruitsButton.onClick.AddListener(() =>
