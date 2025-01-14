@@ -5,6 +5,7 @@ public class Fruit : MonoBehaviour
 {
     public int pointValue;
     public int fruitLevel;
+    public int openGameLevel = 1;
     public float scaleFactor = 0.15f;
     public float baseScale = 0.3f;
     public Color color;
