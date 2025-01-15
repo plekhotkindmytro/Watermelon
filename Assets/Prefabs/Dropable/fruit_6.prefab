@@ -57,6 +57,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4b10a157862da4b5b87349d086c20d05, type: 3}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: scaleFactor
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: sleepSprite
       value: 
       objectReference: {fileID: 21300000, guid: 1ee1e73a96eb244159ff6a2c9a8bb07a, type: 3}
