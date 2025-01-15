@@ -45,6 +45,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generalParticles: {fileID: 5097094620680954375, guid: ccdf7be8c334f4ddea10afac50f3e9d5, type: 3}
+  tapBursts:
+  - {fileID: 8104013110269490805, guid: 2676799dd0e154a738610fd41b2e1608, type: 3}
+  - {fileID: 4989121867490235129, guid: 3dd2bc6b5e4034efda02463cfc8aec54, type: 3}
+  - {fileID: 8875735964146192995, guid: 79be6dd4b587441caa1732973f2f2f45, type: 3}
+  - {fileID: 4787164861365999747, guid: 498eb03bacfb94e3fb9d2f189233e390, type: 3}
+  awesomeBursts:
+  - {fileID: 8104013110269490805, guid: c6460841fe1dd4eef98db2b76ab3869f, type: 3}
+  - {fileID: 4989121867490235129, guid: 8b4db01df3b5c4628860872011cf9566, type: 3}
+  - {fileID: 8875735964146192995, guid: 730b4e70f25454ae48cdaf91ec8ce64d, type: 3}
+  - {fileID: 4787164861365999747, guid: c88b1f9f5580a40aa91ee60a953ef5e9, type: 3}
+  awesomeTexts:
+  - Alright
+  - Amazing
+  - Awesome
+  - Excellent
+  - Fantastic
+  - Good Job
+  - Impressive
+  - Incredible
+  - So Good
+  - Superb
+  - Unbelievable
+  - Well Done
+  - Wow
+  - You Got It
+  awesomeSpeeches:
+  - {fileID: 8300000, guid: 7ad2d5252b433bd40a07a1d6130ab99d, type: 3}
+  - {fileID: 8300000, guid: d864f635b6c131949b97772db59aac3c, type: 3}
+  - {fileID: 8300000, guid: 4cc383b2278761d458458259cc56aca6, type: 3}
+  - {fileID: 8300000, guid: c2a5ac7adfd1eb649b990a3c334880bf, type: 3}
+  - {fileID: 8300000, guid: 264b75d06586ac54c98379331eb1fff5, type: 3}
+  - {fileID: 8300000, guid: 2f1e162ab0a5dbd4583a1e7597afae07, type: 3}
+  - {fileID: 8300000, guid: eca72b4ddb6631843b3ed305f5957ca6, type: 3}
+  - {fileID: 8300000, guid: 132c370cfe175124bacf1e59da592af0, type: 3}
+  - {fileID: 8300000, guid: e3c6dfbf29e002147942f2bb62ef5201, type: 3}
+  - {fileID: 8300000, guid: 6797a71bc55c39441b674ec4c7300ade, type: 3}
+  - {fileID: 8300000, guid: b3fc6ea70a0958f44ae5a537debb40a9, type: 3}
+  - {fileID: 8300000, guid: 7669c50ccd1174442a9f402ae81af6de, type: 3}
+  - {fileID: 8300000, guid: db5eed158cfb8134da95ae88f75d0695, type: 3}
+  - {fileID: 8300000, guid: c98aecbe4b882a648a7780a4aa7685b5, type: 3}
   fruitParticles:
   - {fileID: 7873474113261476771, guid: d89c05778ff8741089b013e86192fedd, type: 3}
   squareParticlePrefab: {fileID: 3676650106322408473, guid: d5b2f0a4683874eb18c463ddab5a7062, type: 3}

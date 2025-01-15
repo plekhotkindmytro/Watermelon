@@ -15,6 +15,7 @@ public class ParticleSpawner : MonoBehaviour
     public GameObject[] fruitParticles;
     public GameObject squareParticlePrefab;
     private Camera mainCamera;
+    
 
     // Add more as needed, or use a dictionary if you have many fruit types
     private void Awake()
@@ -27,6 +28,7 @@ public class ParticleSpawner : MonoBehaviour
 
     private void Start()
     {
+        
         mainCamera = Camera.main;   
     }
     private void Update()
@@ -89,19 +91,25 @@ public class ParticleSpawner : MonoBehaviour
 
     public void SpawnSquareParticle(Fruit fruit)
     {
+        if(!AwesomeAudioSpeechManager.Instance.IsPlaying()) {
+            //MainModule mainParticle = squareParticlePrefab.GetComponent<ParticleSystem>().main;
+            //   mainParticle.startColor = fruit.color;
+            //   squareParticlePrefab.transform.localScale = Vector3.one * 2.5f;
+            Vector3 newPos = Vector3.up*2f; // Vector3.zero
+            Vector3 newScreenPos = mainCamera.WorldToScreenPoint(newPos);
+            Instantiate(squareParticlePrefab, newPos, Quaternion.identity);
+            //Vector3 screenPos = mainCamera.WorldToScreenPoint(Vector3.zero);
 
-        //MainModule mainParticle = squareParticlePrefab.GetComponent<ParticleSystem>().main;
-        //   mainParticle.startColor = fruit.color;
-        //   squareParticlePrefab.transform.localScale = Vector3.one * 2.5f;
-        Vector3 newPos = Vector3.up*2f; // Vector3.zero
-        Vector3 newScreenPos = mainCamera.WorldToScreenPoint(newPos);
-        Instantiate(squareParticlePrefab, newPos, Quaternion.identity);
-        //Vector3 screenPos = mainCamera.WorldToScreenPoint(Vector3.zero);
-        FloatingTextManager.Instance.SpawnFloatingText(newScreenPos, awesomeTexts[Random.Range(0, awesomeTexts.Length)], true);
-        foreach (var effect in awesomeBursts)
-        {
-            SpawnParticles(effect, newPos);
+            int awesomeIndex = Random.Range(0, awesomeTexts.Length);
+      
+            AwesomeAudioSpeechManager.Instance.PlayNextClip(awesomeSpeeches[awesomeIndex]);
+            FloatingTextManager.Instance.SpawnFloatingText(newScreenPos, awesomeTexts[awesomeIndex] + "!", true, awesomeSpeeches[awesomeIndex].length);
+            foreach (var effect in awesomeBursts)
+            {
+                SpawnParticles(effect, newPos);
+            }
         }
+       
     }
 
     private void SpawnParticles(GameObject particlePrefab, Vector2 position)

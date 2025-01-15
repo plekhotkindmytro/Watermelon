@@ -295,7 +295,7 @@ public class Fruit : MonoBehaviour
         ParticleSpawner.Instance.SpawnFruitParticles(fruit);
 
         Vector3 fruitScreenPos = mainCamera.WorldToScreenPoint(fruit.transform.position );
-        FloatingTextManager.Instance.SpawnFloatingText(fruitScreenPos, "+" + fruit.pointValue.ToString(), false);
+        FloatingTextManager.Instance.SpawnFloatingText(fruitScreenPos, "+" + fruit.pointValue.ToString(), false, 0);
 
        // 
 

@@ -5,9 +5,13 @@ public class BottomControls : MonoBehaviour
 {
     public float duration = 1f;
     public float contentDelay = 2f;
-    private AudioSource sound;
+    
+    public AudioClip clip;
+    public float pitch;
+
     private RectTransform rectTransform;
     private float targetPosY;
+
 
     bool activated = false;
 
@@ -32,11 +36,11 @@ public class BottomControls : MonoBehaviour
 
     private void AppearAnimation()
     {
-        sound = GetComponent<AudioSource>();
-        float delay = duration - sound.clip.length;
+        
+        float delay = duration - clip.length;
 
         //sound.PlayDelayed(delay > 0 ? delay : 0);        
-        sound.Play();
+        AudioManager.Instance.PlayClipWithPitch(clip, pitch);
         // Start a Yoyo loop animation
         rectTransform.DOAnchorPosY(targetPosY, duration).SetEase(Ease.OutElastic).OnComplete(()=> {
 

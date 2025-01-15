@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource;         // AudioSource for background music
     public AudioSource soundEffectsSource;  // AudioSource for sound effects
+    public AudioSource awesomeSpeechSource;
     public AudioClip splat;
     public AudioClip drop;
 
@@ -89,6 +90,7 @@ public class AudioManager : MonoBehaviour
     private void UpdateSoundEffectsState()
     {
         soundEffectsSource.mute = !isSoundEffectsEnabled;
+        awesomeSpeechSource.mute = !isSoundEffectsEnabled;
     }
 
     // Method to play sound effects
@@ -105,7 +107,16 @@ public class AudioManager : MonoBehaviour
     {
         if (isSoundEffectsEnabled)
         {
-            soundEffectsSource.pitch = Random.Range(0.4f, 1.2f);
+            soundEffectsSource.pitch = Random.Range(minPitch, maxPitch);
+            soundEffectsSource.PlayOneShot(clip);
+        }
+    }
+
+    private void PlaySoundEffect(AudioClip clip, float pitch)
+    {
+        if (isSoundEffectsEnabled)
+        {
+            soundEffectsSource.pitch = pitch;
             soundEffectsSource.PlayOneShot(clip);
         }
     }
@@ -118,6 +129,10 @@ public class AudioManager : MonoBehaviour
     public void Drop()
     {
         PlaySoundEffect(drop);
+    }
+    public void PlayClipWithPitch(AudioClip clip, float pitch)
+    {
+        PlaySoundEffect(clip, pitch);
     }
 
 }

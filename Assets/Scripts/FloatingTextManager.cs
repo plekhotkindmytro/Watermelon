@@ -21,7 +21,7 @@ public class FloatingTextManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void SpawnFloatingText(Vector3 startPosition, string textContent, bool isStatic)
+    public void SpawnFloatingText(Vector3 startPosition, string textContent, bool isStatic, float time)
     {
         // Instantiate the floating text prefab
         GameObject floatingText = Instantiate(floatingTextPrefab, startPosition, Quaternion.identity);
@@ -43,7 +43,7 @@ public class FloatingTextManager : MonoBehaviour
         {
             floatingText.transform.localScale = Vector3.zero;
             floatingText.transform.DOScale(1f, 0.5f);
-            Destroy(floatingText, 0.5f);
+            Destroy(floatingText, time);
         }
     }
 
