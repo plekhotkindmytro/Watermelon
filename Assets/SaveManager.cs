@@ -9,7 +9,6 @@ public class SaveManager : MonoBehaviour
     public Spawner spawner;
    // private string saveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
 
-    private List<Transform> objectsToSave;
     private List<FruitData> fruitDatas;
 
     private void Awake()
@@ -22,10 +21,11 @@ public class SaveManager : MonoBehaviour
 
     public void SaveData()
     {
+        fruitDatas = new List<FruitData>();
         for (int i = 0; i < spawner.transform.childCount; i++)
         {
             Transform child = spawner.transform.GetChild(i);
-            objectsToSave.Add(child);
+            
             FruitData fruitData = new FruitData();
             Fruit fruit = child.GetComponent<Fruit>();
             fruitData.level = fruit.fruitLevel;
