@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     public float clickableScreenPercentage = 0.85f;
     public float bottomClickableScreenPercentage = 0.15f;
 
+    
     private Fruit controlledFruit = null;
     private Fruit nextFruit = null;
 
@@ -150,7 +151,7 @@ public class Spawner : MonoBehaviour
         controlledFruit.transform.localScale = Vector3.zero;
 
         controlledFruit.transform.DOScale(controlledFruit.GetTargetScale(), 0.5f);
-        controlledFruit.transform.GetChild(1).gameObject.SetActive(true);
+        controlledFruit.ActivateBubble();
         controlledFruit.transform.parent = transform;
 
         if(!tutorialFruitCreated)

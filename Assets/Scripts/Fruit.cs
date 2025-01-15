@@ -12,6 +12,8 @@ public class Fruit : MonoBehaviour
     public GameObject nextFruitPrefab;  // Prefab for the next-level fruit after merging
     public Sprite sleepSprite;
     public Sprite angrySprite;
+    public Sprite[] emotionSprites;
+    public int fruitSpawnBubbleChildIndex = 1;
 
     private bool hasMerged = false;     // Flag to prevent chain reactions
     private Vector3 targetScale;
@@ -31,7 +33,7 @@ public class Fruit : MonoBehaviour
 
     private Sprite[] sprites;
     private Camera mainCamera;
-
+    private GameObject bubble;
 
     public void Awake()
     {
@@ -46,6 +48,7 @@ public class Fruit : MonoBehaviour
 
     public void Start()
     {
+        bubble = transform.GetChild(fruitSpawnBubbleChildIndex).gameObject;
         mainCamera = Camera.main;
         sprites = new Sprite[]{
             baseSprite, angrySprite, sleepSprite
@@ -53,11 +56,6 @@ public class Fruit : MonoBehaviour
 
         CanReachNextLevel();
 
-        //if (this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
-        //{
-        //    ActivateMe();
-        //    return;
-        //}
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetPosition(0, transform.position);
         line.SetPosition(1, new Vector3(transform.position.x, ThemeManager.Instance.GetBoxBottomY()));
@@ -75,6 +73,16 @@ public class Fruit : MonoBehaviour
     public Vector3 GetTargetScale()
     {
         return targetScale;
+    }
+
+    public void ActivateBubble()
+    {
+        bubble.SetActive(true);
+    }
+
+    private void DeactivateBubble()
+    {
+        bubble.SetActive(false);
     }
 
     public void ActivateMe()
@@ -96,7 +104,7 @@ public class Fruit : MonoBehaviour
         }
         
         ParticleSpawner.Instance.SpawnFruitParticles(GetComponent<Fruit>());
-        this.transform.GetChild(1).gameObject.SetActive(false);
+        DeactivateBubble();
         //this.transform.DOScale(0.1f, 0.1f).OnComplete(() => { this.transform.DOScale(targetScale, 0.1f); });
         CameraManager.Instance.Follow(this.transform);
 
