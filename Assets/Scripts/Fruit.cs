@@ -82,7 +82,7 @@ public class Fruit : MonoBehaviour
 
         this.transform.DOKill();
         this.transform.localScale = targetScale;
-        
+        this.transform.parent = SaveManager.Instance.spawner.transform;
         this.GetComponent<Rigidbody2D>().simulated = true;
         this.GetComponent<Collider2D>().enabled = true;
         this.GetComponent<FruitSquashEffect>().enabled = true;

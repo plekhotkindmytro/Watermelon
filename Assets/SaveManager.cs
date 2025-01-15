@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor.U2D.Aseprite;
 
 public class SaveManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class SaveManager : MonoBehaviour
 
     public void SaveData()
     {
+        print("count: " + spawner.transform.childCount);
         fruitDatas = new List<FruitData>();
         for (int i = 0; i < spawner.transform.childCount; i++)
         {
@@ -28,14 +30,21 @@ public class SaveManager : MonoBehaviour
             
             FruitData fruitData = new FruitData();
             Fruit fruit = child.GetComponent<Fruit>();
-            fruitData.level = fruit.fruitLevel;
-            fruitData.position = child.position;
-            fruitData.rotation = child.rotation;
-            fruitData.scale = child.localScale;
-            fruitDatas.Add(fruitData);
+            if(fruit.GetComponent<Collider2D>().enabled) {
+                fruitData.level = fruit.fruitLevel;
+                fruitData.position = child.position;
+                fruitData.rotation = child.rotation;
+                fruitData.scale = child.localScale;
+                fruitDatas.Add(fruitData);
+            }
+           
         }
 
-        string json = JsonUtility.ToJson(new { data = fruitDatas }, true);
+
+        DataWrapper<FruitData> wrapper = new DataWrapper<FruitData>(fruitDatas);
+        string json = JsonUtility.ToJson(wrapper);
+
+        print(json);
         string saveFilePath = Path.Combine(Application.persistentDataPath, PlayerPrefs.GetInt(ThemeManager.THEME_KEY) + "saveData.json");
         File.WriteAllText(saveFilePath, json);
 
@@ -57,14 +66,18 @@ public class SaveManager : MonoBehaviour
         }
 
         string json = File.ReadAllText(saveFilePath);
-        var dataWrapper = JsonUtility.FromJson<DataWrapper>(json);
-
-        foreach (var data in dataWrapper.data)
+        DataWrapper<FruitData> wrapper = JsonUtility.FromJson<DataWrapper<FruitData>>(json);
+        if (wrapper != null && wrapper.items != null)
         {
-            GameObject fruitPrefab = fruitPrefabs[data.level - 1];
-            var obj = Instantiate(fruitPrefab, data.position, data.rotation);
-            obj.transform.parent = spawner.transform;
-            obj.transform.localScale = data.scale;
+            foreach (var data in wrapper.items)
+            {
+                print(data);
+                GameObject fruitPrefab = fruitPrefabs[data.level - 1];
+                var obj = Instantiate(fruitPrefab, data.position, data.rotation);
+                obj.transform.parent = spawner.transform;
+                obj.transform.localScale = data.scale;
+                obj.GetComponent<Fruit>().ActivateMe();
+            }
         }
     }
 
@@ -83,26 +96,29 @@ public class SaveManager : MonoBehaviour
         SaveData();
     }
 
-    private void OnSceneUnload()
-    {
-        SaveData();
-    }
+    // private void OnSceneUnload()
+    // {
+    //     SaveData();
+    // }
 
-    void OnDestroy()
-    {
+    // void OnDestroy()
+    // {
 
         
-            SaveData(); 
+    //         SaveData(); 
 
-    }
-
-
+    // }
 
 
-    [System.Serializable]
-    private class DataWrapper
+
+
+   [System.Serializable]
+public class DataWrapper<T>  {
+    public List<T> items;
+
+    public DataWrapper(List<T> items)
     {
-        public List<FruitData> data;
+        this.items = items;
     }
-
+}
 }

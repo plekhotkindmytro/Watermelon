@@ -278,6 +278,7 @@ public class UiManager : MonoBehaviour
 
     private void Replay()
     {
+        SaveManager.Instance.DeleteData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
