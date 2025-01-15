@@ -98,8 +98,6 @@ public class ThemeManager : MonoBehaviour
 
         spawner.transform.parent = boxScaler.transform;
         spawner.transform.localPosition = Vector3.up * activeTheme.spawnerLocalPosY;
-
-       
     }
 
     public float GetBoxBottomY()

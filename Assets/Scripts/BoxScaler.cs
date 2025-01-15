@@ -77,6 +77,7 @@ public class BoxScaler : MonoBehaviour
 
         transform.position += Vector3.up*startPosY;
         transform.DOMoveY(targetPosY, duration).OnComplete(() => {
+            SaveManager.Instance.LoadData();
             ThemeManager.Instance.spawner.CreateFruit();
         });
     }

@@ -163,6 +163,7 @@ public class UiManager : MonoBehaviour
 
     private void Home()
     {
+        SaveManager.Instance.SaveData();
         SceneManager.LoadScene("MenuScene");
     }
 
