@@ -212,7 +212,7 @@ public class UiManager : MonoBehaviour
         ScreenshotManager.Instance.CaptureBucketScreenshot();
         gameOverScoreText.text = "Score: " + score;
         gameOverPanel.GetComponent<GameOverPanel>().Show(); 
-        
+        SaveManager.Instance.DeleteData();   
         
     }
 

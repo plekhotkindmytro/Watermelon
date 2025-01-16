@@ -21,10 +21,10 @@ public class FloatingTextManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void SpawnFloatingText(Vector3 startPosition, string textContent, bool isStatic, float time)
+    public void SpawnFloatingText(Vector3 startScreenPosition, string textContent, bool isStatic, float time)
     {
         // Instantiate the floating text prefab
-        GameObject floatingText = Instantiate(floatingTextPrefab, startPosition, Quaternion.identity);
+        GameObject floatingText = Instantiate(floatingTextPrefab, startScreenPosition, Quaternion.identity);
         floatingText.transform.SetParent(targetCanvas.transform, true);
         //floatingText.GetComponent<RectTransform>().position = startPosition;
         //floatingText.GetComponent<RectTransform>().SetParentstartPosition;

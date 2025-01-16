@@ -94,11 +94,19 @@ public class AudioManager : MonoBehaviour
     }
 
     // Method to play sound effects
-    private void PlaySoundEffect(AudioClip clip)
+    private void PlaySoundEffectRandomPitch(AudioClip clip)
     {
         if (isSoundEffectsEnabled)
         {
             soundEffectsSource.pitch = Random.Range(0.4f, 1.2f);
+            soundEffectsSource.PlayOneShot(clip);
+        }
+    }
+
+    private void PlaySoundEffect(AudioClip clip)
+    {
+        if (isSoundEffectsEnabled)
+        {
             soundEffectsSource.PlayOneShot(clip);
         }
     }
@@ -128,11 +136,16 @@ public class AudioManager : MonoBehaviour
 
     public void Drop()
     {
-        PlaySoundEffect(drop);
+        PlaySoundEffectRandomPitch(drop);
     }
     public void PlayClipWithPitch(AudioClip clip, float pitch)
     {
         PlaySoundEffect(clip, pitch);
+    }
+
+    public void PlayClip(AudioClip clip)
+    {
+        PlaySoundEffect(clip);
     }
 
 }

@@ -53,6 +53,24 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public bool IsGamePaused() {
+
+        bool pause = false;
+
+        if (UiManager.Instance.settingsPanel.activeSelf)
+        {
+            pause = true;
+        } else if (UiManager.Instance.shopPanel.activeSelf)
+        {
+            pause = true;
+        } else if (GameManager.Instance.gameOver)
+        {
+            pause = true;
+        }
+
+        return pause;
+    }
+
    
     public void AddScore(int points)
     {
