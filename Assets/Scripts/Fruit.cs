@@ -280,6 +280,10 @@ public class Fruit : MonoBehaviour
 
     internal void SetRandomSprite()
     {
+        if(sprites == null || sprites.Length == 0) {
+            return;
+        }
+        
         if (spriteRenderer == null)
         {
             return;
