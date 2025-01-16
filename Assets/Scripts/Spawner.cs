@@ -151,7 +151,7 @@ public class Spawner : MonoBehaviour
         controlledFruit.transform.localScale = Vector3.zero;
 
         controlledFruit.transform.DOScale(controlledFruit.GetTargetScale(), 0.5f);
-        controlledFruit.ActivateBubble();
+        controlledFruit.ActivateSpawnBubble();
         controlledFruit.transform.parent = transform;
 
         if(!tutorialFruitCreated)

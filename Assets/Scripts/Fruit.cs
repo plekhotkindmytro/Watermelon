@@ -13,8 +13,7 @@ public class Fruit : MonoBehaviour
     public Sprite sleepSprite;
     public Sprite angrySprite;
     public Sprite[] emotionSprites;
-    public int fruitSpawnBubbleChildIndex = 1;
-
+    public bool emotions = false;
     private bool hasMerged = false;     // Flag to prevent chain reactions
     private Vector3 targetScale;
     private SpriteRenderer spriteRenderer;
@@ -33,7 +32,16 @@ public class Fruit : MonoBehaviour
 
     private Sprite[] sprites;
     private Camera mainCamera;
-    private GameObject bubble;
+
+    private int fruitMergeBubbleChildIndex = 0;
+    private int fruitSpawnBubbleChildIndex = 1;
+    private int faceChildIndex = 2;
+
+    private GameObject spawnBubble;
+    private GameObject mergeBubble;
+    private GameObject face;
+    private SpriteRenderer faceSpriteRenderer;
+
 
     public void Awake()
     {
@@ -43,12 +51,34 @@ public class Fruit : MonoBehaviour
         targetScale = Vector3.one * (baseScale + scaleFactor * fruitLevel);
         transform.localScale = targetScale;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
         baseSprite = spriteRenderer.sprite;
+
+
+        spawnBubble = transform.GetChild(fruitSpawnBubbleChildIndex).gameObject;
+        mergeBubble = transform.GetChild(fruitMergeBubbleChildIndex).gameObject;
+        face = transform.GetChild(faceChildIndex).gameObject;
+        faceSpriteRenderer = face.GetComponent<SpriteRenderer>();
+
+        ActivateFace();
+    }
+
+    private void ActivateFace()
+    {
+        if (emotions)
+        {
+            face.SetActive(true);
+            InvokeRepeating(nameof(ChangeEmotion), Random.Range(5, 10), Random.Range(5, 10));
+        }
+    }
+
+    private void ChangeEmotion()
+    {
+        faceSpriteRenderer.sprite = emotionSprites[Random.Range(0, emotionSprites.Length)];
     }
 
     public void Start()
     {
-        bubble = transform.GetChild(fruitSpawnBubbleChildIndex).gameObject;
         mainCamera = Camera.main;
         sprites = new Sprite[]{
             baseSprite, angrySprite, sleepSprite
@@ -75,14 +105,24 @@ public class Fruit : MonoBehaviour
         return targetScale;
     }
 
-    public void ActivateBubble()
+    public void ActivateSpawnBubble()
     {
-        bubble.SetActive(true);
+        spawnBubble.SetActive(true);
     }
 
-    private void DeactivateBubble()
+    private void DeactivateSpawnBubble()
     {
-        bubble.SetActive(false);
+        spawnBubble.SetActive(false);
+    }
+
+    private void ActivateMergeBubble()
+    {
+        mergeBubble.SetActive(true);
+    }
+
+    private void DeactivateMergeBubble()
+    {
+        mergeBubble.SetActive(false);
     }
 
     public void ActivateMe()
@@ -104,7 +144,7 @@ public class Fruit : MonoBehaviour
         }
         
         ParticleSpawner.Instance.SpawnFruitParticles(GetComponent<Fruit>());
-        DeactivateBubble();
+        DeactivateSpawnBubble();
         //this.transform.DOScale(0.1f, 0.1f).OnComplete(() => { this.transform.DOScale(targetScale, 0.1f); });
         CameraManager.Instance.Follow(this.transform);
 
@@ -280,7 +320,7 @@ public class Fruit : MonoBehaviour
         Vector3 targetScale = fruit.GetTargetScale();
 
         fruitGameObject.transform.localScale = Vector3.zero;
-        fruitGameObject.transform.GetChild(0).gameObject.SetActive(true);
+        fruit.ActivateMergeBubble();
         fruitGameObject.transform.DOScale(targetScale, 0.4f).OnComplete(() => {
             fruit.ActivateMe();
             
@@ -350,7 +390,8 @@ public class Fruit : MonoBehaviour
         Vector3 targetScale = fruit.GetTargetScale();
 
         fruitGameObject.transform.localScale = Vector3.zero;
-        fruitGameObject.transform.GetChild(0).gameObject.SetActive(true);
+        fruit.ActivateMergeBubble();
+
         fruitGameObject.transform.DOScale(targetScale, 0.4f).OnComplete(() => {
             fruit.ActivateMe();
 

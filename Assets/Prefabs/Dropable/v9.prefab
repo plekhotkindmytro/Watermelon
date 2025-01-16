@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotions
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: baseScale
       value: 0.6
       objectReference: {fileID: 0}
@@ -76,6 +80,46 @@ PrefabInstance:
       propertyPath: nextFruitPrefab
       value: 
       objectReference: {fileID: 7956472605111286799, guid: cdb795cdb1eca419c8c62ce51942e130, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dc190d9ad9df496fa73c417211c9087, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: faeb539957f684312aabc0b654ef946b, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 373f2e97b4361410a8751fac883dc469, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 390b0d1e819714fd0b2c37ac762cf966, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: eab73806879984b6eab1cd3a3dcb7e71, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8629effccb97741d1a0c281499ce6c38, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: f4e6cc2da8b274dca8f1b7108e217503, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: f4e6cc2da8b274dca8f1b7108e217503, type: 3}
+    - target: {fileID: -410439799020468044, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
+      propertyPath: emotionSprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: 59540ef904c3948e9af12d27768034ea, type: 3}
     - target: {fileID: 1935148698146039480, guid: 544c7cbe1469149b5a74b474741b7aba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
