@@ -119,6 +119,11 @@ public class Spawner : MonoBehaviour
             return;
         }
 
+        if (GameManager.Instance.IsTutorial2())
+        {
+            GameManager.Instance.FinishTutorial2();
+        }
+
         float absOffset = controlledFruit.gameObject.transform.localScale.x / 2;
         float x = GameManager.Instance.ClampSpawnX(touchWorldPosition.x, absOffset);
 

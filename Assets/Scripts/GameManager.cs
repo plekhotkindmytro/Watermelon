@@ -16,11 +16,9 @@ public class GameManager : MonoBehaviour
     public float delayBeforeGameOverPanel = 1.5f;
     public string leaderboardId = "main";
 
-    public GameObject tutorialPanel;
-
-
     private static readonly string BEST_SCORE_KEY = "bestScore";
     private static readonly string TUTORIAL_KEY = "tutorial";
+    private static readonly string TUTORIAL2_KEY = "tutorial2";
 
 
     private float minSpawnX;
@@ -142,14 +140,26 @@ public class GameManager : MonoBehaviour
         return PlayerPrefs.GetInt(TUTORIAL_KEY, 0) == 0;
     }
 
+    public bool IsTutorial2()
+    {
+        return !IsTutorial() && PlayerPrefs.GetInt(TUTORIAL2_KEY, 0) == 0;
+    }
+
 
 
     public void FinishTutorial()
     {
-        tutorialPanel.SetActive(false);
+        UiManager.Instance.firstTutorialPanel.gameObject.SetActive(false);
         PlayerPrefs.SetInt(TUTORIAL_KEY, 1);
+        UiManager.Instance.secondTutorialPanel.gameObject.SetActive(true);
 
         // Hide Tutorial panel
+    }
+
+    public void FinishTutorial2()
+    {
+        UiManager.Instance.secondTutorialPanel.gameObject.SetActive(false);
+        PlayerPrefs.SetInt(TUTORIAL2_KEY, 1);
     }
 
     //public void ResetGame()

@@ -48,6 +48,7 @@ public class UiManager : MonoBehaviour
 
     [Header("Tutorial Panel")]
     public Tutorial firstTutorialPanel;
+    public Tutorial2 secondTutorialPanel;
 
 
     [Header("Boosts")]
@@ -148,6 +149,7 @@ public class UiManager : MonoBehaviour
         shopPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         firstTutorialPanel.HideOrShow();
+        secondTutorialPanel.HideOrShow();
     }
 
     private void ApplyState(Button button, bool isActive)
