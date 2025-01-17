@@ -65,8 +65,13 @@ public class BoostManager : MonoBehaviour
         
         fishCount--;
         PlayerPrefs.SetInt(FISH_COUNT_KEY, fishCount);
-        UiManager.Instance.fishCountText.text = fishCount.ToString();
+        //UiManager.Instance.fishCountText.text = fishCount.ToString();
+        UpdateText(UiManager.Instance.fishCountText, fishCount);
     }
+
+    private void UpdateText(TMP_Text text, int count) {
+        text.text = count == 0? "+": count.ToString();
+    } 
 
     public void SpawnMouse()
     {
@@ -86,7 +91,8 @@ public class BoostManager : MonoBehaviour
 
         mouseCount--;
         PlayerPrefs.SetInt(MOUSE_COUNT_KEY, mouseCount);
-        UiManager.Instance.mouseCountText.text = mouseCount.ToString();
+        UpdateText(UiManager.Instance.mouseCountText, mouseCount);
+        //UiManager.Instance.mouseCountText.text = mouseCount.ToString();
     }
     public void SpawnBee()
     {
@@ -105,7 +111,8 @@ public class BoostManager : MonoBehaviour
 
         beeCount--;
         PlayerPrefs.SetInt(BEE_COUNT_KEY, beeCount);
-        UiManager.Instance.beeCountText.text = beeCount.ToString();
+        UpdateText(UiManager.Instance.beeCountText, beeCount);
+        //UiManager.Instance.beeCountText.text = beeCount.ToString();
     }
     
 
