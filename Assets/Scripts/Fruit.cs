@@ -94,7 +94,7 @@ public class Fruit : MonoBehaviour
 
     private void CanReachNextLevel()
     {
-        if(fruitLevel == 11) 
+        if(fruitLevel == 11 && reachGameLevel > PlayerPrefs.GetInt(CardAvailable.LEVEL_REACHED_KEY)) 
         {
             PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, reachGameLevel);
             UiManager.Instance.OpenNewLevelPanel(reachGameLevel);
