@@ -39,25 +39,16 @@ public class Spawner : MonoBehaviour
             return;
         }
 
-        if (UiManager.Instance.settingsPanel.activeSelf)
-        {
-            return;
-        }
-
-        if (UiManager.Instance.shopPanel.activeSelf)
-        {
-            return;
-        }
-
         if (controlledFruit == null)
         {
             return;
         }
 
-        if (GameManager.Instance.gameOver)
+        if (GameManager.Instance.IsGamePaused())
         {
             return;
         }
+
 
         timeElapsed += Time.deltaTime;
 
@@ -66,6 +57,13 @@ public class Spawner : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+
+            if(touch.phase == TouchPhase.Began && IsObjectTap(touch.position))
+            {
+
+                return; // DON'T SPAWN an object when something tappable tapped.
+            }
+
 
             if (touch.position.y > Screen.height * clickableScreenPercentage || touch.position.y < Screen.height * bottomClickableScreenPercentage)
             {
@@ -85,7 +83,22 @@ public class Spawner : MonoBehaviour
             }
         }
 
+    }
 
+    private bool IsObjectTap(Vector2 screenPosition)
+    {
+        // Convert the screen position to world position
+        Vector2 worldPosition = cameraMain.ScreenToWorldPoint(screenPosition);
+
+        // Check if this object's Collider2D was tapped
+        Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
+
+        if (hitCollider != null && hitCollider.gameObject == gameObject)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private bool CanDrop()

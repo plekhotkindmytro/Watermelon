@@ -61,7 +61,15 @@ public class GameManager : MonoBehaviour
         } else if (UiManager.Instance.shopPanel.activeSelf)
         {
             pause = true;
-        } else if (GameManager.Instance.gameOver)
+        } else if (UiManager.Instance.afterTutorialPanel.activeSelf)
+        {
+            pause = true;
+        }
+        else if (UiManager.Instance.newLevelPanel.activeSelf)
+        {
+            pause = true;
+        }
+        else if (GameManager.Instance.gameOver)
         {
             pause = true;
         }
@@ -160,6 +168,7 @@ public class GameManager : MonoBehaviour
     {
         UiManager.Instance.secondTutorialPanel.gameObject.SetActive(false);
         PlayerPrefs.SetInt(TUTORIAL2_KEY, 1);
+       // UiManager.Instance.OpenHowToPlayPanel();
     }
 
     //public void ResetGame()

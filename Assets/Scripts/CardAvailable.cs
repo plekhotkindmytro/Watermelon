@@ -17,7 +17,7 @@ public class CardAvailable : MonoBehaviour
 
 
         // enable/disable components 
-        transform.GetChild(1).gameObject.SetActive(isActiveCard);
+        transform.GetChild(2).gameObject.SetActive(isActiveCard);
         GetComponent<CardAnimation>().enabled = isActiveCard;
         GetComponent<Button>().enabled = isActiveCard;
     }

@@ -96,7 +96,9 @@ public class Fruit : MonoBehaviour
     {
         if(fruitLevel == 11) 
         {
-            PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, reachGameLevel); 
+            PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, reachGameLevel);
+            UiManager.Instance.OpenNewLevelPanel(reachGameLevel);
+            AudioManager.Instance.Success();
         }
     }
 

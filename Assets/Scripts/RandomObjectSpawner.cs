@@ -7,6 +7,7 @@ public class RandomObjectSpawner : MonoBehaviour
     public GameObject fishPrefab;
     public GameObject beePrefab;
 
+
     private Camera mainCamera;
     private Vector2 screenBounds;
 
@@ -17,6 +18,8 @@ public class RandomObjectSpawner : MonoBehaviour
         InvokeRepeating(nameof(SpawnMouse), Random.Range(1,4), Random.Range(6, 10));
         InvokeRepeating(nameof(SpawnBee), Random.Range(3, 5), Random.Range(4, 9));
         InvokeRepeating(nameof(SpawnFish), Random.Range(5, 8), Random.Range(6, 12));
+
+       
     }
     
 
@@ -48,4 +51,6 @@ public class RandomObjectSpawner : MonoBehaviour
         GameObject bee = Instantiate(beePrefab, pos, Quaternion.identity, transform);
         bee.SetActive(true);
     }
+
+   
 }

@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource awesomeSpeechSource;
     public AudioClip splat;
     public AudioClip drop;
+    public AudioClip success;
+    public AudioClip catchCat; // TODO
 
     private bool isMusicEnabled = true;
     private bool isSoundEffectsEnabled = true;
@@ -48,6 +50,11 @@ public class AudioManager : MonoBehaviour
         isMusicEnabled = true;
         UpdateMusicState();
         PlayerPrefs.SetInt(MUSIC_ENABLED_KEY, ENABLED);
+    }
+
+    internal void CatTap()
+    {
+        PlaySoundEffect(catchCat);
     }
 
     // Disable Music
@@ -118,6 +125,11 @@ public class AudioManager : MonoBehaviour
             soundEffectsSource.pitch = Random.Range(minPitch, maxPitch);
             soundEffectsSource.PlayOneShot(clip);
         }
+    }
+
+    internal void Success()
+    {
+        PlaySoundEffect(success);
     }
 
     private void PlaySoundEffect(AudioClip clip, float pitch)

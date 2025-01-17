@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class UiManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class UiManager : MonoBehaviour
     [Header("Game")]
     public Button settingsButton;
     public Button homeButton;
+    public Button howToPlayButton;
     public GameObject bottomArrow;
 
     // Panels
@@ -24,6 +26,7 @@ public class UiManager : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject shopPanel;
     public GameObject gameOverPanel;
+    public GameObject newLevelPanel;
 
     private Transform settingsPanelContent;
     private Transform shopPanelContent;
@@ -49,7 +52,12 @@ public class UiManager : MonoBehaviour
     [Header("Tutorial Panel")]
     public Tutorial firstTutorialPanel;
     public Tutorial2 secondTutorialPanel;
+    public GameObject afterTutorialPanel;
+    public Button closeAfterTutorialPanelButton;
 
+    [Header("New Level Panel")]
+    public Button okNewLevelButton;
+    public GameObject boxesParent;
 
     [Header("Boosts")]
     public Button fishButton;
@@ -116,6 +124,10 @@ public class UiManager : MonoBehaviour
         leaderboard1Button.onClick.AddListener(Leaderboard);
         homeButton.onClick.AddListener(Home);
 
+        closeAfterTutorialPanelButton.onClick.AddListener(CloseHowToPlayPanel);
+        howToPlayButton.onClick.AddListener(OpenHowToPlayPanel);
+        okNewLevelButton.onClick.AddListener(CloseNewLevelPanel);
+
         // game over panel
         saveToPhotosButton.onClick.AddListener(ScreenshotManager.Instance.SaveToPhotos);
         restartButton.onClick.AddListener(Replay);
@@ -139,6 +151,34 @@ public class UiManager : MonoBehaviour
 
     }
 
+    public void OpenHowToPlayPanel()
+    {
+        afterTutorialPanel.SetActive(true);
+    }
+
+    private void CloseNewLevelPanel()
+    {
+        newLevelPanel.SetActive(false);
+    }
+
+    public void OpenNewLevelPanel(int level)
+    {
+        newLevelPanel.SetActive(true);
+
+        for (int i = 0; i < boxesParent.transform.childCount; i++)
+        {
+            boxesParent.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        boxesParent.transform.GetChild(level).gameObject.SetActive(true);
+
+    }
+
+    private void CloseHowToPlayPanel()
+    {
+        afterTutorialPanel.SetActive(false);
+    }
+
     private void HidePanels()
     {
         settingsPanelContent = settingsPanel.transform.GetChild(0);
@@ -150,6 +190,7 @@ public class UiManager : MonoBehaviour
         gameOverPanel.SetActive(false);
         firstTutorialPanel.HideOrShow();
         secondTutorialPanel.HideOrShow();
+        afterTutorialPanel.SetActive(false);
     }
 
     private void ApplyState(Button button, bool isActive)

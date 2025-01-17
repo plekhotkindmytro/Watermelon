@@ -52,6 +52,7 @@ public class Cat : MonoBehaviour
     {
         FloatingTextManager.Instance.SpawnFloatingText(screenPosition, "+" + points.ToString(), false, 0);
         GameManager.Instance.AddScore(points);
+        AudioManager.Instance.CatTap();
         Destroy(gameObject);
     }
 }
