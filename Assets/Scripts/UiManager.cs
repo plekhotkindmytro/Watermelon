@@ -27,6 +27,7 @@ public class UiManager : MonoBehaviour
     public GameObject shopPanel;
     public GameObject gameOverPanel;
     public GameObject newLevelPanel;
+    public SceneTransitionPanel sceneTransitionPanel; 
 
     private Transform settingsPanelContent;
     private Transform shopPanelContent;
@@ -207,7 +208,8 @@ public class UiManager : MonoBehaviour
     private void Home()
     {
         SaveManager.Instance.SaveData();
-        SceneManager.LoadScene("MenuScene");
+        sceneTransitionPanel.FadeIn(() => {SceneManager.LoadScene("MenuScene");});
+        //SceneManager.LoadScene("MenuScene");
     }
 
 
@@ -322,7 +324,8 @@ public class UiManager : MonoBehaviour
     private void Replay()
     {
         SaveManager.Instance.DeleteData();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneTransitionPanel.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GemScene()

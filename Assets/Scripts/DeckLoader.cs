@@ -18,6 +18,7 @@ public class DeckLoader : MonoBehaviour
     public Button kenneyLetters;
     public Button foodStickers;
 
+    public SceneTransitionPanel sceneTransitionPanel;
 
     private void Start()
     {
@@ -49,7 +50,7 @@ public class DeckLoader : MonoBehaviour
     private void LoadDeck(int themeIndex)
     {
         PlayerPrefs.SetInt(THEME_KEY, themeIndex);
-        SceneManager.LoadScene("SampleScene");
+        sceneTransitionPanel.FadeIn(() => SceneManager.LoadScene("SampleScene"));
     }
    
 }
