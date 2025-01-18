@@ -1,6 +1,7 @@
 
 using UnityEngine;
-
+using UnityEngine.Audio;
+using DG.Tweening;
 
 public class AudioManager : MonoBehaviour
 {
