@@ -120,8 +120,12 @@ public class PlayerController : MonoBehaviour
         if (isMoveFirstTime && Input.touchCount > 0)
         {
             isMoveFirstTime = false;
+            if (!bgMusic.isPlaying)
+            {
+                bgMusic.Play();
+            }
 
-            if (nextToHide != null)
+                if (nextToHide != null)
             {
                 for (int i = 0; i < nextToHide.Length; i++)
                 {
