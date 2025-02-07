@@ -17,6 +17,7 @@ public class DeckLoader : MonoBehaviour
     public Button ballsButton;
     public Button kenneyLetters;
     public Button foodStickers;
+    public Button instrumentsButton;
 
     public SceneTransitionPanel sceneTransitionPanel;
     public SceneScaleTransitionPanel sceneScaleTransitionPanel;
@@ -45,6 +46,8 @@ public class DeckLoader : MonoBehaviour
                     LoadDeck(6));
         foodStickers.onClick.AddListener(() =>
                     LoadDeck(7));
+        instrumentsButton.onClick.AddListener(() =>
+                    LoadDeck(8));
 
     }
 

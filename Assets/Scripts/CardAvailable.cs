@@ -10,6 +10,9 @@ public class CardAvailable : MonoBehaviour
     void Start()
     {
 
+        // testing
+        //PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, 8);
+
         int siblingIndex = transform.GetSiblingIndex() - 1; // because first is random
         int levelReached = PlayerPrefs.GetInt(LEVEL_REACHED_KEY);
         

@@ -218,8 +218,8 @@ MonoBehaviour:
   pointValue: 1
   fruitLevel: 1
   reachGameLevel: 0
-  scaleFactor: 0.1
-  baseScale: 0.3
+  scaleFactor: 0.06
+  baseScale: 0.25
   color: {r: 0.21960784, g: 0.72156864, b: 0.20392157, a: 1}
   nextFruitPrefab: {fileID: 5344685361548465846, guid: 8f9b19f4826344ecdab1884bed93ee28, type: 3}
   sleepSprite: {fileID: 0}
