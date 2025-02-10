@@ -25,7 +25,7 @@ public class DeckLoader : MonoBehaviour
     private void Start()
     {
 
-        //PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, 8);
+      //  PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, 8);
 
         int levelReached = PlayerPrefs.GetInt(CardAvailable.LEVEL_REACHED_KEY);
         randomButton.onClick.AddListener(() =>

@@ -63,4 +63,31 @@ public class GameCenterManager : MonoBehaviour
         }
     }
 
+    public void ReportAchievementDelayed(string achievementID)
+    {
+        Invoke(nameof(ReportAchievement), 2f);
+    }
+
+    private void ReportAchievement(string achievementID)
+    {
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportProgress(achievementID, 100.0, success =>
+            {
+                if (success)
+                    Debug.Log($"Achievement {achievementID} reported successfully!");
+                else
+                    Debug.Log($"Failed to report achievement {achievementID}.");
+            });
+        }
+    }
+
+    public void ShowAchievements()
+    {
+        if (Social.localUser.authenticated)
+        {
+            Social.ShowAchievementsUI();
+        }
+    }
+
 }

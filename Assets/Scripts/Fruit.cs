@@ -5,6 +5,7 @@ public class Fruit : MonoBehaviour
 {
     public int pointValue;
     public int fruitLevel;
+    public string achievementId = "";
     public int reachGameLevel = 0;
     public float scaleFactor = 0.15f;
     public float baseScale = 0.3f;
@@ -99,6 +100,8 @@ public class Fruit : MonoBehaviour
             PlayerPrefs.SetInt(CardAvailable.LEVEL_REACHED_KEY, reachGameLevel);
             UiManager.Instance.OpenNewLevelPanel(reachGameLevel);
             AudioManager.Instance.Success();
+
+            GameCenterManager.Instance.ReportAchievementDelayed(achievementId);
         }
     }
 

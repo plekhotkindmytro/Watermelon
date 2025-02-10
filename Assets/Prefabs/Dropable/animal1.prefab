@@ -252,9 +252,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 1
   fruitLevel: 1
+  achievementId: 
   reachGameLevel: 0
   scaleFactor: 0.1
-  baseScale: 0.25
+  baseScale: 0.17
   color: {r: 0.21960784, g: 0.72156864, b: 0.20392157, a: 1}
   nextFruitPrefab: {fileID: 5344685361548465846, guid: f9b81c1852b584fcc8ddc4d0b239bfd7, type: 3}
   sleepSprite: {fileID: 0}

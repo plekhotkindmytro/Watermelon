@@ -10,7 +10,7 @@ public class IAPManager : MonoBehaviour,
 IDetailedStoreListener
 {
     public static IAPManager Instance;
-    public int defaultConsumableAmount = 10;
+    public int defaultConsumableAmount = 100;
 
     public PopupPanel noInternet;
     
