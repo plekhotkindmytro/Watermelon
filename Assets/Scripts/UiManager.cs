@@ -132,7 +132,7 @@ public class UiManager : MonoBehaviour
         okNewLevelButton.onClick.AddListener(CloseNewLevelPanel);
 
         achievementsButton.onClick.AddListener(OpenAchievements);
-        achievementsButton.gameObject.SetActive(PlayerPrefs.GetInt(CardAvailable.LEVEL_REACHED_KEY) > 0);
+        ActivateAchievementButton();
 
         // game over panel
         saveToPhotosButton.onClick.AddListener(ScreenshotManager.Instance.SaveToPhotos);
@@ -155,6 +155,11 @@ public class UiManager : MonoBehaviour
         HidePanels();
         
 
+    }
+
+    public void ActivateAchievementButton()
+    {
+        achievementsButton.gameObject.SetActive(PlayerPrefs.GetInt(CardAvailable.LEVEL_REACHED_KEY) > 0);
     }
 
     public void OpenHowToPlayPanel()

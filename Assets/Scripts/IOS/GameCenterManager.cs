@@ -65,7 +65,10 @@ public class GameCenterManager : MonoBehaviour
 
     public void ReportAchievementDelayed(string achievementID)
     {
-        Invoke(nameof(ReportAchievement), 2f);
+        // TODO: do it delayed?
+        
+        ReportAchievement(achievementID);
+
     }
 
     private void ReportAchievement(string achievementID)
@@ -75,9 +78,15 @@ public class GameCenterManager : MonoBehaviour
             Social.ReportProgress(achievementID, 100.0, success =>
             {
                 if (success)
+                {
                     Debug.Log($"Achievement {achievementID} reported successfully!");
+                    UiManager.Instance.ActivateAchievementButton();
+                }
                 else
+                {
                     Debug.Log($"Failed to report achievement {achievementID}.");
+                }
+                    
             });
         }
     }
